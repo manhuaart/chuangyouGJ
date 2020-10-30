@@ -21,18 +21,18 @@ export default {
             notify: payload.notify
         }
 
-        // If remember_me is enabled change firebase Persistence
+        // 如果启用了“记住我”，请更改firebase持久性
         if (!payload.checkbox_remember_me) {
 
-            // Change firebase Persistence
+            // 更改firebase持续性
             firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 
-                // If success try to login
+                // 如果成功，请尝试登录
                 .then(function() {
                     dispatch('login', newPayload)
                 })
 
-                // If error notify
+                // 如果出错通知
                 .catch(function(err) {
                     payload.notify({
                         time: 2500,
@@ -44,13 +44,13 @@ export default {
                     });
                 });
         } else {
-            // Try to login
+            // 尝试登录
             dispatch('login', newPayload)
         }
     },
     login({ commit, state, dispatch }, payload) {
 
-        // If user is already logged in notify and exit
+        // 如果用户已经登录，通知并退出
         if (state.isUserLoggedIn()) {
             payload.notify({
                 title: 'Login Attempt',
@@ -67,12 +67,12 @@ export default {
 
             .then((result) => {
 
-                // Set FLAG username update required for updating username
+                // 更新用户名需要设置标志用户名更新
                 let isUsernameUpdateRequired = false;
 
-                // if username is provided and updateUsername FLAG is true
-                  // set local username update FLAG to true
-                  // try to update username
+                // 如果提供用户名且updateUsername标志为true
+                  // 将本地用户名更新标志设置为true
+                  // 尝试更新用户名
                 if(payload.updateUsername && payload.userDetails.username) {
 
                     isUsernameUpdateRequired = true;
@@ -85,9 +85,9 @@ export default {
                     })
                 }
 
-                // if username update is not required
-                  // just reload the page to get fresh data
-                  // set new user data in localstorage
+                // 如果不需要用户名更新
+                  // 只需重新加载页面以获取新数据
+                  // 在localstorage中设置新用户数据
                 if(!isUsernameUpdateRequired) {
                   router.push(router.currentRoute.query.to || '/');
                   commit('UPDATE_AUTHENTICATED_USER', result.user.providerData[0])
@@ -104,7 +104,7 @@ export default {
             })
     },
 
-    // Google Login
+    // Google 登录
     loginWithGoogle({commit, state}, payload) {
         if (state.isUserLoggedIn()) {
             payload.notify({
@@ -249,7 +249,7 @@ export default {
     },
     registerUser({dispatch}, payload) {
 
-        // create user using firebase
+        // 使用firebase创建用户
         firebase.auth().createUserWithEmailAndPassword(payload.userDetails.email, payload.userDetails.password)
             .then(() => {
                 payload.notify({

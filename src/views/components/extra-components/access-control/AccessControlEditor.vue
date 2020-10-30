@@ -2,10 +2,10 @@
     <div id="access-conttrol-editor">
         <vx-card>
 
-            <p>Your current role is <strong>{{ $acl.get[0] }}</strong>.</p>
+            <p>您当前的角色是 <strong>{{ $acl.get[0] }}</strong>.</p>
             <div class="demo-alignment mb-base">
-                <vs-radio v-model="userRole" vs-value="editor">Editor</vs-radio>
-                <vs-radio v-model="userRole" vs-value="admin">Admin</vs-radio>
+                <vs-radio v-model="userRole" vs-value="editor">编辑</vs-radio>
+                <vs-radio v-model="userRole" vs-value="admin">管理员</vs-radio>
             </div>
 
 			<vx-card title="Buttons" no-shadow card-border code-toggler>

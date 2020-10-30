@@ -17,7 +17,7 @@
                     <span class="mr-2">English</span>
                 </vs-radio>
 
-                <vs-radio v-model="locale" vs-value="fr" class="mt-3">
+                <!-- <vs-radio v-model="locale" vs-value="fr" class="mt-3">
                     <span class="mr-2">French</span>
                 </vs-radio>
 
@@ -27,7 +27,7 @@
 
                 <vs-radio v-model="locale" vs-value="pt" class="mt-3">
                     <span class="mr-2">Portuguese</span>
-                </vs-radio>
+                </vs-radio> -->
             </div>
 
             <vx-card :title="$t('demoTitle')" class="mt-base" no-shadow card-border>

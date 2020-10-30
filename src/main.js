@@ -17,6 +17,14 @@ import 'material-icons/iconfont/material-icons.css' //Material Icons
 import 'vuesax/dist/vuesax.css'; // Vuesax
 Vue.use(Vuesax)
 
+//ElementUI
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
+
+//XLSX
+import XLSX from 'xlsx'
+Vue.use(XLSX)
 
 // axios
 import axios from 'axios'

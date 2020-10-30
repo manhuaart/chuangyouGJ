@@ -80,13 +80,17 @@
         <vs-th sort-key="category">Category</vs-th>
         <vs-th sort-key="popularity">Popularity</vs-th>
         <vs-th sort-key="order_status">Order Status</vs-th>
+        <vs-th sort-key="popularity">样本名称</vs-th>
+        <vs-th sort-key="order_status">爬取时间</vs-th>
         <vs-th sort-key="price">Price</vs-th>
       </template>
 
         <template slot-scope="{data}">
           <tbody>
             <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
-
+              <vs-td>
+                <p class="product-name font-medium">{{ indextr+1 }}</p>
+              </vs-td>
               <vs-td>
                 <p class="product-name font-medium">{{ tr.name }}</p>
               </vs-td>

@@ -10,7 +10,7 @@
 
 <template>
     <vs-dropdown vs-trigger-click class="cursor-pointer">
-        <small class="flex cursor-pointer">Last 7 days <feather-icon icon='ChevronDownIcon' svgClasses='h-4 w-4' class='ml-1'></feather-icon></small>
+        <small class="flex cursor-pointer">Last 7漫画漫画 days <feather-icon icon='ChevronDownIcon' svgClasses='h-4 w-4' class='ml-1'></feather-icon></small>
         <vs-dropdown-menu class="w-32">
             <vs-dropdown-item @click="$emit('timeDurationChanged', 'last-28-days')">Last 28 days</vs-dropdown-item>
             <vs-dropdown-item @click="$emit('timeDurationChanged', 'last-month')">Last Month</vs-dropdown-item>

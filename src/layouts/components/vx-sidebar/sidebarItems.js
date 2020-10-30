@@ -17,7 +17,7 @@
   Author: Pixinvent
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
-
+ 
 
 export default [
   {
@@ -74,7 +74,7 @@ export default [
     name: "Calendar",
     slug: "calendar",
     icon: "CalendarIcon",
-    tag: "new",
+    // tag: "new",
     tagColor: "success",
     i18n: "Calendar",
     // submenu: [
@@ -92,33 +92,338 @@ export default [
     //   }
     // ]
   },
+  // {
+  //   url: null,
+  //   name: "eCommerce",
+  //   slug: "eCommerce",
+  //   icon: "ShoppingCartIcon",
+  //   i18n: "eCommerce",
+  //   submenu: [
+  //     {
+  //       url: '/apps/eCommerce/shop',
+  //       name: "Shop",
+  //       slug: "eCommerceShop",
+  //       i18n: "Shop",
+  //     },
+  //     {
+  //         url: '/apps/eCommerce/wish-list',
+  //         name: "Wish List",
+  //         slug: "eCommerceWishList",
+  //         i18n: "WishList",
+  //     },
+  //     {
+  //       url: '/apps/eCommerce/checkout',
+  //       name: "Checkout",
+  //       slug: "eCommerceCheckout",
+  //       i18n: "Checkout",
+  //     },
+  //   ]
+  // },
+  //------------内部业务------------
+  {
+    header: "内部业务",
+    i18n: "MMMM",
+  },
+  //数据处理
   {
     url: null,
-    name: "eCommerce",
-    slug: "eCommerce",
-    icon: "ShoppingCartIcon",
-    i18n: "eCommerce",
+    name: "Data List",
+    slug: "dataList",
+    // tag: "new",
+    tagColor: "primary",
+    icon: "ListIcon",
+    i18n: "MMMMMMMM",
     submenu: [
       {
-        url: '/apps/eCommerce/shop',
-        name: "Shop",
-        slug: "eCommerceShop",
-        i18n: "Shop",
+        url: '/ui-elements/data-list/thumb-view',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMM",
       },
       {
-          url: '/apps/eCommerce/wish-list',
-          name: "Wish List",
-          slug: "eCommerceWishList",
-          i18n: "WishList",
+        url: '/ui-elements/data-list/thumb-view',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMM",
       },
       {
-        url: '/apps/eCommerce/checkout',
-        name: "Checkout",
-        slug: "eCommerceCheckout",
-        i18n: "Checkout",
+        url: '/ui-elements/ag-grid-table',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMMNNNNN",
       },
     ]
   },
+  //数据复核
+  {
+    url: null,
+    name: "Data List",
+    slug: "dataList",
+    // tag: "new",
+    tagColor: "primary",
+    icon: "LayoutIcon",
+    i18n: "ManualVerification",
+    submenu: [
+      {
+        url: '/InternalBusiness/Shumu', 
+        name: "Data Processing",
+        slug: "DataProcessing",
+        i18n: "ListViewMMMM",
+      },
+      {
+        url: '/InternalBusiness/Guangdian',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMM",
+      },
+      {
+        url: '/InternalBusiness/Tuwen',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMMNNNNN",
+      },
+    ]
+  },
+  //平台投诉
+  {
+    url: null,
+    name: "Data List",
+    slug: "dataList",
+    // tag: "new",
+    tagColor: "primary",
+    icon: "CreditCardIcon",
+    i18n: "PlatformComplaints",
+    submenu: [
+      {
+        url: '/ui-elements/data-list/list-view',
+        name: "List View",
+        slug: "dataListListView",
+        i18n: "ListViewMMMM",
+      },
+      {
+        url: '/ui-elements/data-list/thumb-view',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMM",
+      },
+      {
+        url: '/ui-elements/ag-grid-table',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMMNNNNN",
+      },
+    ]
+  },
+  //爬取任务管理
+  {
+    url: null,
+    name: "Data List",
+    slug: "dataList",
+    // tag: "new",
+    tagColor: "primary",
+    icon: "ListIcon",
+    i18n: "CrawlingTaskManagement",
+    submenu: [
+      {
+        url: '/ui-elements/data-list/list-view',
+        name: "List View",
+        slug: "dataListListView",
+        i18n: "ListViewMMMM",
+      },
+      {
+        url: '/ui-elements/data-list/thumb-view',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMM",
+      },
+      {
+        url: '/ui-elements/ag-grid-table',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMMNNNNN",
+      },
+    ]
+  },
+  // ------------------------------  
+  //------------对外业务------------
+  {
+    header: "对外业务",
+    i18n: "ExternalBusiness",
+  },
+  //
+  {
+    url: null,
+    name: "Data List",
+    slug: "dataList",
+    // tag: "new",
+    tagColor: "primary",
+    icon: "CopyIcon",
+    i18n: "ByteBounce",
+    submenu: [
+      {
+        url: '/ui-elements/data-list/list-view',
+        name: "List View",
+        slug: "dataListListView",
+        i18n: "ListViewMMMM",
+      },
+      {
+        url: '/ui-elements/data-list/thumb-view',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMM",
+      },
+      {
+        url: '/ui-elements/ag-grid-table',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMMNNNNN",
+      },
+    ]
+  },
+  // ------------------------------  
+  //------------信息管理------------
+  {
+    header: "信息管理",
+    i18n: "InformationMagment",
+  },
+  //个人信息
+  {
+    url: "/apps/chat",
+    name: "Data List",
+    slug: "dataList",
+    icon: "UserIcon",
+    i18n: "PersonalInfo",
+  },
+  //个人报告
+  {
+    url: "/apps/chat",
+    name: "Data List",
+    slug: "dataList",
+    icon: "HelpCircleIcon",
+    i18n: "PersonalReport",
+  },
+  //组织结构
+  {
+    url: "/apps/chat",
+    name: "Data List",
+    slug: "dataList",
+    icon: "InfoIcon",
+    i18n: "OrganizationStructure",
+  },
+  //角色&等级管理
+  {
+    url: "/apps/chat",
+    name: "Data List",
+    slug: "dataList",
+    icon: "ListIcon",
+    i18n: "Role",
+  },
+  //树状结构图
+  {
+    url: null,
+    name: "Data List",
+    slug: "dataList",
+    // tag: "new",
+    tagColor: "primary",
+    icon: "ListIcon",
+    i18n: "TreeStructure",
+    submenu: [
+      {
+        url: '/ui-elements/data-list/thumb-view',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMM",
+      },
+      {
+        url: '/ui-elements/ag-grid-table',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMMNNNNN",
+      },
+    ]
+  },
+  // ------------------------------ 
+  //------------实时数据流动------------
+  {
+    header: "实时数据流动",
+    i18n: "RealTimeData",
+  },
+  //Charts实时数据
+  {
+    url: null,
+    name: "Data List",
+    slug: "dataList",
+    // tag: "new",
+    tagColor: "primary",
+    icon: "ListIcon",
+    i18n: "ChartsData",
+    submenu: [
+      {
+        url: '/ui-elements/data-list/list-view',
+        name: "List View",
+        slug: "dataListListView",
+        i18n: "ListViewMMMM",
+      },
+      {
+        url: '/ui-elements/ag-grid-table',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "LMMMMMMMNNNNN",
+      },
+    ]
+  },
+  {
+    url: "/apps/chat",
+    name: "Data List",
+    slug: "dataList",
+    icon: "ListIcon",
+    i18n: "DataChart",
+  },
+  // ------------------------------ 
+  //------------系统预警------------
+  {
+    header: "系统预警",
+    i18n: "SystemWarning",
+  },
+  //数据预警
+  {
+    url: "/apps/chat",
+    name: "Data List",
+    slug: "dataList",
+    icon: "ListIcon",
+    i18n: "DataWarning",
+  },
+  //系统业务预警 
+  {
+    url: "/apps/chat",
+    name: "Data List",
+    slug: "dataList",
+    icon: "ListIcon",
+    i18n: "BusinessWarning",
+  },
+  // ------------------------------ 
+  //------------系统设置------------
+  {
+    header: "系统设置",
+    i18n: "SystemSettings",
+  },
+  //常用设置
+  {
+    url: "/apps/chat",
+    name: "Data List",
+    slug: "dataList",
+    icon: "BookOpenIcon",
+    i18n: "CommonSettings",
+  },
+  //使用手册
+  {
+    url: "/apps/chat",
+    name: "Data List",
+    slug: "dataList",
+    icon: "LifeBuoyIcon",
+    i18n: "UserManual",
+  },
+  // ------------------------------ 
   {
     header: "UI Elements",
     i18n: "UIElements",

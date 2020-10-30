@@ -152,6 +152,79 @@ const router = new Router({
                     }
                 },
         // =============================================================================
+        // 内部业务
+        // =============================================================================
+        {
+            path: '/InternalBusiness/Shumu',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/Shumu/shumu.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                pageTitle: '树木视频核实',
+                rule: 'editor'
+            },
+        },
+        {
+            path: '/InternalBusiness/Guangdian',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/Guangdian/guangdian.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                pageTitle: '广电数据核实',
+                rule: 'editor'
+            },
+        }, 
+        {
+            path: '/InternalBusiness/Tuwen',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/Tuwen/tuwen.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                pageTitle: '树木图文核实',
+                rule: 'editor'
+            },
+        },                
+        // {
+        //     path: '/ui-elements/data-list/thumb-view',
+        //     name: 'dataListThumbView',
+        //     component: () => import('@/views/ui-elements/data-list/thumb-view/DataListThumbView.vue'),
+        //     meta: {
+        //         breadcrumb: [
+        //             { title: 'Home', url: '/' },
+        //             { title: 'Data List'},
+        //             { title: 'Thumb View', active: true },
+        //         ],
+        //         pageTitle: 'Thumb View',
+        //         rule: 'editor'
+        //     },
+        // },
+        // {
+        //     path: '/ui-elements/grid/vuesax',
+        //     name: 'gridVuesax',
+        //     component: () => import('@/views/ui-elements/grid/vuesax/GridVuesax.vue'),
+        //     meta: {
+        //         breadcrumb: [
+        //             { title: 'Home', url: '/' },
+        //             { title: 'Grid'},
+        //             { title: 'Vuesax', active: true },
+        //         ],
+        //         pageTitle: 'Grid',
+        //         rule: 'editor'
+        //     },
+        // },
+        // =============================================================================        
         // UI ELEMENTS
         // =============================================================================
                 {

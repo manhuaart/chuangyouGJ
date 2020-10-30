@@ -110,7 +110,7 @@ export default {
           width: 175,
         },
         {
-          headerName: 'Email',
+          headerName: '电子邮件',
           field: 'email',
           filter: true,
           width: 250,
