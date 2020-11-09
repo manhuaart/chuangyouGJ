@@ -19,10 +19,10 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-import auth from "@/auth/authService";
 
-import firebase from 'firebase/app'
-import 'firebase/auth'
+
+// import firebase from 'firebase/app'
+// import 'firebase/auth'
 
 Vue.use(Router)
 
@@ -33,7 +33,7 @@ const router = new Router({
         return { x: 0, y: 0 }
     },
     routes: [
-
+ 
         {
     // =============================================================================
     // MAIN LAYOUT ROUTES
@@ -46,13 +46,14 @@ const router = new Router({
         // =============================================================================
                 {
                     path: '/',
-                    redirect: '/dashboard/analytics'
+                    redirect: '/pages/login'
                 },
                 {
                     path: '/dashboard/analytics',
                     name: 'dashboardAnalytics',
                     component: () => import('./views/DashboardAnalytics.vue'),
                     meta: {
+                        requireAuth: true, // 判断是否需要登录
                         rule: 'editor'
                     }
                 },
@@ -61,6 +62,7 @@ const router = new Router({
                     name: 'dashboardECommerce',
                     component: () => import('./views/DashboardECommerce.vue'),
                     meta: {
+                        requireAuth: true, // 判断是否需要登录
                         rule: 'admin'
                     }
                 },
@@ -74,6 +76,7 @@ const router = new Router({
                     name: 'todo',
                     component: () => import('./views/apps/todo/Todo.vue'),
                     meta: {
+                        requireAuth: true, // 判断是否需要登录
                         rule: 'editor'
                     }
                 },
@@ -82,6 +85,7 @@ const router = new Router({
                     name: 'chat',
                     component: () => import('./views/apps/chat/Chat.vue'),
                     meta: {
+                        requireAuth: true, // 判断是否需要登录
                         rule: 'editor'
                     }
                 },
@@ -90,6 +94,7 @@ const router = new Router({
                     name: 'email',
                     component: () => import('./views/apps/email/Email.vue'),
                     meta: {
+                        requireAuth: true, // 判断是否需要登录
                         rule: 'editor'
                     }
                 },
@@ -98,6 +103,7 @@ const router = new Router({
                     name: 'calendarFullCalendar',
                     component: () => import('./views/apps/calendar/FullCalendar.vue'),
                     meta: {
+                        requireAuth: true, // 判断是否需要登录
                         rule: 'editor'
                     }
                 },
@@ -106,6 +112,7 @@ const router = new Router({
                     name: 'calendarSimpleCalendar',
                     component: () => import('./views/apps/calendar/SimpleCalendar.vue'),
                     meta: {
+                        requireAuth: true, // 判断是否需要登录
                         rule: 'editor'
                     }
                 },
@@ -119,6 +126,7 @@ const router = new Router({
                             { title: 'eCommerce'},
                             { title: 'Shop', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Shop',
                         rule: 'editor'
                     }
@@ -133,6 +141,7 @@ const router = new Router({
                             { title: 'eCommerce', url:'/apps/eCommerce/shop'},
                             { title: 'Wish List', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Wish List',
                         rule: 'editor'
                     }
@@ -147,6 +156,7 @@ const router = new Router({
                             { title: 'eCommerce', url:'/apps/eCommerce/shop'},
                             { title: 'Checkout', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Checkout',
                         rule: 'editor'
                     }
@@ -164,6 +174,7 @@ const router = new Router({
                     { title: 'Data List'},
                     { title: 'Data Processing', active: true },
                 ],
+                requireAuth: true, // 判断是否需要登录
                 pageTitle: '树木视频核实',
                 rule: 'editor'
             },
@@ -178,6 +189,7 @@ const router = new Router({
                     { title: 'Data List'},
                     { title: 'Data Processing', active: true },
                 ],
+                requireAuth: true, // 判断是否需要登录
                 pageTitle: '广电数据核实',
                 rule: 'editor'
             },
@@ -192,10 +204,41 @@ const router = new Router({
                     { title: 'Data List'},
                     { title: 'Data Processing', active: true },
                 ],
+                requireAuth: true, // 判断是否需要登录
                 pageTitle: '树木图文核实',
                 rule: 'editor'
             },
-        },                
+        },  
+        {
+            path: '/InternalBusiness/DataView',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/DataManage/dataView.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data View', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '数据查看',
+                rule: 'editor'
+            },
+        },  
+        {
+            path: '/InternalBusiness/PlatformDistribute',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/DataManage/platformDistribute.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data View', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '平台分发',
+                rule: 'editor'
+            },
+        },                               
         // {
         //     path: '/ui-elements/data-list/thumb-view',
         //     name: 'dataListThumbView',
@@ -237,6 +280,7 @@ const router = new Router({
                             { title: 'Data List'},
                             { title: 'List View', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'List View',
                         rule: 'editor'
                     },
@@ -251,6 +295,7 @@ const router = new Router({
                             { title: 'Data List'},
                             { title: 'Thumb View', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Thumb View',
                         rule: 'editor'
                     },
@@ -265,6 +310,7 @@ const router = new Router({
                             { title: 'Grid'},
                             { title: 'Vuesax', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Grid',
                         rule: 'editor'
                     },
@@ -279,6 +325,7 @@ const router = new Router({
                             { title: 'Grid'},
                             { title: 'Tailwind', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Tailwind Grid',
                         rule: 'editor'
                     },
@@ -292,6 +339,7 @@ const router = new Router({
                             { title: 'Home', url: '/' },
                             { title: 'Colors', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Colors',
                         rule: 'editor'
                     },
@@ -306,6 +354,7 @@ const router = new Router({
                             { title: 'Card' },
                             { title: 'Basic Cards', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Basic Cards',
                         rule: 'editor'
                     },
@@ -320,6 +369,7 @@ const router = new Router({
                             { title: 'Card' },
                             { title: 'Statistics Cards', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Statistics Card',
                         rule: 'editor'
                     },
@@ -334,6 +384,7 @@ const router = new Router({
                             { title: 'Card' },
                             { title: 'Analytics Card', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Analytics Card',
                         rule: 'editor'
                     },
@@ -348,6 +399,7 @@ const router = new Router({
                             { title: 'Card' },
                             { title: 'Card Actions', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Card Actions',
                         rule: 'editor'
                     },
@@ -362,6 +414,7 @@ const router = new Router({
                             { title: 'Card' },
                             { title: 'Card Colors', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Card Colors',
                         rule: 'editor'
                     },
@@ -375,6 +428,7 @@ const router = new Router({
                             { title: 'Home', url: '/' },
                             { title: 'Table', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Table',
                         rule: 'editor'
                     },
@@ -388,6 +442,7 @@ const router = new Router({
                             { title: 'Home', url: '/' },
                             { title: 'agGrid Table', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'agGrid Table',
                         rule: 'editor'
                     },
@@ -406,6 +461,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Alert', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Alert',
                         rule: 'editor'
                     },
@@ -420,6 +476,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Avatar', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Avatar',
                         rule: 'editor'
                     },
@@ -434,6 +491,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Breadcrumb', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Breadcrumb',
                         rule: 'editor'
                     },
@@ -448,6 +506,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Button', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Button',
                         rule: 'editor'
                     },
@@ -462,6 +521,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Button Group', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Button Group',
                         rule: 'editor'
                     },
@@ -476,6 +536,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Chip', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Chip',
                         rule: 'editor'
                     },
@@ -490,6 +551,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Collapse', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Collapse',
                         rule: 'editor'
                     },
@@ -504,6 +566,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Dialogs', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Dialogs',
                         rule: 'editor'
                     },
@@ -518,6 +581,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Divider', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Divider',
                         rule: 'editor'
                     },
@@ -532,6 +596,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Dropdown', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Dropdown',
                         rule: 'editor'
                     },
@@ -546,6 +611,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'List', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'List',
                         rule: 'editor'
                     },
@@ -560,6 +626,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Loading', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Loading',
                         rule: 'editor'
                     },
@@ -574,6 +641,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Navbar', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Navbar',
                         rule: 'editor'
                     },
@@ -588,6 +656,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Notifications', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Notifications',
                         rule: 'editor'
                     },
@@ -602,6 +671,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Pagination', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Pagination',
                         rule: 'editor'
                     },
@@ -616,6 +686,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Popup', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Popup',
                         rule: 'editor'
                     },
@@ -630,6 +701,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Progress', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Progress',
                         rule: 'editor'
                     },
@@ -644,6 +716,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Sidebar', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Sidebar',
                         rule: 'editor'
                     },
@@ -658,6 +731,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Slider', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Slider',
                         rule: 'editor'
                     },
@@ -672,6 +746,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Tabs', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Tabs',
                         rule: 'editor'
                     },
@@ -686,6 +761,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Tooltip', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Tooltip',
                         rule: 'editor'
                     },
@@ -700,6 +776,7 @@ const router = new Router({
                             { title: 'Components' },
                             { title: 'Upload', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Upload',
                         rule: 'editor'
                     },
@@ -722,6 +799,7 @@ const router = new Router({
                             { title: 'Form Elements' },
                             { title: 'Select', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Select',
                         rule: 'editor'
                     },
@@ -736,6 +814,7 @@ const router = new Router({
                             { title: 'Form Elements' },
                             { title: 'Switch', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Switch',
                         rule: 'editor'
                     },
@@ -750,6 +829,7 @@ const router = new Router({
                             { title: 'Form Elements' },
                             { title: 'Checkbox', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Checkbox',
                         rule: 'editor'
                     },
@@ -764,6 +844,7 @@ const router = new Router({
                             { title: 'Form Elements' },
                             { title: 'Radio', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Radio',
                         rule: 'editor'
                     },
@@ -778,6 +859,7 @@ const router = new Router({
                             { title: 'Form Elements' },
                             { title: 'Input', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Input',
                         rule: 'editor'
                     },
@@ -792,6 +874,7 @@ const router = new Router({
                             { title: 'Form Elements' },
                             { title: 'Number Input', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Number Input',
                         rule: 'editor'
                     },
@@ -806,6 +889,7 @@ const router = new Router({
                             { title: 'Form Elements' },
                             { title: 'Textarea', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Textarea',
                         rule: 'editor'
                     },
@@ -821,6 +905,7 @@ const router = new Router({
                             { title: 'Forms' },
                             { title: 'Form Layouts', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Form Layouts',
                         rule: 'editor'
                     },
@@ -835,6 +920,7 @@ const router = new Router({
                             { title: 'Extra Components' },
                             { title: 'Form Wizard', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Form Wizard',
                         rule: 'editor'
                     },
@@ -849,6 +935,7 @@ const router = new Router({
                             { title: 'Extra Components' },
                             { title: 'Form Validation', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Form Validation',
                         rule: 'editor'
                     },
@@ -863,6 +950,7 @@ const router = new Router({
                           { title: 'Extra Components' },
                           { title: 'Form Input Group', active: true },
                       ],
+                      requireAuth: true, // 判断是否需要登录
                       pageTitle: 'Form Input Group',
                       rule: 'editor'
                   },
@@ -881,6 +969,7 @@ const router = new Router({
                             { title: 'Pages' },
                             { title: 'Profile', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Profile',
                         rule: 'editor'
                     },
@@ -895,6 +984,7 @@ const router = new Router({
                             { title: 'Pages' },
                             { title: 'FAQ', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'FAQ',
                         rule: 'editor'
                     },
@@ -909,6 +999,7 @@ const router = new Router({
                             { title: 'Pages' },
                             { title: 'KnowledgeBase', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'KnowledgeBase',
                         rule: 'editor'
                     },
@@ -924,6 +1015,7 @@ const router = new Router({
                             { title: 'KnowledgeBase', url: '/pages/knowledge-base' },
                             { title: 'Category', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         rule: 'editor'
                     },
                 },
@@ -939,6 +1031,7 @@ const router = new Router({
                             { title: 'Category', url: '/pages/knowledge-base/category' },
                             { title: 'Question', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         rule: 'editor'
                     },
                 },
@@ -952,6 +1045,7 @@ const router = new Router({
                             { title: 'Pages' },
                             { title: 'Search', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Search',
                         rule: 'editor'
                     },
@@ -966,6 +1060,7 @@ const router = new Router({
                             { title: 'Pages' },
                             { title: 'Invoice', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Invoice',
                         rule: 'editor'
                     },
@@ -984,6 +1079,7 @@ const router = new Router({
                             { title: 'Charts & Maps' },
                             { title: 'Apex Charts', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Apex Charts',
                         rule: 'editor'
                     },
@@ -998,6 +1094,7 @@ const router = new Router({
                             { title: 'Charts & Maps' },
                             { title: 'chartjs', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'chartjs',
                         rule: 'editor'
                     },
@@ -1012,6 +1109,7 @@ const router = new Router({
                             { title: 'Charts & Maps' },
                             { title: 'echarts', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'echarts',
                         rule: 'editor'
                     },
@@ -1026,6 +1124,7 @@ const router = new Router({
                             { title: 'Charts & Maps' },
                             { title: 'Google Map', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Google Map',
                         rule: 'editor'
                     },
@@ -1046,6 +1145,7 @@ const router = new Router({
                             { title: 'Extra Components' },
                             { title: 'Select', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Select',
                         rule: 'editor'
                     },
@@ -1060,6 +1160,7 @@ const router = new Router({
                             { title: 'Extra Components' },
                             { title: 'Quill Editor', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Quill Editor',
                         rule: 'editor'
                     },
@@ -1074,6 +1175,7 @@ const router = new Router({
                             { title: 'Extra Components' },
                             { title: 'Drag & Drop', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Drag & Drop',
                         rule: 'editor'
                     },
@@ -1088,6 +1190,7 @@ const router = new Router({
                             { title: 'Extra Components' },
                             { title: 'Datepicker', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Datepicker',
                         rule: 'editor'
                     },
@@ -1102,6 +1205,7 @@ const router = new Router({
                             { title: 'Extra Components' },
                             { title: 'Datetime Picker', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Datetime Picker',
                         rule: 'editor'
                     },
@@ -1117,6 +1221,7 @@ const router = new Router({
                             { title: 'Access Control' },
                             { title: 'Editor View', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Editor View',
                         rule: 'editor'
                     },
@@ -1132,6 +1237,7 @@ const router = new Router({
                             { title: 'Access Control' },
                             { title: 'Admin View', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Admin View',
                         rule: 'admin'
                     },
@@ -1146,6 +1252,7 @@ const router = new Router({
                             { title: 'Extensions' },
                             { title: 'I18n', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'I18n',
                         rule: 'editor'
                     },
@@ -1160,6 +1267,7 @@ const router = new Router({
                             { title: 'Extensions' },
                             { title: 'Carousel', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Carousel',
                         rule: 'editor'
                     },
@@ -1174,6 +1282,7 @@ const router = new Router({
                             { title: 'Extensions' },
                             { title: 'Clipboard', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Clipboard',
                         rule: 'editor'
                     },
@@ -1188,6 +1297,7 @@ const router = new Router({
                             { title: 'Extensions' },
                             { title: 'Context Menu', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Context Menu',
                         rule: 'editor'
                     },
@@ -1202,6 +1312,7 @@ const router = new Router({
                             { title: 'Extensions' },
                             { title: 'Star Ratings', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Star Ratings',
                         rule: 'editor'
                     },
@@ -1216,6 +1327,7 @@ const router = new Router({
                             { title: 'Extensions' },
                             { title: 'Autocomplete', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Autocomplete',
                         rule: 'editor'
                     },
@@ -1230,6 +1342,7 @@ const router = new Router({
                             { title: 'Extensions' },
                             { title: 'Tree', active: true },
                         ],
+                        requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Tree',
                         rule: 'editor'
                     },
@@ -1352,32 +1465,52 @@ router.afterEach(() => {
     }
 })
 
+// router.beforeEach((to, from, next) => {
+//     // firebase.auth().onAuthStateChanged(() => {
+
+//     //     // get firebase current user   获取firebase当前用户
+//     //     const firebaseCurrentUser = firebase.auth().currentUser;
+//         if (
+//             to.path === "/pages/login" ||
+//             to.path === "/pages/forgot-password" ||
+//             to.path === "/pages/error-404" ||
+//             to.path === "/pages/error-500" ||
+//             to.path === "/pages/register" ||
+//             to.path === "/callback" ||
+//             to.path === "/pages/comingsoon" 
+//             // || (auth.isAuthenticated() || firebaseCurrentUser)
+//         ) {
+//             return next();
+//         }
+//         router.push('/pages/login')
+//         // router.push({ path: '/pages/login', query: { to: to.path } })
+//         // Specify the current path as the customState parameter, meaning it
+//                // 将当前路径指定为customState参数，即
+//         // will be returned to the application after auth
+//                //将在验证后返回到应用程序
+//         // auth.login({ target: to.path });
+//                // 授权登录（{目标：收件人路径});
+//     // });
+
+// });
+
+// 路由判断登录 根据路由配置文件的参数
 router.beforeEach((to, from, next) => {
-    firebase.auth().onAuthStateChanged(() => {
-
-        // get firebase current user
-        const firebaseCurrentUser = firebase.auth().currentUser;
-
-        if (
-            to.path === "/pages/login" ||
-            to.path === "/pages/forgot-password" ||
-            to.path === "/pages/error-404" ||
-            to.path === "/pages/error-500" ||
-            to.path === "/pages/register" ||
-            to.path === "/callback" ||
-            to.path === "/pages/comingsoon" ||
-            (auth.isAuthenticated() || firebaseCurrentUser)
-        ) {
-            return next();
-        }
-
-        router.push({ path: '/pages/login', query: { to: to.path } })
-        // Specify the current path as the customState parameter, meaning it
-        // will be returned to the application after auth
-        // auth.login({ target: to.path });
-
-    });
-
-});
+    if (to.matched.some(record => record.meta.requireAuth)){ // 判断该路由是否需要登录权限
+     console.log('需要登录');
+     if (sessionStorage.token) { // 判断当前的token是否存在 ； 登录存入的token
+      next();
+     }
+     else {
+      next({
+       path: '/',
+       query: {redirect: to.fullPath} // 将跳转的路由path作为参数，登录成功后跳转到该路由
+      })
+     }
+    }
+    else {
+     next();
+    }
+   });
 
 export default router

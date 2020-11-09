@@ -16,7 +16,7 @@
                 <div class="header-sidebar flex items-end justify-between" slot="header">
                     <div class="logo flex items-center">
                         <img :src="logo" alt="logo" class="w-10 mr-4" v-if="logo">
-                        <span class="logo-text" v-show="isMouseEnter || !reduce" v-if="title">创优国际<!-- {{ title }} --></span>
+                        <span class="logo-text" v-show="isMouseEnter || !reduce">创优国际<!-- {{ title }} --></span>
                     </div>
                     <div>
                         <template v-if="showCloseButton">
@@ -68,9 +68,6 @@ export default {
         sidebarItems: {
             type: Array,
             required: true,
-        },
-        title: {
-            type: String,
         },
         logo: {
             type: String

@@ -467,7 +467,13 @@ export default {
         data.append('tort_author', rows[index].tort_author);
         data.append('is_check', 'del');
         console.log(data)
-        axios.post(this.url+'/data_Manipulation/data_operation/', data).then((response) => {
+        axios.post(this.url+'/data_Manipulation/data_operation/', data,
+               {   
+          headers: { 
+              "token": sessionStorage.getItem('token')
+           },
+       },
+        ).then((response) => {
             // then 指成功之后的回调 (注意：使用箭头函数，可以不考虑this指向)
             console.log(response)
             if (response.data.status === 'ok') {
@@ -508,7 +514,13 @@ export default {
         formData.append('plat', this.platform);
         formData.append('item', items);
         formData.append('is_check', 'add');
-        axios.post(this.url+'/data_Manipulation/data_operation/', formData).then((response) => {
+        axios.post(this.url+'/data_Manipulation/data_operation/', formData,
+               {   
+          headers: { 
+              "token": sessionStorage.getItem('token')
+           },
+       },
+        ).then((response) => {
              // then 指成功之后的回调 (注意：使用箭头函数，可以不考虑this指向)
              console.log(response.data)
              if (response.data.status === 'ok') {
@@ -595,7 +607,13 @@ export default {
       this.downTortType = true // 下载excel按钮为禁止
 
       // 开始请求数据
-      axios.get(this.url+'/data_Manipulation/search_data/', {
+      axios.get(this.url+'/data_Manipulation/search_data/', 
+             {   
+          headers: { 
+              "token": sessionStorage.getItem('token')
+           },
+       },
+      {
           dataType: 'text',
           params: {
               'type': type,

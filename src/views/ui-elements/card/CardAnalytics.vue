@@ -174,7 +174,7 @@
 
             <!-- RADIAL CHART -->
             <div class="vx-col w-full md:w-1/3 mb-base">
-                <vx-card title="Goal Overview">
+                <vx-card title="广电项目完成度">
                     <template slot="actions">
                         <feather-icon icon="HelpCircleIcon" svgClasses="w-6 h-6 text-grey"></feather-icon>
                     </template>

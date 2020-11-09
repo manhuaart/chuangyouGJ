@@ -28,6 +28,7 @@ Vue.use(XLSX)
 
 // axios
 import axios from 'axios'
+// axios.defaults.withCredentials=true   //自动存储cookie
 Vue.prototype.$http = axios
 
 // Theme Configurations
@@ -46,6 +47,13 @@ import '@/firebase/firebaseConfig'
 // Auth0 Plugin
 import AuthPlugin from "./plugins/auth";
 Vue.use(AuthPlugin);
+
+
+// import Router from 'vue-router'
+// const routerPush = Router.prototype.push
+// Router.prototype.push = function push(location) {
+// return routerPush.call(this, location).catch(error=> error)
+// }
 
 
 // ACL

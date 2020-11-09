@@ -1,78 +1,8 @@
-<!-- =========================================================================================
-	File Name: ChartLineChart.vue
-	Description: Create bar chart
-	----------------------------------------------------------------------------------------
-	Item Name: Vuesax Admin - VueJS Dashboard Admin Template
-	Author: Pixinvent
-	Author URL: http://www.themeforest.net/user/pixinvent
-========================================================================================== -->
-
-
 <template>
-	<vx-card title="Line Chart" class="mb-base" code-toggler>
-
+	<vx-card title="爬取数据波动" class="mb-base" >
 		<div class="mt-5">
 			<e-charts :options="line" theme="ovilia-green" ref="line" auto-resize />
 		</div>
-
-		<template slot="codeContainer">
-&lt;template&gt;
-  &lt;e-charts :options=&quot;line&quot; theme=&quot;ovilia-green&quot; ref=&quot;line&quot; auto-resize /&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-import ECharts from 'vue-echarts/components/ECharts'
-import 'echarts/lib/component/tooltip'
-import 'echarts/lib/component/legend'
-import 'echarts/lib/chart/line'
-import theme from './theme.json'
-
-ECharts.registerTheme('ovilia-green', theme)
-
-export default {
-  data() {
-    let data = [[&quot;2000-06-05&quot;,116],[&quot;2000-06-06&quot;,129],[&quot;2000-06-07&quot;,135],[&quot;2000-06-08&quot;,86],[&quot;2000-06-09&quot;,73],[&quot;2000-06-10&quot;,85],[&quot;2000-06-11&quot;,73],[&quot;2000-06-12&quot;,68],[&quot;2000-06-13&quot;,92],[&quot;2000-06-14&quot;,130],[&quot;2000-06-15&quot;,245],[&quot;2000-06-16&quot;,139],[&quot;2000-06-17&quot;,115],[&quot;2000-06-18&quot;,111],[&quot;2000-06-19&quot;,309],[&quot;2000-06-20&quot;,206],[&quot;2000-06-21&quot;,137],[&quot;2000-06-22&quot;,128],[&quot;2000-06-23&quot;,85],[&quot;2000-06-24&quot;,94],[&quot;2000-06-25&quot;,71],[&quot;2000-06-26&quot;,106],[&quot;2000-06-27&quot;,84],[&quot;2000-06-28&quot;,93],[&quot;2000-06-29&quot;,85],[&quot;2000-06-30&quot;,73],[&quot;2000-07-01&quot;,83],[&quot;2000-07-02&quot;,125],[&quot;2000-07-03&quot;,107],[&quot;2000-07-04&quot;,82],[&quot;2000-07-05&quot;,44],[&quot;2000-07-06&quot;,72],[&quot;2000-07-07&quot;,106],[&quot;2000-07-08&quot;,107],[&quot;2000-07-09&quot;,66],[&quot;2000-07-10&quot;,91],[&quot;2000-07-11&quot;,92],[&quot;2000-07-12&quot;,113],[&quot;2000-07-13&quot;,107],[&quot;2000-07-14&quot;,131],[&quot;2000-07-15&quot;,111],[&quot;2000-07-16&quot;,64],[&quot;2000-07-17&quot;,69],[&quot;2000-07-18&quot;,88],[&quot;2000-07-19&quot;,77],[&quot;2000-07-20&quot;,83],[&quot;2000-07-21&quot;,111],[&quot;2000-07-22&quot;,57],[&quot;2000-07-23&quot;,55],[&quot;2000-07-24&quot;,60]];
-    var dateList = data.map(function (item) {
-        return item[0];
-    });
-    var valueList = data.map(function (item) {
-        return item[1];
-    });
-
-    return {
-      line: {
-
-          // Make gradient line here
-          visualMap: [{
-              show: false,
-              type: 'continuous',
-              seriesIndex: 0,
-              min: 0,
-              max: 400
-          }],
-          tooltip: {
-              trigger: 'axis'
-          },
-          xAxis: {
-              data: dateList
-          },
-          yAxis: {
-              splitLine: {show: false},
-          },
-          series: {
-              type: 'line',
-              showSymbol: false,
-              data: valueList
-          }
-      },
-    }
-  },
-  components: {
-    ECharts
-  }
-}
-&lt;/script&gt;
-		</template>
 	</vx-card>
 </template>
 

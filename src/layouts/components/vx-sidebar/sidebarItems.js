@@ -24,7 +24,7 @@ export default [
     url: null,
     name: "Dashboard",
     slug: "dashboard",
-    tag: "2",
+    tag: "1",
     tagColor: "warning",
     icon: "HomeIcon",
     i18n: "Dashboard",
@@ -35,12 +35,12 @@ export default [
         slug: "dashboardAnalytics",
         i18n: "Analytics",
       },
-      {
-        url: '/dashboard/ecommerce',
-        name: "eCommerce",
-        slug: "dashboardECommerce",
-        i18n: "eCommerce",
-      },
+      //电子商务 {
+      //   url: '/dashboard/ecommerce',
+      //   name: "eCommerce",
+      //   slug: "dashboardECommerce",
+      //   i18n: "eCommerce",
+      // },
     ]
   },
   {
@@ -133,26 +133,14 @@ export default [
     tagColor: "primary",
     icon: "ListIcon",
     i18n: "MMMMMMMM",
-    submenu: [
-      {
-        url: '/ui-elements/data-list/thumb-view',
-        name: "Thumb View",
-        slug: "dataListThumbView",
-        i18n: "LMMMMMMM",
-      },
-      {
-        url: '/ui-elements/data-list/thumb-view',
-        name: "Thumb View",
-        slug: "dataListThumbView",
-        i18n: "LMMMMMMM",
-      },
-      {
-        url: '/ui-elements/ag-grid-table',
-        name: "Thumb View",
-        slug: "dataListThumbView",
-        i18n: "LMMMMMMMNNNNN",
-      },
-    ]
+    // submenu: [
+    //   {
+    //     url: '/ui-elements/ag-grid-table',
+    //     name: "Thumb View",
+    //     slug: "dataListThumbView",
+    //     i18n: "LMMMMMMMNNNNN",
+    //   },
+    // ]
   },
   //数据复核
   {
@@ -184,6 +172,30 @@ export default [
       },
     ]
   },
+  //数据管理
+  {
+    url: null,
+    name: "Data List",
+    slug: "dataList",
+    // tag: "new",
+    tagColor: "primary",
+    icon: "ListIcon",
+    i18n: "DataManage",
+    submenu: [
+      {
+        url: '/InternalBusiness/DataView',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "dataView",
+      },
+      {
+        url: '/InternalBusiness/PlatformDistribute',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "PlatformDistribute",
+      },      
+    ]
+  },
   //平台投诉
   {
     url: null,
@@ -200,18 +212,18 @@ export default [
         slug: "dataListListView",
         i18n: "ListViewMMMM",
       },
-      {
-        url: '/ui-elements/data-list/thumb-view',
-        name: "Thumb View",
-        slug: "dataListThumbView",
-        i18n: "LMMMMMMM",
-      },
-      {
-        url: '/ui-elements/ag-grid-table',
-        name: "Thumb View",
-        slug: "dataListThumbView",
-        i18n: "LMMMMMMMNNNNN",
-      },
+      // {
+      //   url: '/ui-elements/data-list/thumb-view',
+      //   name: "Thumb View",
+      //   slug: "dataListThumbView",
+      //   i18n: "LMMMMMMM",
+      // },
+      // {
+      //   url: '/ui-elements/ag-grid-table',
+      //   name: "Thumb View",
+      //   slug: "dataListThumbView",
+      //   i18n: "LMMMMMMMNNNNN",
+      // },
     ]
   },
   //爬取任务管理
@@ -225,7 +237,7 @@ export default [
     i18n: "CrawlingTaskManagement",
     submenu: [
       {
-        url: '/ui-elements/data-list/list-view',
+        url: '',
         name: "List View",
         slug: "dataListListView",
         i18n: "ListViewMMMM",
@@ -236,12 +248,12 @@ export default [
         slug: "dataListThumbView",
         i18n: "LMMMMMMM",
       },
-      {
-        url: '/ui-elements/ag-grid-table',
-        name: "Thumb View",
-        slug: "dataListThumbView",
-        i18n: "LMMMMMMMNNNNN",
-      },
+      // {
+      //   url: '/ui-elements/ag-grid-table',
+      //   name: "Thumb View",
+      //   slug: "dataListThumbView",
+      //   i18n: "LMMMMMMMNNNNN",
+      // },
     ]
   },
   // ------------------------------  
@@ -260,24 +272,24 @@ export default [
     icon: "CopyIcon",
     i18n: "ByteBounce",
     submenu: [
-      {
-        url: '/ui-elements/data-list/list-view',
-        name: "List View",
-        slug: "dataListListView",
-        i18n: "ListViewMMMM",
-      },
-      {
-        url: '/ui-elements/data-list/thumb-view',
-        name: "Thumb View",
-        slug: "dataListThumbView",
-        i18n: "LMMMMMMM",
-      },
-      {
-        url: '/ui-elements/ag-grid-table',
-        name: "Thumb View",
-        slug: "dataListThumbView",
-        i18n: "LMMMMMMMNNNNN",
-      },
+      // {
+      //   url: '/ui-elements/data-list/list-view',
+      //   name: "List View",
+      //   slug: "dataListListView",
+      //   i18n: "ListViewMMMM",
+      // },
+      // {
+      //   url: '/ui-elements/data-list/thumb-view',
+      //   name: "Thumb View",
+      //   slug: "dataListThumbView",
+      //   i18n: "LMMMMMMM",
+      // },
+      // {
+      //   url: '/ui-elements/ag-grid-table',
+      //   name: "Thumb View",
+      //   slug: "dataListThumbView",
+      //   i18n: "LMMMMMMMNNNNN",
+      // },
     ]
   },
   // ------------------------------  
@@ -288,7 +300,7 @@ export default [
   },
   //个人信息
   {
-    url: "/apps/chat",
+    url: "/pages/profile",
     name: "Data List",
     slug: "dataList",
     icon: "UserIcon",
@@ -296,7 +308,7 @@ export default [
   },
   //个人报告
   {
-    url: "/apps/chat",
+    // url: "/apps/chat",
     name: "Data List",
     slug: "dataList",
     icon: "HelpCircleIcon",
@@ -304,7 +316,7 @@ export default [
   },
   //组织结构
   {
-    url: "/apps/chat",
+    // url: "/apps/chat",
     name: "Data List",
     slug: "dataList",
     icon: "InfoIcon",
@@ -312,7 +324,7 @@ export default [
   },
   //角色&等级管理
   {
-    url: "/apps/chat",
+    // url: "/apps/chat",
     name: "Data List",
     slug: "dataList",
     icon: "ListIcon",
@@ -328,12 +340,12 @@ export default [
     icon: "ListIcon",
     i18n: "TreeStructure",
     submenu: [
-      {
-        url: '/ui-elements/data-list/thumb-view',
-        name: "Thumb View",
-        slug: "dataListThumbView",
-        i18n: "LMMMMMMM",
-      },
+      // {
+      //   url: '/ui-elements/data-list/thumb-view',
+      //   name: "Thumb View",
+      //   slug: "dataListThumbView",
+      //   i18n: "LMMMMMMM",
+      // },
       {
         url: '/ui-elements/ag-grid-table',
         name: "Thumb View",
@@ -358,22 +370,22 @@ export default [
     icon: "ListIcon",
     i18n: "ChartsData",
     submenu: [
-      {
-        url: '/ui-elements/data-list/list-view',
-        name: "List View",
-        slug: "dataListListView",
-        i18n: "ListViewMMMM",
-      },
-      {
-        url: '/ui-elements/ag-grid-table',
-        name: "Thumb View",
-        slug: "dataListThumbView",
-        i18n: "LMMMMMMMNNNNN",
-      },
+      // {
+      //   url: '/ui-elements/data-list/list-view',
+      //   name: "List View",
+      //   slug: "dataListListView",
+      //   i18n: "ListViewMMMM",
+      // },
+      // {
+      //   url: '/ui-elements/ag-grid-table',
+      //   name: "Thumb View",
+      //   slug: "dataListThumbView",
+      //   i18n: "LMMMMMMMNNNNN",
+      // },
     ]
   },
   {
-    url: "/apps/chat",
+    // url: "/apps/chat",
     name: "Data List",
     slug: "dataList",
     icon: "ListIcon",
@@ -387,7 +399,7 @@ export default [
   },
   //数据预警
   {
-    url: "/apps/chat",
+    // url: "/apps/chat",
     name: "Data List",
     slug: "dataList",
     icon: "ListIcon",
@@ -395,7 +407,7 @@ export default [
   },
   //系统业务预警 
   {
-    url: "/apps/chat",
+    // url: "/apps/chat",
     name: "Data List",
     slug: "dataList",
     icon: "ListIcon",
@@ -409,7 +421,7 @@ export default [
   },
   //常用设置
   {
-    url: "/apps/chat",
+    // url: "/apps/chat",
     name: "Data List",
     slug: "dataList",
     icon: "BookOpenIcon",
@@ -417,7 +429,7 @@ export default [
   },
   //使用手册
   {
-    url: "/apps/chat",
+    // url: "/apps/chat",
     name: "Data List",
     slug: "dataList",
     icon: "LifeBuoyIcon",

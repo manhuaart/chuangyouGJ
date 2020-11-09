@@ -26,6 +26,9 @@ export default {
 		ManualVerification:'数据复核',
 		PlatformComplaints:'平台投诉',
 		CrawlingTaskManagement:'爬取任务管理',
+		DataManage:'数据管理',
+		dataView:'数据查看',
+		PlatformDistribute:'平台分发',
 		// -------end---------
 		// --------对外业务---------
 		ExternalBusiness: '对外业务',

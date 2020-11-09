@@ -189,23 +189,14 @@
 			<!-- USER META -->
 			<div class="the-navbar__user-meta flex items-center">
 				<div class="text-right leading-tight hidden sm:block">
-					<p class="font-semibold">{{ user_displayName }}</p>
+					<p class="font-semibold">{{username}}</p>
 					<small>Available</small>
 				</div>
 				<vs-dropdown vs-custom-content vs-trigger-click class="cursor-pointer">
 					<div class="con-img ml-3">
 						<img
-							v-if="activeUserImg.startsWith('http')"
 							key="onlineImg"
 							:src="activeUserImg"
-							alt="user-img"
-							width="40"
-							height="40"
-							class="rounded-full shadow-md cursor-pointer block" />
-						<img
-							v-else
-							key="localImg"
-							:src="require(`@/assets/images/portrait/small/${activeUserImg}`)"
 							alt="user-img"
 							width="40"
 							height="40"
@@ -268,6 +259,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import VxAutoSuggest from '@/components/vx-auto-suggest/VxAutoSuggest.vue';
@@ -284,6 +276,9 @@ export default {
     },
     data() {
         return {
+            img:'http://192.168.1.110/',
+            username:sessionStorage.getItem('username'),
+            url: 'http://192.168.1.110',      
             navbarSearchAndPinList: this.$store.state.navbarSearchAndPinList,
             searchQuery: '',
             showFullSearch: false,
@@ -302,6 +297,7 @@ export default {
             showBookmarkPagesDropdown: false,
         }
     },
+    
     watch: {
         '$route'() {
             if (this.showBookmarkPagesDropdown) this.showBookmarkPagesDropdown = false
@@ -362,11 +358,8 @@ export default {
         },
 
         // PROFILE
-        user_displayName() {
-            return JSON.parse(localStorage.getItem('userInfo')).displayName
-        },
         activeUserImg() {
-            return JSON.parse(localStorage.getItem('userInfo')).photoURL || this.$store.state.AppActiveUser.img;
+              return   this.img+sessionStorage.getItem("head_img")
         }
     },
     methods: {
@@ -425,30 +418,25 @@ export default {
             return 'Just Now'
         },
         logout() {
-            // if user is logged in via auth0
-            if (this.$auth.profile) this.$auth.logOut();
-
-            // if user is looged in via firebase
-            const firebaseCurrentUser = firebase.auth().currentUser
-
-            if (firebaseCurrentUser) {
-                firebase.auth().signOut().then(() => {
-                    this.$router.push('/pages/login')
-                    localStorage.removeItem('userInfo');
-                })
-            }
-            // Change role on logout. Same value as initialRole of acj.js
-            this.$acl.change('admin')
-            localStorage.removeItem('userRole');
+            axios.get(this.url+'/chuangyouHome/login_out/').then(res => {
+                     console.log(res)
+                     if(res.data.Status=='ok'){
+                             this.$router.push('/pages/login'),
+                             sessionStorage.removeItem('token');
+                             sessionStorage.removeItem('username');
+                             sessionStorage.removeItem('sex');
+                             sessionStorage.removeItem('head_img');
+                     }
+            })
         },
         outside: function() {
             this.showBookmarkPagesDropdown = false
         },
 
         // CART DROPDOWN
-        removeItemFromCart(item) {
-            this.$store.dispatch('eCommerce/toggleItemInCart', item)
-        }
+        // removeItemFromCart(item) {
+        //     this.$store.dispatch('eCommerce/toggleItemInCart', item)
+        // }
     },
     directives: {
         'click-outside': {

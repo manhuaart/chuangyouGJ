@@ -1,13 +1,3 @@
-<!-- =========================================================================================
-    File Name: TheCustomizer.vue
-    Description: Template Customizer
-    Component Name: TheCustomizer
-    ----------------------------------------------------------------------------------------
-    Item Name: Vuesax Admin - VueJS Dashboard Admin Template
-      Author: Pixinvent
-    Author URL: http://www.themeforest.net/user/pixinvent
-========================================================================================== -->
-
 <template>
     <div id="theme-customizer">
         <vs-button @click.stop="active=!active" color="primary" type="filled" class="customizer-btn" icon-pack="feather" icon="icon-settings"></vs-button>
@@ -41,6 +31,7 @@
                             <!-- <vs-switch v-model="theme_dark" vs-icon-off="wb_sunny" vs-icon-on="brightness_2" color="dark" /> -->
                             <h5 class="mb-2">Dark Mode</h5>
                             <div>
+                                
                                 <vs-radio class="mr-4" v-model="theme" vs-value="light">Light</vs-radio>
                                 <vs-radio class="mr-4" v-model="theme" vs-value="dark">Dark</vs-radio>
                                 <vs-radio v-model="theme" vs-value="semi-dark">Semi Dark</vs-radio>

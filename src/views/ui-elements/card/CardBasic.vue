@@ -156,7 +156,7 @@
                     </template>
                 </vx-card>
             </div>
-
+ 
             <!-- OVERLAY CARD 2 -->
             <div class="vx-col w-full lg:w-1/3 sm:w-1/2 mb-base">
                 <vx-card class="overlay-card overflow-hidden">
@@ -165,8 +165,8 @@
                         <div class="card-overlay text-white">
                             <div class="flex flex-col justify-between h-full">
                                 <div class="text-center mt-8 w-full">
-                                    <h3 class="text-white mb-2 tracking-wide">Snowy</h3>
-                                    <p class="mb-6">New York</p>
+                                    <h3 class="text-white mb-2 tracking-wide">小雪</h3>
+                                    <p class="mb-6">北京</p>
                                     <div class="flex justify-around">
                                         <feather-icon icon="CloudSnowIcon" svgClasses="w-24 h-24 text-white"></feather-icon>
                                         <h2 class="text-white text-big">-6 <sup class="text-2xl">o</sup> </h2>

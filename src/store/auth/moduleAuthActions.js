@@ -66,7 +66,7 @@ export default {
         firebase.auth().signInWithEmailAndPassword(payload.userDetails.email, payload.userDetails.password)
 
             .then((result) => {
-
+  
                 // 更新用户名需要设置标志用户名更新
                 let isUsernameUpdateRequired = false;
 

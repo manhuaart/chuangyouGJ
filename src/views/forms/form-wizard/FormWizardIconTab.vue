@@ -190,10 +190,10 @@ export default {
             eventLocation: "san-francisco",
             status: "plannning",
             cityOptions: [
-                {text: "New York", value:"new-york"},
-                {text: "Chicago", value:"chicago"},
-                {text: "San Francisco", value:"san-francisco"},
-                {text: "Boston", value:"boston"},
+                {text: "纽约", value:"new-york"},
+                {text: "芝加哥", value:"chicago"},
+                {text: "旧金山", value:"san-francisco"},
+                {text: "波斯顿", value:"boston"},
             ],
             statusOptions: [
                 {text: "Plannning", value:"plannning"},

@@ -1018,31 +1018,24 @@ export default {
     // OTHER
     browserAnalytics: [{
             id: 1,
-            name: 'Google Chrome',
+            name: '广电',
             ratio: 73,
             time: 'Mon Dec 10 2018 07:46:05 GMT+0000 (GMT)',
             comparedResult: '800'
         },
         {
             id: 3,
-            name: 'Opera',
+            name: '树木视频',
             ratio: 8,
             time: 'Mon Dec 10 2018 07:46:05 GMT+0000 (GMT)',
             comparedResult: '-200'
         },
         {
             id: 2,
-            name: 'Firefox',
+            name: '树木图文',
             ratio: 19,
             time: 'Mon Dec 10 2018 07:46:05 GMT+0000 (GMT)',
             comparedResult: '100'
-        },
-        {
-            id: 4,
-            name: 'Internet Explorer',
-            ratio: 27,
-            time: 'Mon Dec 10 2018 07:46:05 GMT+0000 (GMT)',
-            comparedResult: '-450'
-        },
+        }
     ],
 }

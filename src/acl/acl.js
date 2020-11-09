@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { AclInstaller, AclCreate, AclRule } from 'vue-acl'
 import router from '@/router'
-
+ 
 Vue.use(AclInstaller)
 
 let initialRole = 'admin'
