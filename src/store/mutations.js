@@ -42,6 +42,12 @@ const mutations = {
         state.userRole = val
         localStorage.setItem('userRole', val)
     },
+//-----------------------------------------
+    UPDATE_LEVEL_CY(state, val) {
+        state.levelCy = val
+        localStorage.setItem('levelCy', val)
+    }, 
+//-----------------------------------------------   
     // UPDATE_STATUS_CHAT(state, value) {
     //     state.AppActiveUser.status = value;
     // },

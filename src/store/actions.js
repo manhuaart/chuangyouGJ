@@ -29,6 +29,11 @@ const actions = {
     updateUserRole({ commit }, val) {
       commit('UPDATE_USER_ROLE', val);
     },
+//--------------------------------------
+    updateLevelCy({ commit }, val) {
+      commit('UPDATE_LEVEL_CY', val);
+    }, 
+//---------------------------------------   
     updateWindowWidth({ commit }, width) {
       commit('UPDATE_WINDOW_WIDTH', width);
     },

@@ -1,22 +1,3 @@
-/*=========================================================================================
-  File Name: router.js
-  Description: Routes for vue-router. Lazy loading is enabled.
-  Object Strucutre:
-                    path => router path
-                    name => router name
-                    component(lazy loading) => component to load
-                    meta : {
-                      rule => which user can have access (ACL)
-                      breadcrumb => Add breadcrumb to specific page
-                      pageTitle => Display title besides breadcrumb
-                    }
-  ----------------------------------------------------------------------------------------
-  Item Name: Vuesax Admin - VueJS Dashboard Admin Template
-  Author: Pixinvent
-  Author URL: http://www.themeforest.net/user/pixinvent
-==========================================================================================*/
-
-
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -236,7 +217,7 @@ const router = new Router({
                 ],
                 requireAuth: true, // 判断是否需要登录
                 pageTitle: '平台分发',
-                rule: 'editor'
+                rule: 'admin'
             },
         },                               
         // {
@@ -1210,7 +1191,7 @@ const router = new Router({
                         rule: 'editor'
                     },
                 },
-                {
+                { 
                     path: '/extensions/access-control-editor',
                     name: 'extraComponentAccessControlEditor',
                     component: () => import('@/views/components/extra-components/access-control/AccessControlEditor.vue'),
@@ -1464,35 +1445,6 @@ router.afterEach(() => {
         appLoading.style.display = "none";
     }
 })
-
-// router.beforeEach((to, from, next) => {
-//     // firebase.auth().onAuthStateChanged(() => {
-
-//     //     // get firebase current user   获取firebase当前用户
-//     //     const firebaseCurrentUser = firebase.auth().currentUser;
-//         if (
-//             to.path === "/pages/login" ||
-//             to.path === "/pages/forgot-password" ||
-//             to.path === "/pages/error-404" ||
-//             to.path === "/pages/error-500" ||
-//             to.path === "/pages/register" ||
-//             to.path === "/callback" ||
-//             to.path === "/pages/comingsoon" 
-//             // || (auth.isAuthenticated() || firebaseCurrentUser)
-//         ) {
-//             return next();
-//         }
-//         router.push('/pages/login')
-//         // router.push({ path: '/pages/login', query: { to: to.path } })
-//         // Specify the current path as the customState parameter, meaning it
-//                // 将当前路径指定为customState参数，即
-//         // will be returned to the application after auth
-//                //将在验证后返回到应用程序
-//         // auth.login({ target: to.path });
-//                // 授权登录（{目标：收件人路径});
-//     // });
-
-// });
 
 // 路由判断登录 根据路由配置文件的参数
 router.beforeEach((to, from, next) => {

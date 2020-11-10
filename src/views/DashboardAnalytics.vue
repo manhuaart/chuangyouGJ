@@ -1,17 +1,8 @@
-<!-- =========================================================================================
-  File Name: DashboardAnalytics.vue
-  Description: Dashboard Analytics
-  ----------------------------------------------------------------------------------------
-  Item Name: Vuesax Admin - VueJS Dashboard Admin Template
-  Author: Pixinvent
-  Author URL: http://www.themeforest.net/user/pixinvent
-========================================================================================== -->
-
 <template>
   <div id="dashboard-analytics">
     <div class="vx-row">
             <!-- OVERLAY CARD 2 -->
-            <div class="vx-col w-full lg:w-1/4 sm:w-1/2 mb-base">
+            <div class="vx-col w-full  lg:w-1/5 sm:w-1/2 mb-base">
                 <vx-card class="overlay-card overflow-hidden">
                     <template slot="no-body">
                         <img :src="require('@/assets/images/pages/card-image-5.jpg')" alt="user-profile-cover" class="responsive blur-1">
@@ -43,9 +34,10 @@
                         </div>
                     </template>
                 </vx-card>
-            </div>
+            </div> 
             <!-- ------------------------------------------ -->
-            <div class="vx-col w-full md:w-1/2 lg:w-1/2 xl:w-1/2  mb-base">
+               <div class="vx-col w-full lg:w-2/3 mb-base">
+            <!-- <div class="vx-col w-full md:w-1/2 lg:w-1/2 xl:w-1/2  mb-base"> -->
                 <vx-card title="项目下线率">
                     <div v-for="(browser, index) in analyticsData.browserAnalytics" :key="browser.id" :class="{'mt-4': index}">
                         <div class="flex justify-between">
@@ -66,9 +58,7 @@
                 </vx-card>
             </div>
           <!-- ---------------------------------------- -->
-    </div>
 
-    <div class="vx-row">
       <!-- CARD 4: SESSION -->
       <div class="vx-col w-full md:w-1/3 mb-base">
             <!-- RADIAL CHART -->

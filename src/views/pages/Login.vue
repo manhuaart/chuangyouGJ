@@ -79,8 +79,8 @@ export default {
         data.append('username', this.username);
         data.append('password', this.password);
         data.append('remeberMe',this.remeberMe);
+        localStorage.removeItem('userRole')
         axios.post('http://192.168.1.110/chuangyouHome/login_logic/', data).then((response) => {
-            console.log(response.data.token)
             if (response.data.Status === 'ok') {                
                         this.$message({
                           showClose: true,
@@ -93,6 +93,14 @@ export default {
                        sessionStorage.setItem('head_img',response.data.user_info.head_img)
                        sessionStorage.setItem('sex',response.data.user_info.sex)
                        sessionStorage.setItem('username',response.data.user_info.username)
+                       sessionStorage.setItem('level_cy',response.data.user_info.level_cy)  //权限验证依据
+                     // 关于权限
+                       this.$acl.change(response.data.user_info.username)
+                       this.$store.dispatch('updateUserRole', response.data.user_info.username)
+                     // 关于权限
+                    //    this.$acl.change(response.data.user_info.level_cy)
+                       this.$store.dispatch('updateLevelCy', response.data.user_info.level_cy)
+
                        if(this.$route.query.redirect){
                        　　let redirect = this.$route.query.redirect;
                           this.$router.push(redirect);
