@@ -218,28 +218,28 @@
                 @click="$router.push('/apps/email')">
 
                 <feather-icon icon="MailIcon" svgClasses="w-4 h-4" />
-                <span class="ml-2">Inbox</span>
+                <span class="ml-2">收件箱</span>
               </li>
 							<li
                 class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
                 @click="$router.push('/apps/todo')">
 
                 <feather-icon icon="CheckSquareIcon" svgClasses="w-4 h-4" />
-                <span class="ml-2">Tasks</span>
+                <span class="ml-2">任务</span>
               </li>
 							<li
                 class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
                 @click="$router.push('/apps/chat')">
 
                 <feather-icon icon="MessageSquareIcon" svgClasses="w-4 h-4" />
-                <span class="ml-2">Chat</span>
+                <span class="ml-2">聊天</span>
               </li>
               <li
                 class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
                 @click="$router.push('/apps/eCommerce/wish-list')">
 
                 <feather-icon icon="HeartIcon" svgClasses="w-4 h-4" />
-                <span class="ml-2">Wish List</span>
+                <span class="ml-2">愿望清单</span>
               </li>
 
 							<vs-divider class="m-1"></vs-divider>
@@ -248,7 +248,7 @@
                 class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
                 @click="logout">
                 <feather-icon icon="LogOutIcon" svgClasses="w-4 h-4"/>
-                <span class="ml-2">Logout</span>
+                <span class="ml-2">退出登录</span>
               </li>
 						</ul>
 					</vs-dropdown-menu>
