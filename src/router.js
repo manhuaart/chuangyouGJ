@@ -145,7 +145,7 @@ const router = new Router({
         // =============================================================================
         // 内部业务
         // =============================================================================
-        {
+        { 
             path: '/InternalBusiness/Shumu',
             name: 'DataProcessing',
             component: () => import('@/views/InternalBusiness/Shumu/shumu.vue'),
@@ -190,10 +190,41 @@ const router = new Router({
                 rule: 'editor'
             },
         },  
+        // {
+        //     path: '/InternalBusiness/DataView',
+        //     name: 'DataProcessing',
+        //     component: () => import('@/views/InternalBusiness/DataManage/dataView.vue'),
+        //     meta: {
+        //         breadcrumb: [
+        //             { title: 'Home', url: '/' },
+        //             { title: 'Data List'},
+        //             { title: 'Data View', active: true },
+        //         ],
+        //         requireAuth: true, // 判断是否需要登录
+        //         pageTitle: '数据查看',
+        //         rule: 'editor'
+        //     },
+        // },  
+        // {
+        //     path: '/InternalBusiness/PlatformDistribute',
+        //     name: 'DataProcessing',
+        //     component: () => import('@/views/InternalBusiness/DataManage/platformDistribute.vue'),
+        //     meta: {
+        //         breadcrumb: [
+        //             { title: 'Home', url: '/' },
+        //             { title: 'Data List'},
+        //             { title: 'Data View', active: true },
+        //         ],
+        //         requireAuth: true, // 判断是否需要登录
+        //         pageTitle: '平台分发',
+        //         rule: 'admin'
+        //     },
+        // }, 
+//------------------------------------------
         {
             path: '/InternalBusiness/DataView',
             name: 'DataProcessing',
-            component: () => import('@/views/InternalBusiness/DataManage/dataView.vue'),
+            component: () => import('@/views/InternalBusiness/TaskAllocation/dataView.vue'),
             meta: {
                 breadcrumb: [
                     { title: 'Home', url: '/' },
@@ -208,7 +239,7 @@ const router = new Router({
         {
             path: '/InternalBusiness/PlatformDistribute',
             name: 'DataProcessing',
-            component: () => import('@/views/InternalBusiness/DataManage/platformDistribute.vue'),
+            component: () => import('@/views/InternalBusiness/TaskAllocation/platformDistribute.vue'),
             meta: {
                 breadcrumb: [
                     { title: 'Home', url: '/' },
@@ -219,7 +250,8 @@ const router = new Router({
                 pageTitle: '平台分发',
                 rule: 'admin'
             },
-        },                               
+        },
+//-----------------------------------------
         // {
         //     path: '/ui-elements/data-list/thumb-view',
         //     name: 'dataListThumbView',

@@ -1,24 +1,3 @@
-/*=========================================================================================
-  File Name: sidebarItems.js
-  Description: Sidebar Items list. Add / Remove menu items from here.
-  Strucutre:
-          url     => router path
-          name    => name to display in sidebar
-          slug    => router path name
-          icon    => Feather Icon component/icon name
-          tag     => text to display on badge
-          tagColor  => class to apply on badge element
-          i18n    => Internationalization
-          submenu   => submenu of current item (current item will become dropdown )
-                NOTE: Submenu don't have any icon(you can add icon if u want to display)
-          isDisabled  => disable sidebar item/group
-  ----------------------------------------------------------------------------------------
-  Item Name: Vuesax Admin - VueJS Dashboard Admin Template
-  Author: Pixinvent
-  Author URL: http://www.themeforest.net/user/pixinvent
-==========================================================================================*/
- 
-
 export default [
   {
     url: null,
@@ -183,6 +162,29 @@ export default [
     i18n: "DataManage",
     submenu: [
       {
+        url: '',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "dataView",
+      },
+      {
+        url: '',
+        name: "Thumb View",
+        slug: "dataListThumbView",
+        i18n: "PlatformDistribute",
+      },      
+    ]
+  },
+  //任务分配
+  {
+    url: null,
+    name: "Data List",
+    slug: "dataList",
+    tagColor: "primary",
+    icon: "ListIcon",
+    i18n: "DaskAllocation",
+    submenu: [
+      {
         url: '/InternalBusiness/DataView',
         name: "Thumb View",
         slug: "dataListThumbView",
@@ -254,7 +256,41 @@ export default [
       //   slug: "dataListThumbView",
       //   i18n: "LMMMMMMMNNNNN",
       // },
-    ]
+    ] 
+  },
+  // ------------------------------  
+  //------------数据可视化------------
+  {
+    header: "数据可视化",
+    i18n: "DataVisualization",
+  },
+  //实时数据报表
+  {
+    url: '',
+    name: "Data List",
+    slug: "dataList",
+    // tag: "new",
+    tagColor: "primary",
+    icon: "ListIcon",
+    i18n: "RealtimeDataReport",
+    // submenu: [
+    //   {
+    //     url: '/ui-elements/ag-grid-table',
+    //     name: "Thumb View",
+    //     slug: "dataListThumbView",
+    //     i18n: "LMMMMMMMNNNNN",
+    //   },
+    // ]
+  },
+  //日/周/月报表
+  {
+    url: '',
+    name: "Data List",
+    slug: "dataList",
+    // tag: "new",
+    tagColor: "primary",
+    icon: "LayoutIcon",
+    i18n: "MonthlyReport",
   },
   // ------------------------------  
   //------------对外业务------------
@@ -356,46 +392,34 @@ export default [
   },
   // ------------------------------ 
   //------------实时数据流动------------
-  {
-    header: "实时数据流动",
-    i18n: "RealTimeData",
-  },
-  //Charts实时数据
-  {
-    url: null,
-    name: "Data List",
-    slug: "dataList",
-    // tag: "new",
-    tagColor: "primary",
-    icon: "ListIcon",
-    i18n: "ChartsData",
-    submenu: [
-      // {
-      //   url: '/ui-elements/data-list/list-view',
-      //   name: "List View",
-      //   slug: "dataListListView",
-      //   i18n: "ListViewMMMM",
-      // },
-      // {
-      //   url: '/ui-elements/ag-grid-table',
-      //   name: "Thumb View",
-      //   slug: "dataListThumbView",
-      //   i18n: "LMMMMMMMNNNNN",
-      // },
-    ]
-  },
-  {
-    // url: "/apps/chat",
-    name: "Data List",
-    slug: "dataList",
-    icon: "ListIcon",
-    i18n: "DataChart",
-  },
+  // {
+  //   header: "实时数据流动",
+  //   i18n: "RealTimeData",
+  // },
+  // //Charts实时数据
+  // {
+  //   url: null,
+  //   name: "Data List",
+  //   slug: "dataList",
+  //   // tag: "new",
+  //   tagColor: "primary",
+  //   icon: "ListIcon",
+  //   i18n: "ChartsData",
+  //   submenu: [
+  //   ]
+  // },
+  // {
+  //   // url: "/apps/chat",
+  //   name: "Data List",
+  //   slug: "dataList",
+  //   icon: "ListIcon",
+  //   i18n: "DataChart",
+  // },
   // ------------------------------ 
   //------------系统预警------------
   {
     header: "系统预警",
-    i18n: "SystemWarning",
+    i18n: "EarlyWarningSystem",
   },
   //数据预警
   {
@@ -436,339 +460,339 @@ export default [
     i18n: "UserManual",
   },
   // ------------------------------ 
-  {
-    header: "UI Elements",
-    i18n: "UIElements",
-  },
-  {
-    url: null,
-    name: "Data List",
-    slug: "dataList",
-    tag: "new",
-    tagColor: "primary",
-    icon: "ListIcon",
-    i18n: "DataList",
-    submenu: [
-      {
-        url: '/ui-elements/data-list/list-view',
-        name: "List View",
-        slug: "dataListListView",
-        i18n: "ListView",
-      },
-      {
-        url: '/ui-elements/data-list/thumb-view',
-        name: "Thumb View",
-        slug: "dataListThumbView",
-        i18n: "ThumbView",
-      },
-    ]
-  },
-  {
-    url: null,
-    name: "Grid",
-    slug: "grid",
-    icon: "LayoutIcon",
-    i18n: "Grid",
-    submenu: [
-      {
-        url: '/ui-elements/grid/vuesax',
-        name: "Vuesax",
-        slug: "gridVuesax",
-        i18n: "Vuesax",
-      },
-      {
-        url: '/ui-elements/grid/tailwind',
-        name: "Tailwind",
-        slug: "gridTailwind",
-        i18n: "Tailwind",
-      },
-    ]
-  },
-  {
-    url: "/ui-elements/colors",
-    name: "Colors",
-    slug: "colors",
-    icon: "DropletIcon",
-    i18n: "Colors",
-  },
-  {
-    url: null,
-    name: "Card",
-    slug: "card",
-    icon: "CreditCardIcon",
-    i18n: "Card",
-    submenu: [
-      {
-        url: '/ui-elements/card/basic',
-        name: "Basic",
-        slug: "basicCards",
-        i18n: "Basic",
-      },
-      {
-        url: '/ui-elements/card/statistics',
-        name: "Statistics",
-        slug: "statisticsCards",
-        i18n: "Statistics",
-      },
-      {
-        url: '/ui-elements/card/analytics',
-        name: "Analytics",
-        slug: "analyticsCards",
-        i18n: "Analytics",
-      },
-      {
-        url: '/ui-elements/card/card-actions',
-        name: "Card Actions",
-        slug: "cardActions",
-        i18n: "CardActions",
-      },
-      {
-        url: '/ui-elements/card/card-colors',
-        name: "Card Colors",
-        slug: "cardColors",
-        i18n: "CardColors",
-      }
-    ]
-  },
-  {
-    url: null,
-    name: "Components",
-    icon: "ArchiveIcon",
-    slug: 'components',
-    i18n: "Components",
-    submenu: [
-      {
-        url: '/components/alert',
-        name: "Alert",
-        slug: "componentAlert",
-        i18n: "Alert",
-      },
-      {
-        url: '/components/avatar',
-        name: "Avatar",
-        slug: "componentAvatar",
-        i18n: "Avatar",
-      },
-      {
-        url: '/components/breadcrumb',
-        name: "Breadcrumb",
-        slug: "componentBreadcrumb",
-        i18n: "Breadcrumb",
-      },
-      {
-        url: '/components/button',
-        name: "Button",
-        slug: "componentButton",
-        i18n: "Button",
-      },
-      {
-        url: '/components/button-group',
-        name: "Button Group",
-        slug: "componentButtonGroup",
-        i18n: "ButtonGroup",
-      },
-      {
-        url: '/components/chip',
-        name: "Chip",
-        slug: "componentChip",
-        i18n: "Chip",
-      },
-      {
-        url: '/components/collapse',
-        name: "Collapse",
-        slug: "componentCollapse",
-        i18n: "Collapse",
-      },
-      {
-        url: '/components/dialogs',
-        name: "Dialogs",
-        slug: "componentDialog",
-        i18n: "Dialogs",
-      },
-      {
-        url: '/components/divider',
-        name: "Divider",
-        slug: "componentDivider",
-        i18n: "Divider",
-      },
-      {
-        url: '/components/dropdown',
-        name: "DropDown",
-        slug: "componentDropDown",
-        i18n: "DropDown",
-      },
-      {
-        url: '/components/list',
-        name: "List",
-        slug: "componentList",
-        i18n: "List",
-      },
-      {
-        url: '/components/loading',
-        name: "Loading",
-        slug: "componentLoading",
-        i18n: "Loading",
-      },
-      {
-        url: '/components/navbar',
-        name: "Navbar",
-        slug: "componentNavbar",
-        i18n: "Navbar",
-      },
-      {
-        url: '/components/notifications',
-        name: "Notifications",
-        slug: "componentNotifications",
-        i18n: "Notifications",
-      },
-      {
-        url: '/components/pagination',
-        name: "Pagination",
-        slug: "componentPagination",
-        i18n: "Pagination",
-      },
-      {
-        url: '/components/popup',
-        name: "Popup",
-        slug: "componentPopup",
-        i18n: "Popup",
-      },
-      {
-        url: '/components/progress',
-        name: "Progress",
-        slug: "componentProgress",
-        i18n: "Progress",
-      },
-      {
-        url: '/components/sidebar',
-        name: "Sidebar",
-        slug: "componentSidebar",
-        i18n: "Sidebar",
-      },
-      {
-        url: '/components/slider',
-        name: "Slider",
-        slug: "componentSlider",
-        i18n: "Slider",
-      },
-      {
-        url: '/components/tabs',
-        name: "Tabs",
-        slug: "componentTabs",
-        i18n: "Tabs",
-      },
-      {
-        url: '/components/tooltip',
-        name: "Tooltip",
-        slug: "componentTooltip",
-        i18n: "Tooltip",
-      },
-      {
-        url: '/components/upload',
-        name: "Upload",
-        slug: "componentUpload",
-        i18n: "Upload",
-      },
-    ]
-  },
-  {
-    header: "Forms & Table",
-    i18n: "FormsAndTable",
-  },
-  {
-    url: null,
-    name: "Form Elements",
-    icon: "CopyIcon",
-    i18n: "FormElements",
-    submenu: [
+  // {
+  //   header: "UI Elements",
+  //   i18n: "UIElements",
+  // },
+  // {
+  //   url: null,
+  //   name: "Data List",
+  //   slug: "dataList",
+  //   tag: "new",
+  //   tagColor: "primary",
+  //   icon: "ListIcon",
+  //   i18n: "DataList",
+  //   submenu: [
+  //     {
+  //       url: '/ui-elements/data-list/list-view',
+  //       name: "List View",
+  //       slug: "dataListListView",
+  //       i18n: "ListView",
+  //     },
+  //     {
+  //       url: '/ui-elements/data-list/thumb-view',
+  //       name: "Thumb View",
+  //       slug: "dataListThumbView",
+  //       i18n: "ThumbView",
+  //     },
+  //   ]
+  // },
+  // {
+  //   url: null,
+  //   name: "Grid",
+  //   slug: "grid",
+  //   icon: "LayoutIcon",
+  //   i18n: "Grid",
+  //   submenu: [
+  //     {
+  //       url: '/ui-elements/grid/vuesax',
+  //       name: "Vuesax",
+  //       slug: "gridVuesax",
+  //       i18n: "Vuesax",
+  //     },
+  //     {
+  //       url: '/ui-elements/grid/tailwind',
+  //       name: "Tailwind",
+  //       slug: "gridTailwind",
+  //       i18n: "Tailwind",
+  //     },
+  //   ]
+  // },
+  // {
+  //   url: "/ui-elements/colors",
+  //   name: "Colors",
+  //   slug: "colors",
+  //   icon: "DropletIcon",
+  //   i18n: "Colors",
+  // },
+  // {
+  //   url: null,
+  //   name: "Card",
+  //   slug: "card",
+  //   icon: "CreditCardIcon",
+  //   i18n: "Card",
+  //   submenu: [
+  //     {
+  //       url: '/ui-elements/card/basic',
+  //       name: "Basic",
+  //       slug: "basicCards",
+  //       i18n: "Basic",
+  //     },
+  //     {
+  //       url: '/ui-elements/card/statistics',
+  //       name: "Statistics",
+  //       slug: "statisticsCards",
+  //       i18n: "Statistics",
+  //     },
+  //     {
+  //       url: '/ui-elements/card/analytics',
+  //       name: "Analytics",
+  //       slug: "analyticsCards",
+  //       i18n: "Analytics",
+  //     },
+  //     {
+  //       url: '/ui-elements/card/card-actions',
+  //       name: "Card Actions",
+  //       slug: "cardActions",
+  //       i18n: "CardActions",
+  //     },
+  //     {
+  //       url: '/ui-elements/card/card-colors',
+  //       name: "Card Colors",
+  //       slug: "cardColors",
+  //       i18n: "CardColors",
+  //     }
+  //   ]
+  // },
+  // {
+  //   url: null,
+  //   name: "Components",
+  //   icon: "ArchiveIcon",
+  //   slug: 'components',
+  //   i18n: "Components",
+  //   submenu: [
+  //     {
+  //       url: '/components/alert',
+  //       name: "Alert",
+  //       slug: "componentAlert",
+  //       i18n: "Alert",
+  //     },
+  //     {
+  //       url: '/components/avatar',
+  //       name: "Avatar",
+  //       slug: "componentAvatar",
+  //       i18n: "Avatar",
+  //     },
+  //     {
+  //       url: '/components/breadcrumb',
+  //       name: "Breadcrumb",
+  //       slug: "componentBreadcrumb",
+  //       i18n: "Breadcrumb",
+  //     },
+  //     {
+  //       url: '/components/button',
+  //       name: "Button",
+  //       slug: "componentButton",
+  //       i18n: "Button",
+  //     },
+  //     {
+  //       url: '/components/button-group',
+  //       name: "Button Group",
+  //       slug: "componentButtonGroup",
+  //       i18n: "ButtonGroup",
+  //     },
+  //     {
+  //       url: '/components/chip',
+  //       name: "Chip",
+  //       slug: "componentChip",
+  //       i18n: "Chip",
+  //     },
+  //     {
+  //       url: '/components/collapse',
+  //       name: "Collapse",
+  //       slug: "componentCollapse",
+  //       i18n: "Collapse",
+  //     },
+  //     {
+  //       url: '/components/dialogs',
+  //       name: "Dialogs",
+  //       slug: "componentDialog",
+  //       i18n: "Dialogs",
+  //     },
+  //     {
+  //       url: '/components/divider',
+  //       name: "Divider",
+  //       slug: "componentDivider",
+  //       i18n: "Divider",
+  //     },
+  //     {
+  //       url: '/components/dropdown',
+  //       name: "DropDown",
+  //       slug: "componentDropDown",
+  //       i18n: "DropDown",
+  //     },
+  //     {
+  //       url: '/components/list',
+  //       name: "List",
+  //       slug: "componentList",
+  //       i18n: "List",
+  //     },
+  //     {
+  //       url: '/components/loading',
+  //       name: "Loading",
+  //       slug: "componentLoading",
+  //       i18n: "Loading",
+  //     },
+  //     {
+  //       url: '/components/navbar',
+  //       name: "Navbar",
+  //       slug: "componentNavbar",
+  //       i18n: "Navbar",
+  //     },
+  //     {
+  //       url: '/components/notifications',
+  //       name: "Notifications",
+  //       slug: "componentNotifications",
+  //       i18n: "Notifications",
+  //     },
+  //     {
+  //       url: '/components/pagination',
+  //       name: "Pagination",
+  //       slug: "componentPagination",
+  //       i18n: "Pagination",
+  //     },
+  //     {
+  //       url: '/components/popup',
+  //       name: "Popup",
+  //       slug: "componentPopup",
+  //       i18n: "Popup",
+  //     },
+  //     {
+  //       url: '/components/progress',
+  //       name: "Progress",
+  //       slug: "componentProgress",
+  //       i18n: "Progress",
+  //     },
+  //     {
+  //       url: '/components/sidebar',
+  //       name: "Sidebar",
+  //       slug: "componentSidebar",
+  //       i18n: "Sidebar",
+  //     },
+  //     {
+  //       url: '/components/slider',
+  //       name: "Slider",
+  //       slug: "componentSlider",
+  //       i18n: "Slider",
+  //     },
+  //     {
+  //       url: '/components/tabs',
+  //       name: "Tabs",
+  //       slug: "componentTabs",
+  //       i18n: "Tabs",
+  //     },
+  //     {
+  //       url: '/components/tooltip',
+  //       name: "Tooltip",
+  //       slug: "componentTooltip",
+  //       i18n: "Tooltip",
+  //     },
+  //     {
+  //       url: '/components/upload',
+  //       name: "Upload",
+  //       slug: "componentUpload",
+  //       i18n: "Upload",
+  //     },
+  //   ]
+  // },
+  // {
+  //   header: "Forms & Table",
+  //   i18n: "FormsAndTable",
+  // },
+  // {
+  //   url: null,
+  //   name: "Form Elements",
+  //   icon: "CopyIcon",
+  //   i18n: "FormElements",
+  //   submenu: [
       // {
       //  url: '/forms/form-elements/select',
       //  name: "Select",
       //  slug: "formElementSelect",
       //  i18n: "Select",
       // },
-      {
-        url: '/forms/form-elements/switch',
-        name: "Switch",
-        slug: "formElementSwitch",
-        i18n: "Switch",
-      },
-      {
-        url: '/forms/form-elements/checkbox',
-        name: "Checkbox",
-        slug: "formElementCheckbox",
-        i18n: "Checkbox",
-      },
-      {
-        url: '/forms/form-elements/radio',
-        name: "Radio",
-        slug: "formElementRadio",
-        i18n: "Radio",
-      },
-      {
-        url: '/forms/form-elements/input',
-        name: "Input",
-        slug: "formElementInput",
-        i18n: "Input",
-      },
-      {
-        url: '/forms/form-elements/number-input',
-        name: "Number Input",
-        slug: "formElementNumberInput",
-        i18n: "NumberInput",
-      },
-      {
-        url: '/forms/form-elements/textarea',
-        name: "Textarea",
-        slug: "formElementTextarea",
-        i18n: "Textarea",
-      },
-    ]
-  },
-  {
-    url: '/forms/form-layouts',
-    name: "Form Layouts",
-    icon: "PackageIcon",
-    slug: "formsFormLayouts",
-    i18n: "FormLayouts",
-  },
-  {
-    url: '/forms/form-wizard',
-    name: "Form Wizard",
-    icon: "PackageIcon",
-    slug: "extraComponentFormWizard",
-    i18n: "FormWizard",
-  },
-  {
-    url: '/forms/form-validation',
-    name: "Form Validation",
-    icon: "CheckCircleIcon",
-    slug: "extraComponentFormValidation",
-    i18n: "FormValidation",
-  },
-  {
-    url: '/forms/form-input-group',
-    name: "Form Input Group",
-    icon: "MenuIcon",
-    slug: "extraComponentFormInputGroup",
-    i18n: "FormInputGroup",
-  },
-  {
-    url: "/ui-elements/table",
-    name: "Table",
-    slug: "table",
-    icon: "GridIcon",
-    i18n: "Table",
-  },
-  {
-    url: "/ui-elements/ag-grid-table",
-    name: "agGrid Table",
-    slug: "ag-grid-table",
-    tag: "new",
-    tagColor: "primary",
-    icon: "GridIcon",
-    i18n: "agGridTable",
-  },
+  //     {
+  //       url: '/forms/form-elements/switch',
+  //       name: "Switch",
+  //       slug: "formElementSwitch",
+  //       i18n: "Switch",
+  //     },
+  //     {
+  //       url: '/forms/form-elements/checkbox',
+  //       name: "Checkbox",
+  //       slug: "formElementCheckbox",
+  //       i18n: "Checkbox",
+  //     },
+  //     {
+  //       url: '/forms/form-elements/radio',
+  //       name: "Radio",
+  //       slug: "formElementRadio",
+  //       i18n: "Radio",
+  //     },
+  //     {
+  //       url: '/forms/form-elements/input',
+  //       name: "Input",
+  //       slug: "formElementInput",
+  //       i18n: "Input",
+  //     },
+  //     {
+  //       url: '/forms/form-elements/number-input',
+  //       name: "Number Input",
+  //       slug: "formElementNumberInput",
+  //       i18n: "NumberInput",
+  //     },
+  //     {
+  //       url: '/forms/form-elements/textarea',
+  //       name: "Textarea",
+  //       slug: "formElementTextarea",
+  //       i18n: "Textarea",
+  //     },
+  //   ]
+  // },
+  // {
+  //   url: '/forms/form-layouts',
+  //   name: "Form Layouts",
+  //   icon: "PackageIcon",
+  //   slug: "formsFormLayouts",
+  //   i18n: "FormLayouts",
+  // },
+  // {
+  //   url: '/forms/form-wizard',
+  //   name: "Form Wizard",
+  //   icon: "PackageIcon",
+  //   slug: "extraComponentFormWizard",
+  //   i18n: "FormWizard",
+  // },
+  // {
+  //   url: '/forms/form-validation',
+  //   name: "Form Validation",
+  //   icon: "CheckCircleIcon",
+  //   slug: "extraComponentFormValidation",
+  //   i18n: "FormValidation",
+  // },
+  // {
+  //   url: '/forms/form-input-group',
+  //   name: "Form Input Group",
+  //   icon: "MenuIcon",
+  //   slug: "extraComponentFormInputGroup",
+  //   i18n: "FormInputGroup",
+  // },
+  // {
+  //   url: "/ui-elements/table",
+  //   name: "Table",
+  //   slug: "table",
+  //   icon: "GridIcon",
+  //   i18n: "Table",
+  // },
+  // {
+  //   url: "/ui-elements/ag-grid-table",
+  //   name: "agGrid Table",
+  //   slug: "ag-grid-table",
+  //   tag: "new",
+  //   tagColor: "primary",
+  //   icon: "GridIcon",
+  //   i18n: "agGridTable",
+  // },
   {
     header: "Pages",
     i18n: "Pages",
@@ -1079,25 +1103,25 @@ export default [
     i18n: "DisabledMenu",
     isDisabled: true,
   },
-
-  {
-    header: "Support",
-    i18n: "Support",
-  },
-  {
-    url: 'https://pixinvent.com/demo/vuesax-vuejs-admin-dashboard-template/documentation/',
-    name: "Documentation",
-    icon: "BookOpenIcon",
-    slug: "external",
-    i18n: "Documentation",
-    target: "_blank"
-  },
-  {
-    url: 'https://pixinvent.ticksy.com/',
-    name: "Raise Support",
-    icon: "LifeBuoyIcon",
-    slug: "external",
-    i18n: "RaiseSupport",
-    target: "_blank"
-  },
+//支持
+  // {
+  //   header: "Support",
+  //   i18n: "Support",
+  // },
+  // {
+  //   url: 'https://pixinvent.com/demo/vuesax-vuejs-admin-dashboard-template/documentation/',
+  //   name: "Documentation",
+  //   icon: "BookOpenIcon",
+  //   slug: "external",
+  //   i18n: "Documentation",
+  //   target: "_blank"
+  // },
+  // {
+  //   url: 'https://pixinvent.ticksy.com/',
+  //   name: "Raise Support",
+  //   icon: "LifeBuoyIcon",
+  //   slug: "external",
+  //   i18n: "RaiseSupport",
+  //   target: "_blank"
+  // },
 ]

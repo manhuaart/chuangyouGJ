@@ -27,9 +27,15 @@ export default {
 		PlatformComplaints:'平台投诉',
 		CrawlingTaskManagement:'爬取任务管理',
 		DataManage:'数据管理',
+		DaskAllocation:'任务分配',
 		dataView:'数据查看',
 		PlatformDistribute:'平台分发',
 		// -------end---------
+		// --------数据可视化---------
+		DataVisualization: '数据可视化',
+		RealtimeDataReport: '实时数据报表',
+		MonthlyReport: '日/周/月报表',		
+		// -------end---------		
 		// --------对外业务---------
 		ExternalBusiness: '对外业务',
         ByteBounce:'字节跳动',
@@ -48,7 +54,7 @@ export default {
 		DataChart:'数据图表',
 		// -------end---------	
 		// --------系统预警---------
-		SystemWarning: '系统预警',
+		EarlyWarningSystem: '预警系统',
 		DataWarning:'数据预警',
 		BusinessWarning:'系统业务预警',
 		// -------end---------		
