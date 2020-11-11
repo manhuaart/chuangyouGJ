@@ -41,6 +41,9 @@ export default {
 		   SampleDataManage:'样本数据管理',
 		   InfringeDataManage:'侵权数据管理',
 		   InfrAuthorsManage:'侵权作者管理',
+		   DataProcessing:'数据处理',
+           TextRuleFiltering:'文字规则筛选',
+           VideoContentFiltering:'视频内容筛选',		   
 		// -------end---------
 		// --------平台投诉---------
 		PlatformComplaints:'平台投诉',

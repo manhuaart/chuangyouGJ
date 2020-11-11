@@ -24,7 +24,6 @@
       <el-form-item>
         <div class="letf-items" style="float: left;">
           <el-button
-            v-if="$acl.get[0]='p0'"
             type="primary"
             icon="el-icon-plus"
             size="mini"

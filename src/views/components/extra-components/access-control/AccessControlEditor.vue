@@ -96,6 +96,8 @@ export default{
 	},
 	watch: {
 		userRole(val) {
+            // str.substr(str.length-1,1)
+            // console.log(localStorage.getItem('levelCy').substr(localStorage.getItem('levelCy').length-1,1))
 			this.$acl.change(val)
 			this.$store.dispatch('updateUserRole', val)
 		}

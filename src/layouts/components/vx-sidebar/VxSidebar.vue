@@ -1,14 +1,3 @@
-<!-- =========================================================================================
-    File Name: VxSidebar.vue
-    Description: Sidebar Component
-    Component Name: VxSidebar
-    ----------------------------------------------------------------------------------------
-    Item Name: Vuesax Admin - VueJS Dashboard Admin Template
-      Author: Pixinvent
-    Author URL: http://www.themeforest.net/user/pixinvent
-========================================================================================== -->
-
-
 <template>
     <div class="parentx">
         <vs-sidebar v-hammer:swipe.left="onSwipeLeft" ref="mainSidebar" :parent="parent" :hiddenBackground="clickNotClose" :reduce="reduce" default-index="-1" class="sidebarx main-menu-sidebar items-no-padding" v-model="isSidebarActive" :click-not-close="clickNotClose" :reduce-not-rebound="reduceNotRebound">
@@ -33,19 +22,23 @@
 
                 <VuePerfectScrollbar ref="mainSidebarPs" class="scroll-area--main-sidebar pt-2" :settings="settings" @ps-scroll-y="psSectionScroll">
                     <template v-for="(sidebarItem, index) in sidebarItems">
-
-                        <!-- GROUP ITEM HEADER -->
-                        <span :key="`header-${index}`" v-if="sidebarItem.header && !sidebarItemsMin" class="navigation-header truncate">{{ $t(sidebarItem.i18n) || sidebarItem.header }}</span>
+                    <!-- -------------strat--------------- -->
+                        <!-- 组项目标题 -->
+                        <span :key="`header-${index}`" v-if="sidebarItem.header && !sidebarItemsMin" v-show="levelCy>=sidebarItem.levelCy  || levelCy0==sidebarItem.levelCy0"   class="navigation-header truncate">
+                        <!-- <span :key="`header-${index}`" v-if="sidebarItem.header && !sidebarItemsMin" v-show="levelCy>=sidebarItem.levelCy  || levelCy6==sidebarItem.levelCy6"   class="navigation-header truncate"> -->
+                            {{ $t(sidebarItem.i18n) || sidebarItem.header }}
+                        </span>
+                    <!-- //------------end-------------    -->
                         <template v-else-if="!sidebarItem.header">
 
-                            <!-- IF IT'S SINGLE ITEM -->
+                            <!-- 如果是单品 -->
                             <vx-sidebar-item ref="sidebarLink" :key="`sidebarItem-${index}`" v-if="!sidebarItem.submenu" :index="index" :to="sidebarItem.slug != 'external' ? sidebarItem.url : ''" :href="sidebarItem.slug == 'external' ? sidebarItem.url : ''" :icon="sidebarItem.icon" :target="sidebarItem.target" :isDisabled="sidebarItem.isDisabled">
                                 <span v-show="!sidebarItemsMin" class="truncate">{{ $t(sidebarItem.i18n) || sidebarItem.name }}</span>
                                 <vs-chip class="ml-auto" :color="sidebarItem.tagColor" v-if="sidebarItem.tag && (isMouseEnter || !reduce)">{{ sidebarItem.tag }}</vs-chip>
                             </vx-sidebar-item>
 
-                            <!-- IF HAVE SUBMENU / DROPDOWN -->
-                            <template v-else>
+                            <!-- 如果有子菜单/下拉菜单 -->
+                            <template  v-if="sidebarItem.submenu &&  levelCy>=sidebarItem.levelCy || levelCy0==sidebarItem.levelCy0" >
                                 <vx-sidebar-group ref="sidebarGrp" :key="`group-${index}`" :openHover="openGroupHover" :group="sidebarItem" :groupIndex="index" :open="isGroupActive(sidebarItem)"></vx-sidebar-group>
                             </template>
                         </template>
@@ -85,6 +78,9 @@ export default {
         }
     },
     data: () => ({
+        levelCy0:localStorage.getItem('levelCy'),  
+        levelCy:localStorage.getItem('levelCy').substr(localStorage.getItem('levelCy').length-1,1),
+        // levelCy:localStorage.getItem('levelCy'),
         clickNotClose: false, // disable close sidebar on outside click
         reduce: false, // determines if sidebar is reduce - component property
         showCloseButton: false, // show close button in smaller devices
@@ -235,5 +231,8 @@ export default {
 </script>
 
 <style lang="scss">
+.main-menu-sidebar .scroll-area--main-sidebar:last-child {
+    padding-bottom:30px !important;
+}
 @import "@/assets/scss/vuesax/components/vxSidebar.scss"
 </style>

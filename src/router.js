@@ -1,10 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
-
-// import firebase from 'firebase/app'
-// import 'firebase/auth'
-
 Vue.use(Router)
 
 const router = new Router({
@@ -172,6 +167,39 @@ const router = new Router({
         // =============================================================================
         // 内部业务
         // =============================================================================
+        //数据处理
+        { 
+            path: '/InternalBusiness/TextRuleFiltering',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/DataProcessing/TextRuleFiltering.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '文字规则筛选',
+                rule: 'p1'
+            } 
+        }, 
+        { 
+            path: '/InternalBusiness/VideoContentFiltering',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/DataProcessing/VideoContentFiltering.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '视频内容筛选',
+                rule: 'p1'
+            } 
+        },           
+        //------------------------------------        
+        
         { 
             path: '/InternalBusiness/Shumu',
             name: 'DataProcessing',
@@ -321,7 +349,7 @@ const router = new Router({
                 ],
                 requireAuth: true, // 判断是否需要登录
                 pageTitle: '数据查看',
-                rule: 'p0'
+                rule: 'p4'
             },
         },  
         {
@@ -336,7 +364,7 @@ const router = new Router({
                 ],
                 requireAuth: true, // 判断是否需要登录
                 pageTitle: '平台分发',
-                rule: 'p0'
+                rule: 'p4'
             },
         },
         //数据管理
@@ -416,6 +444,7 @@ const router = new Router({
                 rule: 'p4'
             },
         }, 
+    //  ------------------业务目标制定------------------
         {
             path: '/InternalBusiness/MonthlyTarget',
             name: 'DataProcessing',
@@ -430,6 +459,7 @@ const router = new Router({
                 pageTitle: '月目标',
                 rule: 'p5'
             },
+
         }, 
         {
             path: '/InternalBusiness/WeeklyGoal',
@@ -652,7 +682,7 @@ const router = new Router({
                 ],
                 requireAuth: true, // 判断是否需要登录
                 pageTitle: '员工信息管理',
-                rule: 'p5'
+                rule: 'p56'
             },
         },
         {
@@ -667,7 +697,7 @@ const router = new Router({
                 ],
                 requireAuth: true, // 判断是否需要登录
                 pageTitle: '客户信息管理',
-                rule: 'p5'
+                rule: 'p56'
             },
         }, 
         {
@@ -682,7 +712,7 @@ const router = new Router({
                 ],
                 requireAuth: true, // 判断是否需要登录
                 pageTitle: '组织结构图',
-                rule: 'p5'
+                rule: 'p56'
             },
         }, 
         {
@@ -1983,7 +2013,6 @@ const router = new Router({
 })
 
 router.afterEach(() => {
-  // Remove initial loading
   const appLoading = document.getElementById('loading-bg')
     if (appLoading) {
         appLoading.style.display = "none";
