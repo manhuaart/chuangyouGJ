@@ -4,10 +4,13 @@ export default {
 		Dashboard: '主页',
 		eCommerce: '电子商务',
 		Apps: '日常应用',
-		Todo: '去做',
+		Todo: '日常任务',
 		Chat: '日常图表',
 		Email: '邮件',
+		Notice: '公告',
+		PersonalDataStatistics:'个人数据统计',
 		Calendar: '日历',
+		ReviewToday: '今日复核',
     FullCalendar: 'Full Calendar',
     SimpleCalendar: 'Simple Calendar',
 		Shop: 'Shop',
@@ -24,29 +27,45 @@ export default {
 		LMMMMMMM: '数据核实-广电',
 		LMMMMMMMNNNNN: '数据核实-图文',
 		ManualVerification:'数据复核',
-		PlatformComplaints:'平台投诉',
 		CrawlingTaskManagement:'爬取任务管理',
-		DataManage:'数据管理',
 		DaskAllocation:'任务分配',
 		dataView:'数据查看',
 		PlatformDistribute:'平台分发',
+		PerformanceAppraisal:'绩效考核',
+		BusObjectSetting:'业务目标制定',	
+		MonthlyTarget:'月目标',
+		WeeklyGoal:'周目标',
+		DailyTarget:'日目标',	
+		   DataManage:'数据管理',
+		   DataValidation:'数据检验',	
+		   SampleDataManage:'样本数据管理',
+		   InfringeDataManage:'侵权数据管理',
+		   InfrAuthorsManage:'侵权作者管理',
+		// -------end---------
+		// --------平台投诉---------
+		PlatformComplaints:'平台投诉',
+		TreeVideo:'树木视频',
+		TreePictureText :'树木图文',
+		RadioTv:'广电',
+		ComplaintRecordView:'投诉记录查看',		
 		// -------end---------
 		// --------数据可视化---------
 		DataVisualization: '数据可视化',
 		RealtimeDataReport: '实时数据报表',
 		MonthlyReport: '日/周/月报表',		
-		// -------end---------		
-		// --------对外业务---------
-		ExternalBusiness: '对外业务',
-        ByteBounce:'字节跳动',
+		// -------end---------	
+		// --------业务培训---------
+		BusinessTraining: '业务培训',
+		Monitor: '监测',		
+		Complaint: '投诉',
+		ObtainEvidence: '取证',	
 		// -------end---------	
 		// --------信息管理---------
 		InformationMagment: '信息管理',
-		PersonalInfo:'个人信息',
-		PersonalReport:'个人报告',
-		OrganizationStructure:'组织结构',
-		Role:'角色&等级管理',	
-		TreeStructure:'树状结构图',	
+		StaffInforManag:'员工信息管理',
+		CustomerInforManag:'客户信息管理',
+		OrganizationChart:'组织结构图',
+		RoleLevelManag:'角色&等级管理',	
 		// -------end---------	
 		// --------实时数据流动---------
 		RealTimeData: '实时数据流动',
@@ -56,13 +75,22 @@ export default {
 		// --------系统预警---------
 		EarlyWarningSystem: '预警系统',
 		DataWarning:'数据预警',
-		BusinessWarning:'系统业务预警',
+		BusinessWarning:'业务预警',
+		SystemWarning:'系统预警',
 		// -------end---------		
 		// --------系统设置---------
 		SystemSettings: '系统设置',
 		CommonSettings:'常用设置',
-		UserManual:' 使用手册',
-		// -------end---------				
+		AboutUs:' 关于我们',
+		// -------end---------	
+		// --------对外业务---------
+		ExternalBusiness: '对外业务',
+		ByteBounce:'字节跳动',
+		TaskManagement:'任务管理',	
+		DataSynchronization:'数据同步',
+		DataQuery:'数据查询',
+		SendingLetters:'协助发函',				
+		// -------end---------			
 		ThumbView: 'Thumb View',
 		Grid: '格',
 		Vuesax: 'Vuesax',

@@ -1,5 +1,5 @@
 <template>
-<!-- 平台分发 -->
+<!-- 客户信息管理 -->
   <div class="app-container">
   <el-form>   
       <el-form style="width:100%;display: flex;">

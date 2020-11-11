@@ -1,5 +1,5 @@
 <template>
-<!-- 平台分发 -->
+<!-- 样本数据管理 -->
   <div class="app-container">
   <el-form>   
       <el-form style="width:100%;display: flex;">
@@ -24,7 +24,6 @@
       <el-form-item>
         <div class="letf-items" style="float: left;">
           <el-button
-            v-if="$acl.get[0]='p0'"
             type="primary"
             icon="el-icon-plus"
             size="mini"

@@ -35,7 +35,7 @@ const router = new Router({
                     component: () => import('./views/DashboardAnalytics.vue'),
                     meta: {
                         requireAuth: true, // 判断是否需要登录
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -44,7 +44,7 @@ const router = new Router({
                     component: () => import('./views/DashboardECommerce.vue'),
                     meta: {
                         requireAuth: true, // 判断是否需要登录
-                        rule: 'admin'
+                        rule: 'p0'
                     }
                 },
 
@@ -58,7 +58,7 @@ const router = new Router({
                     component: () => import('./views/apps/todo/Todo.vue'),
                     meta: {
                         requireAuth: true, // 判断是否需要登录
-                        rule: 'editor'
+                        rule: 'p1'
                     }
                 },
                 {
@@ -67,7 +67,16 @@ const router = new Router({
                     component: () => import('./views/apps/chat/Chat.vue'),
                     meta: {
                         requireAuth: true, // 判断是否需要登录
-                        rule: 'editor'
+                        rule: 'p1'
+                    }
+                },
+                {
+                    path: '/apps/notice',
+                    name: 'email',
+                    component: () => import('./views/apps/notice/Notice.vue'),
+                    meta: {
+                        requireAuth: true, // 判断是否需要登录
+                        rule: 'p1'
                     }
                 },
                 {
@@ -76,16 +85,25 @@ const router = new Router({
                     component: () => import('./views/apps/email/Email.vue'),
                     meta: {
                         requireAuth: true, // 判断是否需要登录
-                        rule: 'editor'
+                        rule: 'p1'
                     }
                 },
+                {
+                    path: '/apps/personalDataStatistics',
+                    name: 'email',
+                    component: () => import('./views/apps/personalDataStatistics/PersonalDataStatistics.vue'),
+                    meta: {
+                        requireAuth: true, // 判断是否需要登录
+                        rule: 'p1'
+                    }
+                },                
                 {
                     path: '/apps/calendar/vue-fullcalendar',
                     name: 'calendarFullCalendar',
                     component: () => import('./views/apps/calendar/FullCalendar.vue'),
                     meta: {
                         requireAuth: true, // 判断是否需要登录
-                        rule: 'editor'
+                        rule: 'p1'
                     }
                 },
                 {
@@ -94,7 +112,7 @@ const router = new Router({
                     component: () => import('./views/apps/calendar/SimpleCalendar.vue'),
                     meta: {
                         requireAuth: true, // 判断是否需要登录
-                        rule: 'editor'
+                        rule: 'p1'
                     }
                 },
                 {
@@ -109,7 +127,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Shop',
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -124,7 +142,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Wish List',
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -139,9 +157,18 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Checkout',
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
+                {
+                    path: '/apps/reviewToday',
+                    name: 'email',
+                    component: () => import('./views/apps/reviewToday/ReviewToday.vue'),
+                    meta: {
+                        requireAuth: true, // 判断是否需要登录
+                        rule: 'p1'
+                    }
+                }, 
         // =============================================================================
         // 内部业务
         // =============================================================================
@@ -157,7 +184,7 @@ const router = new Router({
                 ],
                 requireAuth: true, // 判断是否需要登录
                 pageTitle: '树木视频核实',
-                rule: 'editor'
+                rule: 'p1'
             },
         },
         {
@@ -172,7 +199,7 @@ const router = new Router({
                 ],
                 requireAuth: true, // 判断是否需要登录
                 pageTitle: '广电数据核实',
-                rule: 'editor'
+                rule: 'p1'
             },
         }, 
         {
@@ -187,9 +214,70 @@ const router = new Router({
                 ],
                 requireAuth: true, // 判断是否需要登录
                 pageTitle: '树木图文核实',
-                rule: 'editor'
+                rule: 'p1'
             },
         },  
+        //平台投诉
+        {
+            path: '/InternalBusiness/TreeVideo',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/PlatformComplaints/TreeVideo.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '树木视频',
+                rule: 'p3'
+            },
+        },
+        {
+            path: '/InternalBusiness/TreePictureText',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/PlatformComplaints/TreePictureText.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '树木图文',
+                rule: 'p3'
+            },
+        }, 
+        {
+            path: '/InternalBusiness/RadioTv',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/PlatformComplaints/RadioTv.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '广电',
+                rule: 'p3'
+            },
+        },
+        {
+            path: '/InternalBusiness/ComplaintRecordView',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/PlatformComplaints/ComplaintRecordView.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '投诉记录查看',
+                rule: 'p3'
+            },
+        },       
         // {
         //     path: '/InternalBusiness/DataView',
         //     name: 'DataProcessing',
@@ -202,7 +290,7 @@ const router = new Router({
         //         ],
         //         requireAuth: true, // 判断是否需要登录
         //         pageTitle: '数据查看',
-        //         rule: 'editor'
+        //         rule: 'p0'
         //     },
         // },  
         // {
@@ -217,7 +305,7 @@ const router = new Router({
         //         ],
         //         requireAuth: true, // 判断是否需要登录
         //         pageTitle: '平台分发',
-        //         rule: 'admin'
+        //         rule: 'p0'
         //     },
         // }, 
 //------------------------------------------
@@ -233,7 +321,7 @@ const router = new Router({
                 ],
                 requireAuth: true, // 判断是否需要登录
                 pageTitle: '数据查看',
-                rule: 'editor'
+                rule: 'p0'
             },
         },  
         {
@@ -248,9 +336,433 @@ const router = new Router({
                 ],
                 requireAuth: true, // 判断是否需要登录
                 pageTitle: '平台分发',
-                rule: 'admin'
+                rule: 'p0'
             },
         },
+        //数据管理
+        {
+            path: '/InternalBusiness/DataValidation',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/DataManage/DataValidation.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '数据检验',
+                rule: 'p2'
+            },
+        },
+        {
+            path: '/InternalBusiness/SampleDataManage',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/DataManage/SampleDataManage.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '样本数据管理',
+                rule: 'p2'
+            },
+        },
+        {
+            path: '/InternalBusiness/InfringeDataManage',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/DataManage/InfringeDataManage.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '侵权数据管理',
+                rule: 'p2'
+            },
+        },
+        {
+            path: '/InternalBusiness/InfrAuthorsManage',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/DataManage/InfrAuthorsManage.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '侵权作者管理',
+                rule: 'p2'
+            },
+        },        
+        //--------------  end  ----------------
+        {
+            path: '/InternalBusiness/PerforAppraisal',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/PerforAppraisal/perforAppraisal.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data View', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '绩效考核',
+                rule: 'p4'
+            },
+        }, 
+        {
+            path: '/InternalBusiness/MonthlyTarget',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/BusObjectSetting/monthlyTarget.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data View', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '月目标',
+                rule: 'p5'
+            },
+        }, 
+        {
+            path: '/InternalBusiness/WeeklyGoal',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/BusObjectSetting/weeklyGoal.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data View', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '周目标',
+                rule: 'p5'
+            },
+        },
+        {
+            path: '/InternalBusiness/DailyTarget',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/BusObjectSetting/dailyTarget.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data View', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '日目标',
+                rule: 'p5'
+            },
+        },  
+        {
+            path: '/InternalBusiness/CrawlingTaskManag',
+            name: 'DataProcessing',
+            component: () => import('@/views/InternalBusiness/CrawlingTaskManag/crawlingTaskManag.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data View', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '爬取任务管理',
+                rule: 'p3'
+            },
+        }, 
+        // 数据可视化
+        // =============================================================================
+        { 
+            path: '/DataVisualization/RealtimeDataReport',
+            name: 'DataProcessing',
+            component: () => import('@/views/DataVisualization/RealtimeDataReport.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '实时数据报表',
+                rule: 'p3'
+            },
+        },
+        { 
+            path: '/DataVisualization/MonthlyReport',
+            name: 'DataProcessing',
+            component: () => import('@/views/DataVisualization/MonthlyReport.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '日/周/月报表',
+                rule: 'p3'
+            },
+        },
+        // =============================================================================
+        // 业务培训
+        // =============================================================================
+        { 
+            path: '/BusinessTraining/Monitor',
+            name: 'DataProcessing',
+            component: () => import('@/views/BusinessTraining/Monitor.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '监测',
+                rule: 'p4'
+            },
+        },
+        { 
+            path: '/BusinessTraining/Complaint',
+            name: 'DataProcessing',
+            component: () => import('@/views/BusinessTraining/Complaint.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '投诉',
+                rule: 'p4'
+            },
+        },
+        { 
+            path: '/BusinessTraining/ObtainEvidence',
+            name: 'DataProcessing',
+            component: () => import('@/views/BusinessTraining/ObtainEvidence.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '取证',
+                rule: 'p4'
+            },
+        },
+        // =============================================================================
+        // 预警系统
+        // =============================================================================
+        { 
+            path: '/EarlyWarningSystem/DataWarning',
+            name: 'DataProcessing',
+            component: () => import('@/views/EarlyWarningSystem/DataWarning.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '数据预警',
+                rule: 'p4'
+            },
+        },
+        { 
+            path: '/BusinessTraining/BusinessWarning',
+            name: 'DataProcessing',
+            component: () => import('@/views/EarlyWarningSystem/BusinessWarning.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '业务预警',
+                rule: 'p4'
+            },
+        },
+        { 
+            path: '/BusinessTraining/SystemWarning',
+            name: 'DataProcessing',
+            component: () => import('@/views/EarlyWarningSystem/SystemWarning.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '系统预警',
+                rule: 'p4'
+            },
+        },
+        // =============================================================================
+        // 系统设置
+        // =============================================================================
+        { 
+            path: '/SystemSettings/CommonSettings',
+            name: 'DataProcessing',
+            component: () => import('@/views/SystemSettings/CommonSettings.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '常用设置',
+                rule: 'p1'
+            },
+        },
+        { 
+            path: '/SystemSettings/AboutUs',
+            name: 'DataProcessing',
+            component: () => import('@/views/SystemSettings/AboutUs.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '关于我们',
+                rule: 'p1'
+            },
+        },
+        // =============================================================================
+        // 信息管理
+        // =============================================================================
+        { 
+            path: '/InforManage/StaffInforManag',
+            name: 'DataProcessing',
+            component: () => import('@/views/InforManage/StaffInforManag.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '员工信息管理',
+                rule: 'p5'
+            },
+        },
+        {
+            path: '/InforManage/CustomerInforManag',
+            name: 'DataProcessing',
+            component: () => import('@/views/InforManage/CustomerInforManag.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '客户信息管理',
+                rule: 'p5'
+            },
+        }, 
+        {
+            path: '/InforManage/OrganizationChart',
+            name: 'DataProcessing',
+            component: () => import('@/views/InforManage/OrganizationChart.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '组织结构图',
+                rule: 'p5'
+            },
+        }, 
+        {
+            path: '/InforManage/RoleLevelManag',
+            name: 'DataProcessing',
+            component: () => import('@/views/InforManage/RoleLevelManag.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '角色等级管理',
+                rule: 'p6'
+            },
+        }, 
+//-----------------------------------------
+        // 对外业务   字节跳动
+        // =============================================================================
+        { 
+            path: '/ByteBounce/TaskManagement',
+            name: 'DataProcessing',
+            component: () => import('@/views/ByteBounce/TaskManagement.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '任务管理',
+                rule: 'p4'
+            },
+        },
+        {
+            path: '/ByteBounce/DataSynchronization',
+            name: 'DataProcessing',
+            component: () => import('@/views/ByteBounce/DataSynchronization.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '数据同步',
+                rule: 'p4'
+            },
+        }, 
+        {
+            path: '/ByteBounce/DataQuery',
+            name: 'DataProcessing',
+            component: () => import('@/views/ByteBounce/DataQuery.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '数据查询',
+                rule: 'p4'
+            },
+        }, 
+        {
+            path: '/ByteBounce/SendingLetters',
+            name: 'DataProcessing',
+            component: () => import('@/views/ByteBounce/SendingLetters.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Data List'},
+                    { title: 'Data Processing', active: true },
+                ],
+                requireAuth: true, // 判断是否需要登录
+                pageTitle: '协助发函',
+                rule: 'p4'
+            },
+        }, 
 //-----------------------------------------
         // {
         //     path: '/ui-elements/data-list/thumb-view',
@@ -263,7 +775,7 @@ const router = new Router({
         //             { title: 'Thumb View', active: true },
         //         ],
         //         pageTitle: 'Thumb View',
-        //         rule: 'editor'
+        //         rule: 'p0'
         //     },
         // },
         // {
@@ -277,7 +789,7 @@ const router = new Router({
         //             { title: 'Vuesax', active: true },
         //         ],
         //         pageTitle: 'Grid',
-        //         rule: 'editor'
+        //         rule: 'p0'
         //     },
         // },
         // =============================================================================        
@@ -295,7 +807,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'List View',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -310,7 +822,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Thumb View',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -325,7 +837,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Grid',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -340,7 +852,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Tailwind Grid',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -354,7 +866,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Colors',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -369,7 +881,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Basic Cards',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -384,7 +896,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Statistics Card',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -399,7 +911,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Analytics Card',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -414,7 +926,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Card Actions',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -429,7 +941,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Card Colors',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -443,7 +955,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Table',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -457,7 +969,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'agGrid Table',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
 
@@ -476,7 +988,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Alert',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -491,7 +1003,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Avatar',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -506,7 +1018,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Breadcrumb',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -521,7 +1033,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Button',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -536,7 +1048,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Button Group',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -551,7 +1063,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Chip',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -566,7 +1078,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Collapse',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -581,7 +1093,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Dialogs',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -596,7 +1108,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Divider',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -611,7 +1123,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Dropdown',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -626,7 +1138,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'List',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -641,7 +1153,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Loading',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -656,7 +1168,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Navbar',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -671,7 +1183,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Notifications',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -686,7 +1198,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Pagination',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -701,7 +1213,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Popup',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -716,7 +1228,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Progress',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -731,7 +1243,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Sidebar',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -746,7 +1258,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Slider',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -761,7 +1273,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Tabs',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -776,7 +1288,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Tooltip',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -791,7 +1303,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Upload',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
 
@@ -814,7 +1326,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Select',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -829,7 +1341,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Switch',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -844,7 +1356,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Checkbox',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -859,7 +1371,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Radio',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -874,7 +1386,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Input',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -889,7 +1401,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Number Input',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -904,7 +1416,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Textarea',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
         // -------------------------------------------------------------------------------------------------------------------------------------------
@@ -920,7 +1432,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Form Layouts',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -935,7 +1447,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Form Wizard',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -950,7 +1462,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Form Validation',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -965,7 +1477,7 @@ const router = new Router({
                       ],
                       requireAuth: true, // 判断是否需要登录
                       pageTitle: 'Form Input Group',
-                      rule: 'editor'
+                      rule: 'p0'
                   },
                 },
 
@@ -984,7 +1496,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Profile',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -999,7 +1511,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'FAQ',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1014,7 +1526,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'KnowledgeBase',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1029,7 +1541,7 @@ const router = new Router({
                             { title: 'Category', active: true },
                         ],
                         requireAuth: true, // 判断是否需要登录
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1045,7 +1557,7 @@ const router = new Router({
                             { title: 'Question', active: true },
                         ],
                         requireAuth: true, // 判断是否需要登录
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1060,7 +1572,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Search',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1075,7 +1587,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Invoice',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
 
@@ -1094,7 +1606,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Apex Charts',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1109,7 +1621,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'chartjs',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1124,7 +1636,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'echarts',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1139,7 +1651,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Google Map',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
 
@@ -1160,7 +1672,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Select',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1175,7 +1687,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Quill Editor',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1190,7 +1702,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Drag & Drop',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1205,7 +1717,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Datepicker',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1220,7 +1732,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Datetime Picker',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 { 
@@ -1236,7 +1748,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Editor View',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1252,7 +1764,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Admin View',
-                        rule: 'admin'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1267,7 +1779,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'I18n',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1282,7 +1794,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Carousel',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1297,7 +1809,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Clipboard',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1312,7 +1824,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Context Menu',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1327,7 +1839,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Star Ratings',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1342,7 +1854,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Autocomplete',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
                 {
@@ -1357,7 +1869,7 @@ const router = new Router({
                         ],
                         requireAuth: true, // 判断是否需要登录
                         pageTitle: 'Tree',
-                        rule: 'editor'
+                        rule: 'p0'
                     },
                 },
             ],
@@ -1377,7 +1889,7 @@ const router = new Router({
                     name: 'authCallback',
                     component: () => import('@/views/Callback.vue'),
                     meta: {
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -1385,7 +1897,7 @@ const router = new Router({
                     name: 'pageLogin',
                     component: () => import('@/views/pages/Login.vue'),
                     meta: {
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -1393,7 +1905,7 @@ const router = new Router({
                     name: 'pageRegister',
                     component: () => import('@/views/pages/Register.vue'),
                     meta: {
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -1401,7 +1913,7 @@ const router = new Router({
                     name: 'pageForgotPassword',
                     component: () => import('@/views/pages/ForgotPassword.vue'),
                     meta: {
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -1409,7 +1921,7 @@ const router = new Router({
                     name: 'pageResetPassword',
                     component: () => import('@/views/pages/ResetPassword.vue'),
                     meta: {
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -1417,7 +1929,7 @@ const router = new Router({
                     name: 'pageLockScreen',
                     component: () => import('@/views/pages/LockScreen.vue'),
                     meta: {
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -1425,7 +1937,7 @@ const router = new Router({
                     name: 'pageComingSoon',
                     component: () => import('@/views/pages/ComingSoon.vue'),
                     meta: {
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -1433,7 +1945,7 @@ const router = new Router({
                     name: 'pageError404',
                     component: () => import('@/views/pages/Error404.vue'),
                     meta: {
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -1441,7 +1953,7 @@ const router = new Router({
                     name: 'pageError500',
                     component: () => import('@/views/pages/Error500.vue'),
                     meta: {
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -1449,7 +1961,7 @@ const router = new Router({
                     name: 'pageNotAuthorized',
                     component: () => import('@/views/pages/NotAuthorized.vue'),
                     meta: {
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
                 {
@@ -1457,7 +1969,7 @@ const router = new Router({
                     name: 'pageMaintenance',
                     component: () => import('@/views/pages/Maintenance.vue'),
                     meta: {
-                        rule: 'editor'
+                        rule: 'p0'
                     }
                 },
             ]
