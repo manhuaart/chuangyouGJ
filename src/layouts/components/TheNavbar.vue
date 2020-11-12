@@ -422,7 +422,7 @@ export default {
         },
         logout() {
             axios.get(this.url+'/chuangyouHome/login_out/').then(res => {
-                     console.log(res)
+                    //  console.log(res)
                      if(res.data.Status=='ok'){
                              this.$router.push('/pages/login'),
                              sessionStorage.removeItem('token');

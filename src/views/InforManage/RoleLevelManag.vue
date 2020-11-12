@@ -2,25 +2,6 @@
 <!-- 角色等级管理 -->
   <div class="app-container">
   <el-form>   
-      <el-form style="width:100%;display: flex;">
-        <el-form-item  style="margin-left:8px;">
-            <el-select v-model="projectFind" placeholder="请选择" clearable>
-                <el-option  v-for="item in projects" :key="item.value" :label="item.label" :value="item.value" >
-                </el-option>
-            </el-select>
-        </el-form-item>          
-        <div class="block" style="margin-left:8px;">
-          <el-date-picker  v-model="timenode" 
-              placeholder="选择日期"
-              type="date" 
-              align="right" >
-          </el-date-picker>
-        </div>
-        <el-form-item>
-        <el-button type="primary" icon="el-icon-search"  size="mini" @click="handleQuery('tdata','1')"  style="margin-left:8px;">查询</el-button>        
-        <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>     
-      </el-form-item>
-      </el-form>
       <el-form-item>
         <div class="letf-items" style="float: left;">
           <el-button

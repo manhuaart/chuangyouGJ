@@ -93,7 +93,6 @@ export default {
                        sessionStorage.setItem('head_img',response.data.user_info.head_img)
                        sessionStorage.setItem('sex',response.data.user_info.sex)
                        sessionStorage.setItem('username',response.data.user_info.username)
-                       sessionStorage.setItem('level_cy',response.data.user_info.level_cy)  //权限验证依据
                      // 关于权限
                     //    this.$acl.change(response.data.user_info.username)
                     //    this.$store.dispatch('updateUserRole', response.data.user_info.username)

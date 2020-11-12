@@ -25,7 +25,6 @@
                     <!-- -------------strat--------------- -->
                         <!-- 组项目标题 -->
                         <span :key="`header-${index}`" v-if="sidebarItem.header && !sidebarItemsMin" v-show="levelCy>=sidebarItem.levelCy  || levelCy0==sidebarItem.levelCy0"   class="navigation-header truncate">
-                        <!-- <span :key="`header-${index}`" v-if="sidebarItem.header && !sidebarItemsMin" v-show="levelCy>=sidebarItem.levelCy  || levelCy6==sidebarItem.levelCy6"   class="navigation-header truncate"> -->
                             {{ $t(sidebarItem.i18n) || sidebarItem.header }}
                         </span>
                     <!-- //------------end-------------    -->

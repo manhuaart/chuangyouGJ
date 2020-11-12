@@ -7,6 +7,8 @@ export default [
     tagColor: "warning",
     icon: "HomeIcon",
     i18n: "Dashboard",
+    levelCy:1, 
+    levelCy0:'p0' ,
     submenu: [
       {
         url: '/dashboard/analytics',
@@ -33,7 +35,7 @@ export default [
     url: "/apps/notice",
     name: "Notice",
     slug: "notice",
-    icon: "MailIcon",
+    icon: "AtSignIcon",
     i18n: "Notice",
   },
   {
@@ -47,7 +49,7 @@ export default [
     url: "/apps/personalDataStatistics",
     name: "PersonalDataStatistics",
     slug: "personalDataStatistics",
-    icon: "MailIcon",
+    icon: "BarChart2Icon",
     i18n: "PersonalDataStatistics",
   },  
   // {
@@ -92,7 +94,7 @@ export default [
     url: "/apps/reviewToday",  
     name: "Chat",
     slug: "chat",
-    icon: "MessageSquareIcon",
+    icon: "AirplayIcon", 
     i18n: "ReviewToday",
   },
   // {
@@ -135,7 +137,7 @@ export default [
     name: "Data List",
     slug: "dataList",
     tagColor: "primary",
-    icon: "ListIcon",
+    icon: "ActivityIcon",
     i18n: "DataProcessing",
     levelCy:1, //
     levelCy0:'p0' ,       
@@ -160,7 +162,7 @@ export default [
     name: "Data List",
     slug: "dataList",
     tagColor: "primary",
-    icon: "ListIcon",
+    icon: "ClipboardIcon",
     i18n: "DaskAllocation",
     levelCy:4, //
     levelCy0:'p0' ,          
@@ -184,9 +186,8 @@ export default [
     url: null,
     name: "Data List",
     slug: "dataList",
-    // tag: "new",
     tagColor: "primary",
-    icon: "LayoutIcon",
+    icon: "GridIcon",
     i18n: "ManualVerification",
     levelCy:1, //
     levelCy0:'p0' ,          
@@ -218,7 +219,7 @@ export default [
     slug: "dataList",
     // tag: "new",
     tagColor: "primary",
-    icon: "CreditCardIcon",
+    icon: "AlertOctagonIcon",
     i18n: "PlatformComplaints",
     levelCy:3, //
     levelCy0:'p0' ,          
@@ -256,7 +257,7 @@ export default [
     slug: "dataList",
     // tag: "new",
     tagColor: "primary",
-    icon: "ListIcon",
+    icon: "FolderIcon",
     i18n: "DataManage",
     levelCy:2, //
     levelCy0:'p0' ,          
@@ -293,7 +294,7 @@ export default [
     name: "Data List",
     slug: "dataList",
     tagColor: "primary",
-    icon: "ListIcon",
+    icon: "FileTextIcon",
     i18n: "PerformanceAppraisal",
   },  
   //业务目标制定
@@ -302,7 +303,7 @@ export default [
     name: "Data List",
     slug: "dataList",
     tagColor: "primary",
-    icon: "ListIcon",
+    icon: "TargetIcon",
     i18n: "BusObjectSetting",
     levelCy:5, //
     levelCy0:'p0' ,              
@@ -333,7 +334,7 @@ export default [
     name: "Data List",
     slug: "dataList",
     tagColor: "primary",
-    icon: "ListIcon",
+    icon: "AnchorIcon",
     i18n: "CrawlingTaskManagement",
   },
   // ------------------------------  
@@ -349,9 +350,8 @@ export default [
     url: '/DataVisualization/RealtimeDataReport',
     name: "Data List",
     slug: "dataList",
-    // tag: "new",
     tagColor: "primary",
-    icon: "ListIcon",
+    icon: "ApertureIcon",
     i18n: "RealtimeDataReport",
   },
   //日/周/月报表
@@ -359,9 +359,8 @@ export default [
     url: '/DataVisualization/MonthlyReport',
     name: "Data List",
     slug: "dataList",
-    // tag: "new",
     tagColor: "primary",
-    icon: "LayoutIcon",
+    icon: "ArrowDownCircleIcon",
     i18n: "MonthlyReport",
   },
   // ------------------------------ 
@@ -378,7 +377,7 @@ export default [
     name: "Data List",
     slug: "dataList",
     tagColor: "primary",
-    icon: "ListIcon",
+    icon: "AlertTriangleIcon",
     i18n: "Monitor",
   },
   //投诉
@@ -387,7 +386,7 @@ export default [
     name: "Data List",
     slug: "dataList",
     tagColor: "primary",
-    icon: "ListIcon",
+    icon: "ArchiveIcon",
     i18n: "Complaint",
   }, 
   //取证
@@ -396,7 +395,7 @@ export default [
     name: "Data List",
     slug: "dataList",
     tagColor: "primary",
-    icon: "ListIcon",
+    icon: "ArrowDownRightIcon",
     i18n: "ObtainEvidence",
   },  
   //------------预警系统------------
@@ -411,7 +410,7 @@ export default [
     url: "/EarlyWarningSystem/DataWarning",
     name: "Data List",
     slug: "dataList",
-    icon: "ListIcon",
+    icon: "ClockIcon",
     i18n: "DataWarning",
   },
   //业务预警 
@@ -419,7 +418,7 @@ export default [
     url: "/BusinessTraining/BusinessWarning",
     name: "Data List",
     slug: "dataList",
-    icon: "ListIcon",
+    icon: "BellIcon",
     i18n: "BusinessWarning",
   },
   //系统预警 
@@ -427,7 +426,7 @@ export default [
     url: "/BusinessTraining/SystemWarning",
     name: "Data List",
     slug: "dataList",
-    icon: "ListIcon",
+    icon: "CastIcon",
     i18n: "SystemWarning",
   },  
   // ------------------------------ 
@@ -451,7 +450,7 @@ export default [
     url: "/SystemSettings/AboutUs",
     name: "Data List",
     slug: "dataList",
-    icon: "LifeBuoyIcon",
+    icon: "MoreHorizontalIcon",
     i18n: "AboutUs",
   },
   // ------------------------------  
@@ -467,7 +466,7 @@ export default [
     url: "/InforManage/StaffInforManag",
     name: "Data List",
     slug: "dataList",
-    icon: "UserIcon",
+    icon: "UsersIcon",
     i18n: "StaffInforManag",
   },
   //客户信息管理
@@ -475,7 +474,7 @@ export default [
     url: "/InforManage/CustomerInforManag",
     name: "Data List",
     slug: "dataList",
-    icon: "HelpCircleIcon",
+    icon: "UserPlusIcon",
     i18n: "CustomerInforManag",
   },
   //组织结构图
@@ -483,7 +482,7 @@ export default [
     url: "/InforManage/OrganizationChart",
     name: "Data List",
     slug: "dataList",
-    icon: "InfoIcon",
+    icon: "CropIcon",
     i18n: "OrganizationChart",
   },
   //角色&等级管理
@@ -491,7 +490,7 @@ export default [
     url: "/InforManage/RoleLevelManag",
     name: "Data List",
     slug: "dataList",
-    icon: "ListIcon",
+    icon: "TriangleIcon",
     i18n: "RoleLevelManag",
   },
   // //树状结构图
