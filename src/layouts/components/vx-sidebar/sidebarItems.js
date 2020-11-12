@@ -1,28 +1,13 @@
 export default [
   {
-    url: null,
+    url: '/dashboard/analytics',
     name: "Dashboard",
     slug: "dashboard",
-    tag: "1",
     tagColor: "warning",
     icon: "HomeIcon",
     i18n: "Dashboard",
     levelCy:1, 
     levelCy0:'p0' ,
-    submenu: [
-      {
-        url: '/dashboard/analytics',
-        name: "Analytics",
-        slug: "dashboardAnalytics",
-        i18n: "Analytics",
-      },
-      //电子商务 {
-      //   url: '/dashboard/ecommerce',
-      //   name: "eCommerce",
-      //   slug: "dashboardECommerce",
-      //   i18n: "eCommerce",
-      // },
-    ]
   },
   {
     header: "Apps",

@@ -102,7 +102,7 @@ export default {
 		Card: '卡',
 		Basic: 'Basic',
 		Statistics: 'Statistics',
-		Analytics: 'Analytics',
+		Analytics: '主页',
 		CardActions: 'Card Actions',
     CardColors: 'Card Colors',
 		Table: '表',

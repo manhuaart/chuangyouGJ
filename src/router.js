@@ -33,15 +33,15 @@ const router = new Router({
                         rule: 'p0'
                     }
                 },
-                {
-                    path: '/dashboard/ecommerce',
-                    name: 'dashboardECommerce',
-                    component: () => import('./views/DashboardECommerce.vue'),
-                    meta: {
-                        requireAuth: true, // 判断是否需要登录
-                        rule: 'p0'
-                    }
-                },
+                // {
+                //     path: '/dashboard/ecommerce',
+                //     name: 'dashboardECommerce',
+                //     component: () => import('./views/DashboardECommerce.vue'),
+                //     meta: {
+                //         requireAuth: true, // 判断是否需要登录
+                //         rule: 'p0'
+                //     }
+                // },
 
 
         // =============================================================================

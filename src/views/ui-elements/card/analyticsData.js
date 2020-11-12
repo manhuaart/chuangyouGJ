@@ -6,7 +6,7 @@
 	Author: Pixinvent
 	Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
-
+ 
 
 export default {
     // LINE CHART
@@ -537,65 +537,69 @@ export default {
             },
         }
     },
-    // RADIAL BAR
-    goalOverviewRadialBar: {
-        series: [83],
-        chartOptions: {
-            plotOptions: {
-                radialBar: {
-                    size: 110,
-                    startAngle: -150,
-                    endAngle: 150,
-                    hollow: {
-                        size: '77%',
-                    },
-                    track: {
-                        background: "#bfc5cc",
-                        strokeWidth: '50%',
-                    },
-                    dataLabels: {
-                        name: {
-                            show: false
-                        },
-                        value: {
-                            offsetY: 18,
-                            color: '#99a2ac',
-                            fontSize: '4rem'
-                        }
-                    }
-                }
-            },
-            colors: ['#00db89'],
-            fill: {
-                type: 'gradient',
-                gradient: {
-                    shade: 'dark',
-                    type: 'horizontal',
-                    shadeIntensity: 0.5,
-                    gradientToColors: ['#00b5b5'],
-                    inverseColors: true,
-                    opacityFrom: 1,
-                    opacityTo: 1,
-                    stops: [0, 100]
-                },
-            },
-            stroke: {
-                lineCap: 'round'
-            },
-            chart: {
-                sparkline: {
-                    enabled: true,
-                },
-                dropShadow: {
-                    enabled: true,
-                    blur: 3,
-                    left: 1,
-                    top: 1,
-                    opacity: 0.1
-                },
-            },
-        }
-    },
+    // 项目完成度
+    // goalOverviewRadialBar: {
+    //     series: [66],
+    //     chartOptions: {
+    //         plotOptions: {
+    //             radialBar: {
+    //                 size: 110,
+    //                 startAngle: -150,
+    //                 endAngle: 150,
+    //                 hollow: {
+    //                     size: '77%',
+    //                 },
+    //                 track: {
+    //                     background: "#6BFFF5",  //弧形背景颜色
+    //                     // background: "#bfc5cc",
+    //                     strokeWidth: '50%',
+    //                 },
+    //                 dataLabels: {
+    //                     name: {
+    //                         show: false
+    //                     },
+    //                     value: {
+    //                         offsetY: 18,
+    //                         color: '#99a2ac', //字体颜色
+    //                         fontSize: '4rem'
+    //                     }
+    //                 }
+    //             }
+    //         },
+    //         colors: ['color: rgba(var(--vs-primary), 1)'],  //尾部渐变色
+    //         // colors: ['#00db89'],
+    //         fill: {
+    //             type: 'gradient',
+    //             gradient: {
+    //                 shade: 'dark',
+    //                 type: 'horizontal',
+    //                 shadeIntensity: 0.5,
+    //                 // gradientToColors: ['#00b5b5'],
+    //                 gradientToColors: ['#CB6BFF'],  //头部渐变色 
+    //                 inverseColors: true,
+    //                 opacityFrom: 1,
+    //                 opacityTo: 1,
+    //                 stops: [0, 100]
+    //             },
+    //         },
+    //         stroke: {
+    //             lineCap: 'round'
+    //         },
+    //         chart: {
+    //             sparkline: {
+    //                 enabled: true,
+    //             },
+    //             dropShadow: {
+    //                 enabled: true,
+    //                 blur: 3,
+    //                 left: 1,
+    //                 top: 1,
+    //                 opacity: 0.1
+    //             },
+    //         },
+    //     }
+    // },
+//----------------------------------------------
     supportTrackerRadialBar: {
         chartData: {
             totalTickets: 163,
@@ -1015,26 +1019,26 @@ export default {
             },
         }
     },
-    // OTHER
+    // 项目下线率
     browserAnalytics: [{
             id: 1,
             name: '广电',
-            ratio: 73,
-            time: 'Mon Dec 10 2018 07:46:05 GMT+0000 (GMT)',
+            ratio: 85,
+            time: 'Mon Dec 10 2020 07:46:05 GMT+0000 (GMT)',
             comparedResult: '800'
         },
         {
             id: 3,
             name: '树木视频',
-            ratio: 8,
-            time: 'Mon Dec 10 2018 07:46:05 GMT+0000 (GMT)',
+            ratio: 10,
+            time: 'Mon Dec 10 2020 09:46:05 GMT+0000 (GMT)',
             comparedResult: '-200'
         },
         {
             id: 2,
             name: '树木图文',
-            ratio: 19,
-            time: 'Mon Dec 10 2018 07:46:05 GMT+0000 (GMT)',
+            ratio: 25,
+            time: 'Mon Dec 10 2020 10:46:05 GMT+0000 (GMT)',
             comparedResult: '100'
         }
     ],
