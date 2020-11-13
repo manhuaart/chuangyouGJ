@@ -48,6 +48,12 @@ const mutations = {
         localStorage.setItem('levelCy', val)
     }, 
 //-----------------------------------------------   
+//-----------------------------------------
+    UPDATE_BRANCH(state, val) {
+        state.branch = val
+        localStorage.setItem('branch', val)
+    }, 
+//-----------------------------------------------  
     // UPDATE_STATUS_CHAT(state, value) {
     //     state.AppActiveUser.status = value;
     // },

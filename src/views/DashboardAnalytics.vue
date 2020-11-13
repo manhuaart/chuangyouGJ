@@ -39,7 +39,7 @@
                <div class="vx-col w-full lg:w-2/3 mb-base">
             <!-- <div class="vx-col w-full md:w-1/2 lg:w-1/2 xl:w-1/2  mb-base"> -->
                 <vx-card title="项目下线率">
-                    <div v-for="(browser, index) in analyticsData.browserAnalytics" :key="browser.id" :class="{'mt-4': index}">
+                    <div v-for="(browser, index) in browserAnalytics" :key="browser.id" :class="{'mt-4': index}">
                         <div class="flex justify-between">
                             <div class="flex flex-col">
                                 <span class="mb-1">{{ browser.name }}</span>
@@ -175,11 +175,32 @@ export default {
                 'tbody: Slot',
                 'header: Slot'
             ],
-
-
+    // 项目下线率
+    browserAnalytics: [{
+            id: 1,
+            name: '广电',
+            ratio: 85,
+            time: 'Mon Dec 10 2020 07:46:05 GMT+0000 (GMT)',
+            comparedResult: '800'
+        },
+        {
+            id: 3,
+            name: '树木视频',
+            ratio: 15,
+            time: 'Mon Dec 10 2020 09:46:05 GMT+0000 (GMT)',
+            comparedResult: '-200'
+        },
+        {
+            id: 2,
+            name: '树木图文',
+            ratio: 25,
+            time: 'Mon Dec 10 2020 10:46:05 GMT+0000 (GMT)',
+            comparedResult: '100'
+        }
+    ],
             // 项目完成度
     goalOverviewRadialBar: {
-        series: [66],
+        series: [65],
         chartOptions: {
             plotOptions: {
                 radialBar: {

@@ -1018,28 +1018,5 @@ export default {
                 x: { show: false }
             },
         }
-    },
-    // 项目下线率
-    browserAnalytics: [{
-            id: 1,
-            name: '广电',
-            ratio: 85,
-            time: 'Mon Dec 10 2020 07:46:05 GMT+0000 (GMT)',
-            comparedResult: '800'
-        },
-        {
-            id: 3,
-            name: '树木视频',
-            ratio: 10,
-            time: 'Mon Dec 10 2020 09:46:05 GMT+0000 (GMT)',
-            comparedResult: '-200'
-        },
-        {
-            id: 2,
-            name: '树木图文',
-            ratio: 25,
-            time: 'Mon Dec 10 2020 10:46:05 GMT+0000 (GMT)',
-            comparedResult: '100'
-        }
-    ],
+    }, 
 }

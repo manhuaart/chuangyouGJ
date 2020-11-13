@@ -33,7 +33,13 @@ const actions = {
     updateLevelCy({ commit }, val) {
       commit('UPDATE_LEVEL_CY', val);
     }, 
-//---------------------------------------   
+//---------------------------------------  
+//--------------------------------------
+    updateBranch({ commit }, val) {
+      commit('UPDATE_BRANCH', val);
+    }, 
+//---------------------------------------  
+
     updateWindowWidth({ commit }, width) {
       commit('UPDATE_WINDOW_WIDTH', width);
     },

@@ -65,12 +65,14 @@ export default [
     //     name: "Simple Calendar",
     //     slug: "calendarSimpleCalendar",
     //     i18n: "SimpleCalendar",
+          //
     //   },
     //   {
     //     url: '/apps/calendar/vue-fullcalendar',
     //     name: "Full Calendar",
     //     slug: "calendarFullCalendar",
     //     i18n: "FullCalendar",
+    //        
     //   }
     // ]
   },
@@ -123,7 +125,7 @@ export default [
     tagColor: "primary",
     icon: "ActivityIcon",
     i18n: "DataProcessing",
-    levelCy:1, //
+    levelCy:1, 
     levelCy0:'p0' ,       
     submenu: [
       {
@@ -131,12 +133,15 @@ export default [
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "TextRuleFiltering",
+        branchMax:'max'    
+
       },
       {
         url: '/InternalBusiness/VideoContentFiltering',
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "VideoContentFiltering",
+        branchMax:'max'        
       },      
     ]
   },
@@ -156,12 +161,14 @@ export default [
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "dataView",
+        branchMax:'max'       
       },
       {
         url: '/InternalBusiness/PlatformDistribute',
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "PlatformDistribute",
+        branchMax:'max'   
       },      
     ]
   },
@@ -181,18 +188,24 @@ export default [
         name: "Data Processing",
         slug: "DataProcessing",
         i18n: "ListViewMMMM",
+        branch:'shumu',
+        branchMax2:'max'  
       },
       {
         url: '/InternalBusiness/Guangdian',
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "LMMMMMMM",
+        branch:'tv',
+        branchMax2:'max'  
       },
       {
         url: '/InternalBusiness/Tuwen',
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "LMMMMMMMNNNNN",
+        branch:'tw',
+        branchMax2:'max'  
       },
     ]
   },
@@ -213,24 +226,28 @@ export default [
         name: "List View",
         slug: "dataListListView",
         i18n: "TreeVideo",
+        branchMax:'max'        
       },
       {
         url: '/InternalBusiness/TreePictureText',
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "TreePictureText",
+        branchMax:'max'        
       },
       {
         url: '/InternalBusiness/RadioTv',
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "RadioTv",
+        branchMax:'max'        
       },
       {
         url: '/InternalBusiness/ComplaintRecordView',
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "ComplaintRecordView",
+        branchMax:'max'        
       },      
     ]
   },
@@ -251,24 +268,28 @@ export default [
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "DataValidation",
+        branchMax:'max'        
       },
       {
         url: '/InternalBusiness/SampleDataManage',
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "SampleDataManage",
+        branchMax:'max'       
       },
       {
         url: '/InternalBusiness/InfringeDataManage',
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "InfringeDataManage",
+        branchMax:'max'       
       },   
       {
         url: '/InternalBusiness/InfrAuthorsManage',
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "InfrAuthorsManage",
+        branchMax:'max'        
       },                 
     ]
   },  
@@ -297,18 +318,21 @@ export default [
         name: "List View",
         slug: "dataListListView",
         i18n: "MonthlyTarget",
+        branchMax:'max'       
       },
       {
         url: '/InternalBusiness/WeeklyGoal',
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "WeeklyGoal",
+        branchMax:'max'       
       },
       {
         url: '/InternalBusiness/DailyTarget',
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "DailyTarget",
+        branchMax:'max'     
       },
     ] 
   },    
@@ -526,6 +550,7 @@ export default [
         name: "List View",
         slug: "dataListListView",
         i18n: "TaskManagement",
+        branchMax:'max'        
       },
       //数据同步
       {
@@ -533,6 +558,7 @@ export default [
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "DataSynchronization",
+        branchMax:'max'        
       },
       //数据查询
       {
@@ -540,6 +566,7 @@ export default [
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "DataQuery",
+        branchMax:'max'        
       },
       //协助发函
       {
@@ -547,6 +574,7 @@ export default [
         name: "Thumb View",
         slug: "dataListThumbView",
         i18n: "SendingLetters",
+        branchMax:'max'        
       },      
     ]
   },

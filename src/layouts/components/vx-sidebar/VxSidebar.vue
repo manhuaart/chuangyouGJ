@@ -77,8 +77,8 @@ export default {
         }
     },
     data: () => ({
-        levelCy0:localStorage.getItem('levelCy'),  
         levelCy:localStorage.getItem('levelCy').substr(localStorage.getItem('levelCy').length-1,1),
+        levelCy0:localStorage.getItem('levelCy'),  
         // levelCy:localStorage.getItem('levelCy'),
         clickNotClose: false, // disable close sidebar on outside click
         reduce: false, // determines if sidebar is reduce - component property

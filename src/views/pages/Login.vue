@@ -88,8 +88,7 @@ export default {
                           type: 'success',
                           offset:92,
                           duration: 2000
-                        }); 
-                        // axios.defaults.headers['token'] = sessionStorage.getItem('token')
+                        });  
                        sessionStorage.setItem('token',response.data.token)
                        axios.defaults.headers['token'] = sessionStorage.getItem('token')
                        
@@ -97,12 +96,12 @@ export default {
                        sessionStorage.setItem('sex',response.data.user_info.sex)
                        sessionStorage.setItem('username',response.data.user_info.username)
                      // 关于权限
-                    //    this.$acl.change(response.data.user_info.username)
-                    //    this.$store.dispatch('updateUserRole', response.data.user_info.username)
+                     //    this.$acl.change(response.data.user_info.username)
+                     //    this.$store.dispatch('updateUserRole', response.data.user_info.username)
                      // 关于权限
                        this.$acl.change(response.data.user_info.level_cy)
                        this.$store.dispatch('updateLevelCy', response.data.user_info.level_cy)
-
+                       this.$store.dispatch('updateBranch', response.data.user_info.branch)
                        if(this.$route.query.redirect){
                        　　let redirect = this.$route.query.redirect;
                           this.$router.push(redirect);
