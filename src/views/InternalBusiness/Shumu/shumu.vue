@@ -298,72 +298,7 @@ export default {
                         label: '大河人物',
                     }
                 ],
-                platforms: [
-                    {
-                        value: 'tengxun',
-                        label: '腾讯视频',
-                    },
-                    {
-                        value: 'aqiyi',
-                        label: '爱奇艺',
-                    },
-                    {
-                        value: 'bilibili',
-                        label: 'bilibili',
-                    },
-                    {
-                        value: 'fenghuang',
-                        label: '凤凰视频',
-                    },
-                    {
-                        value: 'haokan',
-                        label: '好看视频',
-                    },
-                    {
-                        value: 'li',
-                        label: '梨视频',
-                    },
-                    {
-                        value: 'sohu',
-                        label: '搜狐视频',
-                    },
-                    {
-                        value: 'tudou',
-                        label: '土豆',
-                    },
-                    {
-                        value: 'weibo',
-                        label: '微博',
-                    },
-                    {
-                        value: 'youku',
-                        label: '优酷',
-                    },
-                    {
-                        value: 'wangyi',
-                        label: '网易视频',
-                    },
-                    {
-                        value: 'sina',
-                        label: '新浪新闻',
-                    },
-                    {
-                        value: 'qutt',
-                        label: '趣头条',
-                    },
-                    {
-                        value: 'kuaishou',
-                        label: '快手',
-                    },
-                    {
-                        value: 'weishi',
-                        label: '微视',
-                    },
-                    {
-                        value: 'yidian',
-                        label: '一点资讯',
-                    }
-                ]
+                platforms:[]
             }],
 //-----------------------------------------------------------------------------------------------------------------
       mealIds: '',
@@ -399,6 +334,23 @@ export default {
       project: function () {
           for (let index in this.projects) {
               if (this.projects[index].value == this.project) {
+                  var pro=this.projects[index].platforms
+                  console.log(pro.length)
+                  if(this.projects[index].platforms.length<1){
+                      // 开始请求数据    
+                     axios.get(this.url+'/data_Manipulation/select_plat/',
+                      {   
+                       headers: { "token": sessionStorage.getItem('token')  }
+                     }).then(res => {  
+                            console.log(this.projects[index].platforms)  
+                            console.log(res.data)  
+                            let array=res.data;
+                            array.forEach(index => {
+                                    pro.push(index)
+                                
+                            });
+                     }) 
+                  } 
                   this.platformList = this.projects[index].platforms
                   this.worksList = this.projects[index].works
               }
@@ -654,6 +606,11 @@ export default {
                   });
               }
           }
+           this.project = ''
+          this.platform = ''
+          this.work = ''
+          this.dateList = ''
+          this.project =''
           for (const index in res.data.content) {
               if (this.project == "tv") {
                   res.data.content[index].sample_title = ""

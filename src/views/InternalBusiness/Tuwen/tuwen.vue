@@ -295,47 +295,7 @@ export default {
                         label: '北青深一度',
                     },
                 ],
-                platforms: [{
-                    value: 'baidu',
-                    label: '百度系',
-                },
-                    {
-                        value: 'uc',
-                        label: 'UC系',
-                    },
-                    {
-                        value: 'sohu',
-                        label: '搜狐系',
-                    },
-                    {
-                        value: 'tengxun',
-                        label: '腾讯系',
-                    },
-                    {
-                        value: 'fenghuang',
-                        label: '凤凰新闻',
-                    },
-                    {
-                        value: 'wxgzh',
-                        label: '微信公众号',
-                    },
-                    {
-                        value: 'yidian',
-                        label: '一点资讯',
-                    },
-                    {
-                        value: 'wangyi',
-                        label: '网易新闻',
-                    },
-                    {
-                        value: 'sina',
-                        label: '新浪新闻',
-                    },
-                    {
-                        value: 'qutt',
-                        label: '趣头条',
-                    },
-                ]
+                platforms: [ ]
             }],
 //-----------------------------------------------------------------------------------------------------------------
       mealIds: '',
@@ -373,6 +333,23 @@ export default {
       project: function () {
           for (let index in this.projects) {
               if (this.projects[index].value == this.project) {
+                  var pro=this.projects[index].platforms
+                  console.log(pro.length)
+                  if(this.projects[index].platforms.length<1){
+                      // 开始请求数据    
+                     axios.get(this.url+'/data_Manipulation/select_plat/',
+                      {   
+                       headers: { "token": sessionStorage.getItem('token')  }
+                     }).then(res => {  
+                            console.log(this.projects[index].platforms)  
+                            console.log(res.data)  
+                            let array=res.data;
+                            array.forEach(index => {
+                                    pro.push(index)
+                                
+                            });
+                     }) 
+                  } 
                   this.platformList = this.projects[index].platforms
                   this.worksList = this.projects[index].works
               }
@@ -625,6 +602,10 @@ export default {
                   });
               }
           }
+          this.project = ''
+          this.platform = ''
+          this.work = ''
+          this.dateList = ''
           for (const index in res.data.content) {
               if (this.project == "tv") {
                   res.data.content[index].sample_title = ""

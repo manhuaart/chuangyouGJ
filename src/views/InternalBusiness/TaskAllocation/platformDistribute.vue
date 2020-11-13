@@ -51,7 +51,13 @@
       <el-table-column label="员工姓名" align="center" prop="user_name" />
       <el-table-column label="项目名称" align="center" prop="project" />
       <el-table-column label="平台名称" align="center" prop="today_platform" />  
-      <el-table-column label="时间" align="center" prop="this_date" />           
+      <el-table-column label="时间" align="center" prop="this_date" />        
+      <el-table-column label="有效期" align="center" prop="end_time">    
+         <template slot-scope="scope">
+             <!-- <span>{{ parseTime(scope.row.end_time) }}</span> -->
+          {{[new Date(scope.row.end_time*1000).getFullYear(),new Date(scope.row.end_time*1000).getMonth()+1,new Date(scope.row.end_time*1000).getDate()].join('-')}}
+        </template>
+      </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -114,6 +120,11 @@
                 </el-select>
              </el-form-item>
           </el-col>
+          <el-col :span="12"> 
+             <el-form-item label="时间">
+               <el-input v-model="times" placeholder="请输入天数"  width='10%'/>
+             </el-form-item>
+          </el-col>          
         </el-row>
         <!-- '''''''''''''''''''''''' -->   
     </el-form>
@@ -157,6 +168,11 @@
                 </el-select>
              </el-form-item>
           </el-col>
+          <el-col :span="12"> 
+             <el-form-item label="时间">
+               <el-input v-model="times" placeholder="请输入天数"  width='10%'/>
+             </el-form-item>
+          </el-col>           
         </el-row>
         <!-- '''''''''''''''''''''''' -->   
     </el-form>
@@ -189,6 +205,8 @@ export default {
       staff:undefined,
       timenode: '',
       timenoded:'',
+      times:'',
+      end_time:'',
       projectFind:undefined,
       project:undefined,
       url: 'http://192.168.1.110',      
@@ -320,8 +338,6 @@ export default {
     getList() {
       this.loading = true;
       axios.get(this.url+'/data_Manipulation/show_staff_plat/',
-      // pbkdf2_sha256$216000$gcSGrr27FK3L$7jGizbL/Rzt6kKEn7e+4BsWtLM2zUBfjKBM6mgE+HH8=
-      // pbkdf2_sha256$216000$gcSGrr27FK3L$7jGizbL/Rzt6kKEn7e+4BsWtLM2zUBfjKBM6mgE+HH8=
            {
           dataType: 'text',
           params: {
@@ -329,6 +345,7 @@ export default {
               'page_num': this.queryParams.pageSize,
               'project': this.projectFind,
               'time_node': this.timenode,
+              'end_time':this.end_time
           }           
       },
       {   
@@ -337,10 +354,11 @@ export default {
            },
        }
        ).then(res => {
-           this.merchantList = res.data.items
-           this.loading = false;
-           this.total =res.data.data_num;  //总条数
-          //  console.log('总条数'+this.total)
+           console.log(res.data)
+          this.merchantList = res.data.items
+          this.loading = false;
+          this.total =res.data.data_num;  //总条数
+          //console.log('总条数'+this.total)
       })
     },
     // 取消按钮
@@ -425,9 +443,27 @@ export default {
       //  }
        console.log(this.plat_items)
     },  
-    /** 提交按钮 */
+    /** 新增中的提交按钮 */
     submitForm: function() {
-        if (this.plat!='' && this.user_id!='' && this.project!='') {
+      if (this.plat!='' || this.user_id!='' || this.project!='' || this.times!='') {
+             this.$message({
+                 showClose: true,
+                 message: '添加数据不能为空',
+                 type: 'error',
+                 offset:92,
+                 duration: 2000
+              });   
+      }
+      if(typeof this.times == 'number'){
+              this.$message({
+                 showClose: true,
+                 message: '添加时间必须为数字',
+                 type: 'error',
+                 offset:92,
+                 duration: 2000
+              });  
+      }
+      else{
           let plats = '';
           for (let i in this.plat) {
                plats += this.plat[i] + ','
@@ -437,6 +473,7 @@ export default {
           formData.append('user_id', this.user_id); //员工id
           formData.append('plat_name', plats);   // 平台名称
           formData.append('type', 'add');
+          formData.append('time_node', this.times); 
           axios.post(this.url+'/data_Manipulation/save_staff_role/', formData, {   
                 headers: {"token": sessionStorage.getItem('token')}  
           }).then(res => {
@@ -453,7 +490,7 @@ export default {
                          this.staff = '';
                          this.project = ''; 
                          this.plat = ''; 
-                         this.getList();
+                         this.times = ''; 
                   } else {
                         this.$message({
                            showClose: true,
@@ -464,15 +501,17 @@ export default {
                         });  
                   }
           }).catch(() => console.log('promise catch err')); //捕获异常;
-       }else{
-           this.$message({
-                 showClose: true,
-                 message: '添加数据不能为空',
-                 type: 'error',
-                 offset:92,
-                 duration: 2000
-              });           
        }
+      //  else{
+      //      this.$message({
+      //            showClose: true,
+      //            message: '添加数据不能为空',
+      //            type: 'error',
+      //            offset:92,
+      //            duration: 2000
+      //         });           
+      //  }
+        this.getList();
     },
     /** 提交按钮 */
     submitForm2: function() {
@@ -486,7 +525,7 @@ export default {
           formData.append('user_id', this.user_id); //员工id
           formData.append('plat_name', plats);   // 平台名称
           formData.append('this_date', this.timenoded);   // 平台名称   
-          formData.append('type', 'update');
+          formData.append('type', 'update'); 
           axios.post(this.url+'/data_Manipulation/save_staff_role/', formData,{   
                   headers: { "token": sessionStorage.getItem('token')},
           }).then(res => {
@@ -503,7 +542,7 @@ export default {
                          this.staff = '';
                          this.project = ''; 
                          this.plat = ''; 
-                         this.getList();
+                         this.times=''
                   } else {
                         this.$message({
                            showClose: true,
@@ -523,6 +562,7 @@ export default {
                            duration: 2000
                         });  
                 }
+    this.getList();
     },
     // 多选框选中数据
     handleSelection(selection) {

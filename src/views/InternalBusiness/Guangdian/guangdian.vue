@@ -396,104 +396,7 @@ export default {
                         label: '幸福配方',
                     }
                 ],
-                platforms:[
-                        {
-                            value: 'baidu',
-                            label: '百度搜索',
-                        },
-                        {
-                            value: 'qihu',                                                
-                            label: '360搜索',
-                        },
-                        {
-                            value: 'sogou',
-                            label: '搜狗搜索',
-                        },
-                        {
-                            value: 'bilibili',
-                            label: 'bilibili',
-                        },
-                        {
-                            value: 'acfun',
-                            label: 'AcFun',
-                        },
-                        {
-                            value: 'aqiyi',
-                            label: '爱奇艺',
-                        },
-                        {
-                            value: 'tengxun',
-                            label: '腾讯视频',
-                        },
-                        {
-                            value: 'youku',
-                            label: '优酷',
-                        },
-                        {
-                            value: 'tudou',
-                            label: '土豆',
-                        },
-                        {
-                            value: 'fenghuang',
-                            label: '凤凰视频',
-                        },
-                        {
-                            value: 'dongfang',
-                            label: '东方视频',
-                        },
-                        {
-                            value: 'yidian',
-                            label: '一点视频',
-                        },
-                        {
-                            value: 'weibo',
-                            label: '微博',
-                        },
-                        {
-                            value: 'kuaishou',
-                            label: '快手',
-                        },
-                        {
-                            value: 'wangyi',
-                            label: '网易视频',
-                        },
-                        {
-                            value: 'sina',
-                            label: '新浪新闻',
-                        },
-                        {
-                            value: 'qutt',
-                            label: '趣头条',
-                        },
-                        {
-                            value: 'haokan',
-                            label: '好看视频',
-                        },
-                        {
-                            value: 'kandian',
-                            label: '看点视频',
-                        },
-                        {
-                            value: 'tiantian',
-                            label: '看点快报',
-                        },
-                        {
-                            value: 'li',
-                            label: '梨视频',
-                        },
-                        {
-                            value: 'meipai',
-                            label: '美拍',
-                        },
-                        {
-                            value: 'uc',
-                            label: 'UC头条',
-                        },
-                        {
-                            value: 'sohu',
-                            label: '搜狐视频',
-                        },
-                    ]
+                platforms:[]
             }],
 //-----------------------------------------------------------------------------------------------------------------
       mealIds: '',
@@ -532,6 +435,23 @@ export default {
       project: function () {
           for (let index in this.projects) {
               if (this.projects[index].value == this.project) {
+                  var pro=this.projects[index].platforms
+                  console.log(pro.length)
+                  if(this.projects[index].platforms.length<1){
+                      // 开始请求数据    
+                     axios.get(this.url+'/data_Manipulation/select_plat/',
+                      {   
+                       headers: { "token": sessionStorage.getItem('token')  }
+                     }).then(res => {  
+                            console.log(this.projects[index].platforms)  
+                            console.log(res.data)  
+                            let array=res.data;
+                            array.forEach(index => {
+                                    pro.push(index)
+                                
+                            });
+                     }) 
+                  } 
                   this.platformList = this.projects[index].platforms
                   this.worksList = this.projects[index].works
               }
@@ -784,6 +704,10 @@ export default {
                   });
               }
           }
+          this.project = ''
+          this.platform = ''
+          this.work = ''
+          this.dateList = ''
           for (const index in res.data.content) {
               if (this.project == "tv") {
                   res.data.content[index].sample_title = ""
