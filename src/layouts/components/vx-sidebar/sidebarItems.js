@@ -3,11 +3,10 @@ export default [
     url: '/dashboard/analytics',
     name: "Dashboard",
     slug: "dashboard",
-    tagColor: "warning",
+    // tagColor: "warning",
     icon: "HomeIcon",
     i18n: "Dashboard",
     levelCy:1, 
-    levelCy0:'p0' ,
   },
   {
     header: "Apps",

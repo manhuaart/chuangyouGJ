@@ -130,7 +130,6 @@ export default {
                   if (item2 == row) {
                       console.log(row);//输出子节点
                         axios.get(this.url+'/data_Manipulation/search_staff_num/', 
-                         { headers: {"token": sessionStorage.getItem('token')} }, 
                          {
                             dataType: 'text',
                             params: {
@@ -140,7 +139,8 @@ export default {
                                  'user_id':item.pid,
                                  'plat': row.platforms,
                             }
-                        }).then(res => {
+                        },
+                        { headers: {"token": sessionStorage.getItem('token')} }).then(res => {
                             this.open=true
                            console.log(res.data.items)
                           //  this.project=res.data.project
@@ -216,7 +216,6 @@ export default {
 
       // 开始请求数据    
       axios.get(this.url+'/data_Manipulation/search_staff_num/',
-      { headers: {"token": sessionStorage.getItem('token')}  },
       {
           dataType: 'text',
           params: {
@@ -226,7 +225,8 @@ export default {
                'user_id':this.id,
                'plat': this.platform,
           }
-      }).then(res => {
+      },
+     { headers: {"token": sessionStorage.getItem('token')}  }).then(res => {
          console.log(res.data.items)
          this.project=res.data.project
           this.showData = res.data.items

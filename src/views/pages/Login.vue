@@ -89,7 +89,10 @@ export default {
                           offset:92,
                           duration: 2000
                         }); 
+                        // axios.defaults.headers['token'] = sessionStorage.getItem('token')
                        sessionStorage.setItem('token',response.data.token)
+                       axios.defaults.headers['token'] = sessionStorage.getItem('token')
+                       
                        sessionStorage.setItem('head_img',response.data.user_info.head_img)
                        sessionStorage.setItem('sex',response.data.user_info.sex)
                        sessionStorage.setItem('username',response.data.user_info.username)

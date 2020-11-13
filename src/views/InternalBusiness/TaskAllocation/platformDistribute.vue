@@ -17,7 +17,7 @@
           </el-date-picker>
         </div>
         <el-form-item>
-        <el-button type="primary" icon="el-icon-search"  size="mini" @click="handleQuery('tdata','1')"  style="margin-left:8px;">查询</el-button>        
+        <el-button   icon="el-icon-search"  size="mini" @click="handleQuery"  style="margin-left:8px;background: rgba(var(--vs-primary), 1) !important; color:#fafafa;border:none">查询</el-button>        
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>     
       </el-form-item>
       </el-form>
@@ -264,15 +264,16 @@ export default {
                   this.project = this.projects[index].value
               // 开始请求数据    
               axios.get(this.url+'/data_Manipulation/show_staff/',
-                     {   
-                           headers: { 
-                               "token": sessionStorage.getItem('token')
-                            },
-              }, {
+              {
                   dataType: 'text',
                   params: {
                       'project': this.project,
                   }
+               },
+                     {   
+                           headers: { 
+                               "token": sessionStorage.getItem('token')
+                            },
               }).then(res => {
                 console.log(res)
                    this.staff_list=res.data.items;
@@ -319,12 +320,9 @@ export default {
     getList() {
       this.loading = true;
       axios.get(this.url+'/data_Manipulation/show_staff_plat/',
-             {   
-          headers: { 
-              "token": sessionStorage.getItem('token')
-           },
-       },
-       {
+      // pbkdf2_sha256$216000$gcSGrr27FK3L$7jGizbL/Rzt6kKEn7e+4BsWtLM2zUBfjKBM6mgE+HH8=
+      // pbkdf2_sha256$216000$gcSGrr27FK3L$7jGizbL/Rzt6kKEn7e+4BsWtLM2zUBfjKBM6mgE+HH8=
+           {
           dataType: 'text',
           params: {
               'page': this.queryParams.pageNum,
@@ -332,7 +330,13 @@ export default {
               'project': this.projectFind,
               'time_node': this.timenode,
           }           
-      }).then(res => {
+      },
+      {   
+          headers: { 
+              "token": sessionStorage.getItem('token')
+           },
+       }
+       ).then(res => {
            this.merchantList = res.data.items
            this.loading = false;
            this.total =res.data.data_num;  //总条数

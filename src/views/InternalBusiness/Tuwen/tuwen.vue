@@ -42,7 +42,7 @@
         <el-tag  size="medium" class="zongji">总计：{{ dataLenght }}</el-tag>
         <el-button type="success"  style="margin-left:10px;"  size="mini"  @click="handleQuery('check','1')">查看侵权数据：{{ tableData2Excel.length }}</el-button>
         <!-- <el-button type="success"  style="margin-left:10px;"  size="mini"  @click="fanhui()">切换全部数据</el-button> -->
-        <el-button type="primary" icon="el-icon-search"  size="mini" @click="handleQuery('tdata','1')">查询</el-button>        
+        <el-button icon="el-icon-search"  size="mini" @click="handleQuery('tdata','1')" style="margin-left:8px;background: rgba(var(--vs-primary), 1) !important; color:#fafafa;border:none">查询</el-button>        
         </div>
         <div class="right-items" style="float: right;">
         <!-- <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">刷新</el-button> -->
@@ -580,11 +580,6 @@ export default {
 
       // 开始请求数据    
       axios.get(this.url+'/data_Manipulation/search_data/',
-       {   
-          headers: { 
-              "token": sessionStorage.getItem('token')
-           },
-       },
        {
           dataType: 'text',
           params: {
@@ -597,7 +592,12 @@ export default {
               'page': page,
               'is_check': check
           }
-      }).then(res => {
+      },
+       {   
+          headers: { 
+              "token": sessionStorage.getItem('token')
+           },
+       }).then(res => {
           // console.log(this.typeP)
           if(this.typeP=="check"){
                this.tableTpye =false;

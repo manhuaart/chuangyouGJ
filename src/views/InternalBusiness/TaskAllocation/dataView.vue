@@ -17,7 +17,7 @@
           </el-date-picker>
         </div>
         <el-form-item>
-        <el-button type="primary" icon="el-icon-search"  size="mini" @click="handleQuery"  style="margin-left:8px;">查询</el-button>        
+        <el-button   icon="el-icon-search"  size="mini" @click="handleQuery"  style="margin-left:8px;background: rgba(var(--vs-primary), 1) !important; color:#fafafa;border:none">查询</el-button>       
       </el-form-item>
       </el-form>
     </el-form>
@@ -150,8 +150,7 @@ export default {
                   if (item2 == row) {
                       console.log(row);//输出子节点
                         axios.get(this.url+'/data_Manipulation/search_staff_num/', 
-                         { headers: {"token": sessionStorage.getItem('token')} }, 
-                         {
+                                                 {
                             dataType: 'text',
                             params: {
                                  'data_type': 'tdata',
@@ -160,7 +159,9 @@ export default {
                                  'user_id':item.pid,
                                  'plat': row.platforms,
                             }
-                        }).then(res => {
+                        },
+                         { headers: {"token": sessionStorage.getItem('token')} } 
+                         ).then(res => {
                             this.open=true
                            console.log(res.data.items)
                           //  this.project=res.data.project
@@ -236,8 +237,7 @@ export default {
 
       // 开始请求数据    
       axios.get(this.url+'/data_Manipulation/search_staff_num/',
-      { headers: {"token": sessionStorage.getItem('token')}  },
-      {
+            {
           dataType: 'text',
           params: {
                'project': this.project,
@@ -246,7 +246,9 @@ export default {
                'user_id':this.id,
                'plat': this.platform,
           }
-      }).then(res => {
+      },
+      { headers: {"token": sessionStorage.getItem('token')}  }
+      ).then(res => {
          console.log(res.data.items)
          this.project=res.data.project
           this.showData = res.data.items
