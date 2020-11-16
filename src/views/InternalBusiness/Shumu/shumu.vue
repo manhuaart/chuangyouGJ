@@ -40,12 +40,11 @@
           @click="handleDeleteAll"
         >删除</el-button>
         <el-tag  size="medium" class="zongji">总计：{{ dataLenght }}</el-tag>
-        <el-button type="success" v-if="tableTpye==true"  style="margin-left:10px;"  size="mini"  @click="handleQuery('check','1')">查看侵权数据：{{ tableData2Excel.length }}</el-button>
+        <el-button type="success" v-if="tableTpye==true"  style="margin-left:10px;"  size="mini"   @click="showTortData">查看侵权数据：{{ tableData2Excel.length }}</el-button>
         <el-button type="success" v-else style="margin-left:10px;"  size="mini"  @click="fanhui()">切换全部数据</el-button>
         <el-button  icon="el-icon-search"  size="mini" @click="handleQuery('tdata','1')" style="margin-left:8px;background: rgba(var(--vs-primary), 1) !important; color:#fafafa;border:none">查询</el-button>
         </div>
         <div class="right-items" style="float: right;">
-        <!-- <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">刷新</el-button> -->
         <el-button
           type="warning"
           icon="el-icon-download"
@@ -340,7 +339,7 @@ export default {
                       // 开始请求数据    
                      axios.get(this.url+'/data_Manipulation/select_plat/',
                       {   
-                       headers: { "token": sessionStorage.getItem('token')  }
+                       headers: { "token": localStorage.getItem('token')  }
                      }).then(res => {  
                             console.log(this.projects[index].platforms)  
                             console.log(res.data)  
@@ -407,7 +406,6 @@ export default {
 
     //删除按钮操作
     handleDelete(index, rows) {
-        console.log(loading)
         // const items = rows[index];
         // console.log(items)
         console.log("漫画"+index)  //下标
@@ -422,7 +420,7 @@ export default {
         axios.post(this.url+'/data_Manipulation/data_operation/', data,
                {   
           headers: { 
-              "token": sessionStorage.getItem('token')
+              "token": localStorage.getItem('token')
            },
        },
         ).then((response) => {
@@ -469,7 +467,7 @@ export default {
         axios.post(this.url+'/data_Manipulation/data_operation/', formData,
                {   
           headers: { 
-              "token": sessionStorage.getItem('token')
+              "token": localStorage.getItem('token')
            },
        },
         ).then((response) => {
@@ -479,6 +477,7 @@ export default {
                 //  this.downTortType = false;
                  this.tableData2Excel.push(items);
                  this.showData.splice(index, 1);
+                 console.log(this.tableData2Excel)
              } else {
                  alert('失败')
              }
@@ -492,9 +491,9 @@ export default {
     //自定义索引 编号
     indexMethod(index) { return index+1 },
     //点击查看侵权数据按钮
-    // showTortData(type, page, check) {
-    //     this.tableTpye =false;
-    // },
+		showTortData() {
+			this.tableTpye = !this.tableTpye
+		},
     fanhui(){this.tableTpye = !this.tableTpye},
     handleSelectionChange(val) {
         this.tableData2Excel = val;
@@ -575,11 +574,11 @@ export default {
         },
              {   
           headers: { 
-              "token": sessionStorage.getItem('token')
+              "token": localStorage.getItem('token')
            },
        },
        ).then(res => {
-          // console.log(this.typeP)
+         console.log(res.data)
           if(this.typeP=="check"){
                this.tableTpye =false;
                this.dataLenght == 0;
@@ -606,11 +605,11 @@ export default {
                   });
               }
           }
-           this.project = ''
-          this.platform = ''
-          this.work = ''
-          this.dateList = ''
-          this.project =''
+          //  this.project = ''
+          // this.platform = ''
+          // this.work = ''
+          // this.dateList = ''
+          // this.project =''
           for (const index in res.data.content) {
               if (this.project == "tv") {
                   res.data.content[index].sample_title = ""

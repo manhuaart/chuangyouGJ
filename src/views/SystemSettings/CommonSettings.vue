@@ -140,7 +140,7 @@ export default {
                                  'plat': row.platforms,
                             }
                         },
-                        { headers: {"token": sessionStorage.getItem('token')} }).then(res => {
+                        { headers: {"token": localStorage.getItem('token')} }).then(res => {
                             this.open=true
                            console.log(res.data.items)
                           //  this.project=res.data.project
@@ -226,7 +226,7 @@ export default {
                'plat': this.platform,
           }
       },
-     { headers: {"token": sessionStorage.getItem('token')}  }).then(res => {
+     { headers: {"token": localStorage.getItem('token')}  }).then(res => {
          console.log(res.data.items)
          this.project=res.data.project
           this.showData = res.data.items

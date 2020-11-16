@@ -132,7 +132,7 @@ export default {
                   if (item2 == row) {
                       console.log(row);//输出子节点
                         axios.get(this.url+'/data_Manipulation/search_staff_num/', 
-                         { headers: {"token": sessionStorage.getItem('token')} }, 
+                         { headers: {"token": localStorage.getItem('token')} }, 
                          {
                             dataType: 'text',
                             params: {
@@ -218,7 +218,7 @@ export default {
 
       // 开始请求数据    
       axios.get(this.url+'/data_Manipulation/search_staff_num/',
-      { headers: {"token": sessionStorage.getItem('token')}  },
+      { headers: {"token": localStorage.getItem('token')}  },
       {
           dataType: 'text',
           params: {

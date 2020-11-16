@@ -28,8 +28,6 @@ Vue.use(XLSX)
 
 // axios
 import axios from 'axios'
-// axios.defaults.withCredentials=true   //自动存储cookie
-// axios.defaults.headers['token'] = sessionStorage.getItem('token')
 Vue.prototype.$http = axios
 
 // Theme Configurations

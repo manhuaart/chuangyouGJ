@@ -248,7 +248,7 @@ export default {
               axios.get(this.url+'/data_Manipulation/show_staff/',
                      {   
                            headers: { 
-                               "token": sessionStorage.getItem('token')
+                               "token": localStorage.getItem('token')
                             },
               }, {
                   dataType: 'text',
@@ -303,7 +303,7 @@ export default {
       axios.get(this.url+'/data_Manipulation/show_staff_plat/',
              {   
           headers: { 
-              "token": sessionStorage.getItem('token')
+              "token": localStorage.getItem('token')
            },
        },
        {
@@ -416,7 +416,7 @@ export default {
           formData.append('plat_name', plats);   // 平台名称
           formData.append('type', 'add');
           axios.post(this.url+'/data_Manipulation/save_staff_role/', formData, {   
-                headers: {"token": sessionStorage.getItem('token')}  
+                headers: {"token": localStorage.getItem('token')}  
           }).then(res => {
                      console.log(res)
                   if (res.data.Status= 'ok') {
@@ -466,7 +466,7 @@ export default {
           formData.append('this_date', this.timenoded);   // 平台名称   
           formData.append('type', 'update');
           axios.post(this.url+'/data_Manipulation/save_staff_role/', formData,{   
-                  headers: { "token": sessionStorage.getItem('token')},
+                  headers: { "token": localStorage.getItem('token')},
           }).then(res => {
                    console.log(res)
                   if (res.data.Status= 'ok') {
@@ -540,7 +540,7 @@ export default {
           formData.append('type', 'del');          
           axios.post(this.url+'/data_Manipulation/save_staff_role/', formData ,       {   
           headers: { 
-              "token": sessionStorage.getItem('token')
+              "token": localStorage.getItem('token')
            },
        },).then(res => {
                   console.log(res)

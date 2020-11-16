@@ -290,7 +290,7 @@ export default {
                },
                      {   
                            headers: { 
-                               "token": sessionStorage.getItem('token')
+                               "token": localStorage.getItem('token')
                             },
               }).then(res => {
                 console.log(res)
@@ -350,7 +350,7 @@ export default {
       },
       {   
           headers: { 
-              "token": sessionStorage.getItem('token')
+              "token": localStorage.getItem('token')
            },
        }
        ).then(res => {
@@ -475,7 +475,7 @@ export default {
           formData.append('type', 'add');
           formData.append('time_node', this.times); 
           axios.post(this.url+'/data_Manipulation/save_staff_role/', formData, {   
-                headers: {"token": sessionStorage.getItem('token')}  
+                headers: {"token": localStorage.getItem('token')}  
           }).then(res => {
                      console.log(res)
                   if (res.data.Status= 'ok') {
@@ -527,7 +527,7 @@ export default {
           formData.append('this_date', this.timenoded);   // 平台名称   
           formData.append('type', 'update'); 
           axios.post(this.url+'/data_Manipulation/save_staff_role/', formData,{   
-                  headers: { "token": sessionStorage.getItem('token')},
+                  headers: { "token": localStorage.getItem('token')},
           }).then(res => {
                    console.log(res)
                   if (res.data.Status= 'ok') {
@@ -602,7 +602,7 @@ export default {
           formData.append('type', 'del');          
           axios.post(this.url+'/data_Manipulation/save_staff_role/', formData ,       {   
           headers: { 
-              "token": sessionStorage.getItem('token')
+              "token": localStorage.getItem('token')
            },
        },).then(res => {
                   console.log(res)

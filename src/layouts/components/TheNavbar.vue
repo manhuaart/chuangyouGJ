@@ -279,7 +279,7 @@ export default {
     data() {
         return {
             img:'http://192.168.1.110/',
-            username:sessionStorage.getItem('username'),
+            username:localStorage.getItem('username'),
             url: 'http://192.168.1.110',      
             navbarSearchAndPinList: this.$store.state.navbarSearchAndPinList,
             searchQuery: '',
@@ -362,7 +362,7 @@ export default {
 
         // PROFILE
         activeUserImg() {
-              return   this.img+sessionStorage.getItem("head_img")
+              return   this.img+localStorage.getItem("head_img")
         }
     },
     methods: {
@@ -425,10 +425,10 @@ export default {
                     //  console.log(res)
                      if(res.data.Status=='ok'){
                              this.$router.push('/pages/login'),
-                             sessionStorage.removeItem('token');
-                             sessionStorage.removeItem('username');
-                             sessionStorage.removeItem('sex');
-                             sessionStorage.removeItem('head_img');
+                             localStorage.removeItem('token');
+                             localStorage.removeItem('username');
+                             localStorage.removeItem('sex');
+                             localStorage.removeItem('head_img');
                      }
             })
         },

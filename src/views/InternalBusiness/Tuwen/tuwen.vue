@@ -40,8 +40,8 @@
           @click="handleDeleteAll"
         >删除</el-button>
         <el-tag  size="medium" class="zongji">总计：{{ dataLenght }}</el-tag>
-        <el-button type="success"  style="margin-left:10px;"  size="mini"  @click="handleQuery('check','1')">查看侵权数据：{{ tableData2Excel.length }}</el-button>
-        <!-- <el-button type="success"  style="margin-left:10px;"  size="mini"  @click="fanhui()">切换全部数据</el-button> -->
+        <el-button type="success"  style="margin-left:10px;"  size="mini"  @click="showTortData">查看侵权数据：{{ tableData2Excel.length }}</el-button>
+        <el-button type="success"  style="margin-left:10px;"  size="mini"  @click="fanhui()">切换全部数据</el-button>
         <el-button icon="el-icon-search"  size="mini" @click="handleQuery('tdata','1')" style="margin-left:8px;background: rgba(var(--vs-primary), 1) !important; color:#fafafa;border:none">查询</el-button>        
         </div>
         <div class="right-items" style="float: right;">
@@ -339,7 +339,7 @@ export default {
                       // 开始请求数据    
                      axios.get(this.url+'/data_Manipulation/select_plat/',
                       {   
-                       headers: { "token": sessionStorage.getItem('token')  }
+                       headers: { "token": localStorage.getItem('token')  }
                      }).then(res => {  
                             console.log(this.projects[index].platforms)  
                             console.log(res.data)  
@@ -420,7 +420,7 @@ export default {
         axios.post(this.url+'/data_Manipulation/data_operation/', data,
          {   
                  headers: { 
-                        "token": sessionStorage.getItem('token')
+                        "token": localStorage.getItem('token')
                       },
         }).then((response) => {
             // then 指成功之后的回调 (注意：使用箭头函数，可以不考虑this指向)
@@ -466,7 +466,7 @@ export default {
         axios.post(this.url+'/data_Manipulation/data_operation/', formData,       
         {   
           headers: { 
-              "token": sessionStorage.getItem('token')
+              "token": localStorage.getItem('token')
            },
        }).then((response) => {
              // then 指成功之后的回调 (注意：使用箭头函数，可以不考虑this指向)
@@ -488,9 +488,9 @@ export default {
     //自定义索引 编号
     indexMethod(index) { return index+1 },
     //点击查看侵权数据按钮
-    // showTortData(type, page, check) {
-    //     this.tableTpye =false;
-    // },
+    showTortData() {
+			this.tableTpye = !this.tableTpye
+    },
     fanhui(){this.tableTpye = !this.tableTpye},
     handleSelectionChange(val) {
         this.tableData2Excel = val;
@@ -572,7 +572,7 @@ export default {
       },
        {   
           headers: { 
-              "token": sessionStorage.getItem('token')
+              "token": localStorage.getItem('token')
            },
        }).then(res => {
           // console.log(this.typeP)
