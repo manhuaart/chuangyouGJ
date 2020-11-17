@@ -251,13 +251,13 @@ const router = new Router({
             name: 'DataProcessing',
             component: () => import('@/views/InternalBusiness/PlatformComplaints/TreeVideo.vue'),
             meta: {
-                breadcrumb: [
-                    { title: 'Home', url: '/' },
-                    { title: 'Data List'},
-                    { title: 'Data Processing', active: true },
-                ],
+                // breadcrumb: [
+                //     { title: 'Home', url: '/' },
+                //     { title: 'Data List'},
+                //     { title: 'Data Processing', active: true },
+                // ],
                 requireAuth: true, // 判断是否需要登录
-                pageTitle: '树木视频',
+                // pageTitle: '树木视频',
                 rule: 'p3'
             },
         },
@@ -266,13 +266,13 @@ const router = new Router({
             name: 'DataProcessing',
             component: () => import('@/views/InternalBusiness/PlatformComplaints/TreePictureText.vue'),
             meta: {
-                breadcrumb: [
-                    { title: 'Home', url: '/' },
-                    { title: 'Data List'},
-                    { title: 'Data Processing', active: true },
-                ],
+                // breadcrumb: [
+                //     { title: 'Home', url: '/' },
+                //     { title: 'Data List'},
+                //     { title: 'Data Processing', active: true },
+                // ],
                 requireAuth: true, // 判断是否需要登录
-                pageTitle: '树木图文',
+                // pageTitle: '树木图文',
                 rule: 'p3'
             },
         }, 
@@ -281,13 +281,13 @@ const router = new Router({
             name: 'DataProcessing',
             component: () => import('@/views/InternalBusiness/PlatformComplaints/RadioTv.vue'),
             meta: {
-                breadcrumb: [
-                    { title: 'Home', url: '/' },
-                    { title: 'Data List'},
-                    { title: 'Data Processing', active: true },
-                ],
+                // breadcrumb: [
+                //     { title: 'Home', url: '/' },
+                //     { title: 'Data List'},
+                //     { title: 'Data Processing', active: true },
+                // ],
                 requireAuth: true, // 判断是否需要登录
-                pageTitle: '广电',
+                // pageTitle: '广电',
                 rule: 'p3'
             },
         },

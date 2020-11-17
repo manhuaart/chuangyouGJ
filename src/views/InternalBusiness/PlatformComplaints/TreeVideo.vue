@@ -39,7 +39,7 @@
                        <el-button  icon="el-icon-search"  size="mini" @click="handleQuery()" style="background: rgba(var(--vs-primary), 1) !important; color:#fafafa;border:none">查询</el-button>
                       </el-form-item>
                     </el-form>
-                      <vs-table multiple v-model="selected" pagination max-items="4" :data="showData">
+                      <vs-table multiple v-model="selected" pagination max-items="8" :data="showData">
                           <template slot="thead">
                               <vs-th key="user_id" >编号</vs-th>
                               <vs-th key="sample_title">样本标题</vs-th>
@@ -66,11 +66,11 @@
                                   </vs-td>
               
                                   <vs-td :data="data[indextr].sample_url">
-                                      {{data[indextr].sample_url  | ellipsis}}
+                                       <a :href="data[indextr].sample_url" target="_blank">{{data[indextr].sample_url  | ellipsis}}</a>
                                   </vs-td>
               
                                   <vs-td :data="data[indextr].sample_key">
-                                      {{data[indextr].sample_key  | ellipsis}}
+                                      {{data[indextr].sample_key}}
                                   </vs-td>
                                   <vs-td :data="data[indextr].sample_date">
                                       {{data[indextr].sample_date  | ellipsis}}
@@ -82,10 +82,11 @@
                                   </vs-td>
               
                                   <vs-td :data="data[indextr].tort_url">
-                                      {{data[indextr].tort_url  | ellipsis}}
+                                       <a :href="data[indextr].tort_url" target="_blank">{{data[indextr].tort_url  | ellipsis}}</a>
+                                      <!-- {{data[indextr].tort_url  | ellipsis}} -->
                                   </vs-td>      
                                   <vs-td :data="data[indextr].tort_duration">
-                                      {{data[indextr].tort_duration  | ellipsis}}
+                                      {{data[indextr].tort_duration}}
                                   </vs-td>
               
                                   <vs-td :data="data[indextr].tort_check">
@@ -115,7 +116,7 @@
                 <tab-content title="确认数据" class="mb-5"  :before-change="validateStep2">
                     <div class="vx-row">
                      <vx-card  title="项目：树木视频   平台：腾讯" >
-                      <vs-table  max-items="3" pagination :data="selected">
+                      <vs-table  max-items="8" pagination :data="selected">
                           <template slot="thead">
                               <vs-th key="user_id" >编号</vs-th>
                               <vs-th key="sample_title">样本标题</vs-th>
@@ -133,33 +134,33 @@
                           </template>
                           <template slot-scope="{data}">
                               <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
-              
                                   <vs-td :data="data[indextr].user_id">
                                       {{data[indextr].user_id}}
                                   </vs-td>
-              
+        
                                   <vs-td :data="data[indextr].sample_title">
-                                      {{data[indextr].sample_title}}
+                                      {{data[indextr].sample_title | ellipsis}}
                                   </vs-td>
               
                                   <vs-td :data="data[indextr].sample_url">
-                                      {{data[indextr].sample_url}}
+                                       <a :href="data[indextr].sample_url" target="_blank">{{data[indextr].sample_url  | ellipsis}}</a>
                                   </vs-td>
               
                                   <vs-td :data="data[indextr].sample_key">
                                       {{data[indextr].sample_key}}
                                   </vs-td>
                                   <vs-td :data="data[indextr].sample_date">
-                                      {{data[indextr].sample_date}}
+                                      {{data[indextr].sample_date  | ellipsis}}
                                   </vs-td>
               
               
                                   <vs-td :data="data[indextr].tort_title">
-                                      {{data[indextr].tort_title}}
+                                      {{data[indextr].tort_title  | ellipsis}}
                                   </vs-td>
               
                                   <vs-td :data="data[indextr].tort_url">
-                                      {{data[indextr].tort_url}}
+                                       <a :href="data[indextr].tort_url" target="_blank">{{data[indextr].tort_url  | ellipsis}}</a>
+                                      <!-- {{data[indextr].tort_url  | ellipsis}} -->
                                   </vs-td>      
                                   <vs-td :data="data[indextr].tort_duration">
                                       {{data[indextr].tort_duration}}
@@ -169,11 +170,11 @@
                                       {{data[indextr].tort_check}}
                                   </vs-td>
               
+                                  <vs-td :data="data[indextr].tort_author">
+                                      {{data[indextr].tort_author}}
+                                  </vs-td>          
                                   <vs-td :data="data[indextr].tort_putdate">
                                       {{data[indextr].tort_putdate}}
-                                  </vs-td>          
-                                  <vs-td :data="data[indextr].website">
-                                      {{data[indextr].website}}
                                   </vs-td>
                                   <vs-td :data="data[indextr].tort_plays">
                                       {{data[indextr].tort_plays}}
@@ -489,12 +490,11 @@ export default {
   mounted(){},
   filters:{
       ellipsis(value){
-          console.log(value)
+        //   console.log(value)
           if(!value) return "";
-          if(value.length>20){
-               return value.slice(0,20) + "..."
+          if(value.length>8){
+               return value.slice(0,8) + "..."
           }
-        //   return  value;
       }   
   },
   watch:{
@@ -539,42 +539,20 @@ export default {
   },
   methods: {
       validateStep2() {
-          console.log(this.selected)
-        //   let array=eval('('+this.selected+')')
-        //   let array=this.selected
-        //   array.forEach(row => {
-        //    console.log(row)
+        //   console.log(this.selected)
            let array=JSON.stringify(this.selected);
            let formData = new FormData();
            formData.append('items',array);  
            formData.append('project', this.project);            
            formData.append('plat', this.platform);               
-
-        //    formData.append('sample_key',this.sample_key); //项目名称
-        //    formData.append('sample_title', this.sample_title); //员工id
-        //    formData.append('sample_url', this.sample_url);   // 平台名称
-        //    formData.append('sample_date', this.sample_date);
-        //    formData.append('tort_title', this.tort_title); 
-        //    formData.append('tort_url', this.tort_url);
-        //    formData.append('tort_duration', this.tort_duration); 
-        //    formData.append('tort_check', this.tort_check);
-        //    formData.append('tort_author', this.times); 
-        //    formData.append('tort_putdate', 'add');
-        //    formData.append('tort_plays', this.times); 
-        //    formData.append('detection_time', this.times); 
-        //    formData.append('project', this.times);            
-        //    formData.append('plat', this.times);          
-        // var  flag=''    
+        
            axios.post(this.url+'/complaint_Opera/affirm/', formData, 
            {headers: {"token": localStorage.getItem('token')} }
             ).then(res => {
-                 console.log(res.data.status)
+                //  console.log(res.data.status)
                  if(res.data.status=='ok'){
-                     console.log(res.data.status,'111111')
-                    //  flag="ok"
-                    // return 'ok'
-                 }
-                    
+                    //  console.log(res.data.status,'111111')
+                 }    
               }).catch(error => {
                   console.log(error);
                   this.$message({
@@ -583,8 +561,6 @@ export default {
                       duration: 2000
                   });
               });  
-        //        console.log(flag,'23332')
-        // console.log(flag[[PromiseResult]],'222222')
         //  if (flag == "ok"){
         //      return true
         //  }
@@ -598,9 +574,9 @@ export default {
             axios.post(this.url+'/complaint_Opera/sd_send/', formData, 
             {headers: {"token": localStorage.getItem('token')} }
             ).then(res => {
-                 console.log(res.data.status)
+                //  console.log(res.data.status)
                  if(res.data.status=='ok'){
-                     console.log(res.data.status)
+                    //  console.log(res.data.status)
                  }    
               }).catch(error => {
                   console.log(error);
@@ -610,7 +586,7 @@ export default {
                       duration: 2000
                   });
               });  
-
+             
         },
     /** 查询按钮按钮操作 */
     handleQuery() {
