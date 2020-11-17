@@ -4,7 +4,7 @@
     <vx-card>
         <div class="mt-5">
             <form-wizard color="rgba(var(--vs-primary), 1)" :title="null" :subtitle="null" finishButtonText="Submit"   @on-complete="formSubmitted">
-                <tab-content title="选择数据" class="mb-5">
+                <tab-content title="选择数据" class="mb-5" :before-change="validateStep1">
                     <!-- ----------tab 1 选择数据---------- -->
                   <div class="vx-row">
                   <vx-card>
@@ -115,7 +115,7 @@
                 <!-- ----------tab 2 确认数据---------------------- -->
                 <tab-content title="确认数据" class="mb-5"  :before-change="validateStep2">
                     <div class="vx-row">
-                     <vx-card  title="项目：树木视频   平台：腾讯" >
+                     <vx-card  :title=titles >
                       <vs-table  max-items="8" pagination :data="selected">
                           <template slot="thead">
                               <vs-th key="user_id" >编号</vs-th>
@@ -193,6 +193,8 @@
                 <tab-content title="投递" class="mb-5">
                     <div class="vx-row">
                 <VuePerfectScrollbar class="scroll-area md:px-8 pt-4 px-6" :settings="settings">
+                    <div class="fill-row">
+                    <div id="div-with-loading" class="vs-con-loading__container">
                     <!-- 最新消息 -->
                     <div class="vx-row">
                         <div class="vx-col w-full">
@@ -201,18 +203,18 @@
                                 <div class="vx-row w-full border-b border-l-0 border-r-0 border-t-0 d-theme-border-grey-light border-solid flex justify-between flex items-center">
                                     <div class="vx-col sm:w-4/5 w-full flex flex-wrap items-center mb-2">
                                         <div class="flex flex-col my-2">
-                                            <h4 class="mb-1">漫画</h4>
+                                            <h4 class="mb-1">{{email_info.to}}</h4>
                                             <div class="flex items-center">
-                                                <span class="text-sm">bposvner0@zdnet.com</span>
+                                                <span class="text-sm">{{email_info.from}}</span>
 
                                                 <vs-dropdown vs-custom-content vs-trigger-click class="inline-flex">
                                                     <feather-icon icon="ChevronDownIcon" style="width:1rem; height:1rem" class="cursor-pointer"></feather-icon>
 
                                                     <vs-dropdown-menu style="z-index: 40001">
                                                         <div class="p-2">
-                                                            <p class="text-sm mb-1">From: <span class="font-semibold"> bposvner0@zdnet.com </span></p>
-                                                            <p class="text-sm mb-1">To: <span class="font-semibold"> ['johndoe@mail.com'] </span></p>
-                                                            <p class="text-sm mb-1">Date: <span class="font-semibold"> {{ time | date(true) }} </span></p>
+                                                            <p class="text-sm mb-1">From: <span class="font-semibold"> {{email_info.from}} </span></p>
+                                                            <p class="text-sm mb-1">To: <span class="font-semibold"> {{email_info.to}} </span></p>
+                                                            <p class="text-sm mb-1">Date: <span class="font-semibold"> 2020{{ email_info.Bcc }} </span></p>
                                                         </div>
                                                     </vs-dropdown-menu>
                                                 </vs-dropdown>
@@ -221,14 +223,16 @@
                                     </div>
                                     <div class="vx-col sm:w-1/5 w-full flex sm:flex-col items-center sm:justify-end mb-2">
                                             <span class="flex sm:mr-0 mr-2 self-end whitespace-no-wrap">{{ time | time }}</span>
-                                        <span class="flex self-end sm:mt-2 mt-0 whitespace-no-wrap">{{ time | date(true) }}</span>
+                                        <span class="flex self-end sm:mt-2 mt-0 whitespace-no-wrap"> 2020{{ email_info.Bcc }}</span>
                                     </div>
                                 </div>
 
                                 <!-- 邮件内容 -->
                                 <div class="vx-row">
                                     <div class="vx-col w-full">
-                                        <div class="mail__content break-words mt-8 mb-4" v-html="message"></div>
+                                        <div class="mail__content break-words mt-8 mb-4">
+                                            {{ email_info.body}}
+                                        </div>
                                     </div>
                                 </div>
 
@@ -239,14 +243,18 @@
                                         <span class="block py-4">附件</span>
                                     </div>
                                     <div class="flex">
-                                        <div class="mail__attachment" v-for="(attachment, index) in attachments" :key="index">
-                                            <vs-chip color="primary" class="px-4 py-2 mr-3">{{ attachment }}</vs-chip>
+                                        <div class="mail__attachment">
+                                            <vs-chip color="primary" class="px-4 py-2 mr-3">
+                                                 <a :href="xlsx" target="_blank" style="color:white">附件.xlsx  </a>
+                                            </vs-chip>
                                         </div>
                                     </div>
 
                                 </div>
                             </vx-card>
                         </div>
+                    </div>
+                    </div>
                     </div>
                 </VuePerfectScrollbar>
                     </div>
@@ -271,12 +279,16 @@ export default {
     },
   data() {
         return {
+           backgroundLoading:'primary',
+           colorLoading:'#fff',
+          titles:'',
+          xlsx:'',
+          email_info:'',
           showData: [],// 查询数据列表
           settings: {
              maxScrollbarLength: 60,
              wheelSpeed: 0.50,
           },
-          attachments: ['测试.docx'],
           message: '<p>Hi John,</p><p><br></p><p>Biscuit biscuit macaroon sesame snaps macaroon icing I love soufflé caramels. Apple pie candy jelly. I love icing gummi bears jelly-o pie muffin apple pie.</p><p><br></p><p>Marshmallow halvah brownie cake marzipan ice cream marshmallow. Sweet tootsie roll macaroon gummi bears macaroon. Gingerbread cake tart.</p><p><br></p><p>Regrads,</p><p>Kristeen Sicilia</p>',
           time:'Mon Dec 11 2018 10:55:00 GMT+0000 (GMT)',
             url: 'http://192.168.1.110',
@@ -523,7 +535,6 @@ export default {
               this.loadType = true
           }
       },
-    //时间
       dateList: function () {
           this.selectType = false
           this.loadType = false
@@ -536,22 +547,33 @@ export default {
               this.endDate = ''
           }
       }
+
   },
   methods: {
+      validateStep1() {
+        //   console.log(this.selected.lengt)
+          if(this.selected.length<1){
+               let color='rgba(var(--vs-primary), 1)';
+               this.$vs.notify({title:'提示：',text:'请选中要确认的数据',color:color,position:'top-center'})
+          }
+          else{ 
+             this.titles='项目：树木视频'+'---'+'平台：'+this.platform
+              return true 
+              }
+      },
       validateStep2() {
-        //   console.log(this.selected)
            let array=JSON.stringify(this.selected);
            let formData = new FormData();
            formData.append('items',array);  
            formData.append('project', this.project);            
            formData.append('plat', this.platform);               
-        
            axios.post(this.url+'/complaint_Opera/affirm/', formData, 
            {headers: {"token": localStorage.getItem('token')} }
             ).then(res => {
-                //  console.log(res.data.status)
                  if(res.data.status=='ok'){
-                    //  console.log(res.data.status,'111111')
+                       this.email_info=res.data.email_info
+                       console.log(this.email_info)
+                       this.xlsx=this.url+'/'+res.data.email_info.file_url
                  }    
               }).catch(error => {
                   console.log(error);
@@ -561,32 +583,35 @@ export default {
                       duration: 2000
                   });
               });  
-        //  if (flag == "ok"){
-        //      return true
-        //  }
+        //if (flag == "ok"){ return true }
          return true
       },
        //最终
         formSubmitted() {
+            this.$vs.loading({
+               container: '#div-with-loading',
+               scale: 0.6
+            })
             let formData = new FormData();
             formData.append('project', this.project);            
             formData.append('plat', this.platform);  
             axios.post(this.url+'/complaint_Opera/sd_send/', formData, 
             {headers: {"token": localStorage.getItem('token')} }
             ).then(res => {
-                //  console.log(res.data.status)
                  if(res.data.status=='ok'){
-                    //  console.log(res.data.status)
+                     console.log(res.data.status)
+                    let color='rgba(var(--vs-primary), 1)';
+                    this.$vs.notify({title:'提示：',text:'发送请求成功！！',color:color,position:'top-center'})
+                    this.$router.replace({ path:'/dashboard/analytics' });
                  }    
               }).catch(error => {
                   console.log(error);
-                  this.$message({
-                      message: '请求出错，请联系管理员',
-                      type: 'error',
-                      duration: 2000
-                  });
+                  let color='rgba(var(--vs-primary), 1)';
+                  this.$vs.notify({title:'提示：',text:'请求出错，请联系管理员！！',color:color,position:'top-center'})                 
               });  
-             
+               setTimeout( ()=> {
+                   this.$vs.loading.close('#div-with-loading > .con-vs-loading')
+              }, 3000);  
         },
     /** 查询按钮按钮操作 */
     handleQuery() {
@@ -630,4 +655,12 @@ export default {
 };
 </script>
 <style scoped>
+#div-with-loading{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0px 3px 10px 0px rgba(0,0,0,.1)
+  }
 </style>
