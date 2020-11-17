@@ -62,6 +62,7 @@ export default {
             project:undefined,
             platformList: [], 
             worksList: [],
+            
             platform: [],
             work: [],
             dateList:undefined,
@@ -138,7 +139,7 @@ export default {
   },
   //----------------------------end---------------------------------
   methods: {
-      rowClick(row, column, event) {
+      rowClick(row) {
             //遍历整个table数据
             this.showData.forEach((item) => {
               //判断该行是否有子节点
