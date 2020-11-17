@@ -150,6 +150,7 @@
 </template>
 <script>
 import axios from 'axios'
+import { getSelectPlat } from "@/api/InternalBusiness.js";
 // 引入导出Excel表格依赖
 //import XLSX from './xlsx.core.min.js'
  import FileSaver from 'file-saver'
@@ -336,11 +337,8 @@ export default {
                   var pro=this.projects[index].platforms
                   console.log(pro.length)
                   if(this.projects[index].platforms.length<1){
-                      // 开始请求数据    
-                     axios.get(this.url+'/data_Manipulation/select_plat/',
-                      {   
-                       headers: { "token": localStorage.getItem('token')  }
-                     }).then(res => {  
+                      // 开始请求数据   
+                      getSelectPlat().then(res => {  
                             console.log(this.projects[index].platforms)  
                             console.log(res.data)  
                             let array=res.data;
@@ -349,6 +347,7 @@ export default {
                                 
                             });
                      }) 
+                     
                   } 
                   this.platformList = this.projects[index].platforms
                   this.worksList = this.projects[index].works

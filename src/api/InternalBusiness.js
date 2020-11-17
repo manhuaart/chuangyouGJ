@@ -31,3 +31,23 @@ export function doShowStaff(params) {
         data:params
     })
 }
+/**
+ * 获取员工的对应平台
+ */
+export function getSelectPlat(params) {
+    return Service({
+        url:`/data_Manipulation/select_plat/`,
+        method:'get',
+        params:params
+    })
+}
+/**
+ * 投诉数据查询
+ */
+export function getSelectData(params) {
+    return Service({
+        url:`/data_Manipulation/select_data/`,
+        method:'get',
+        params:params
+    })
+}

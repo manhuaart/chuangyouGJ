@@ -67,7 +67,7 @@ const router = new Router({
                 },
                 {
                     path: '/apps/notice',
-                    name: 'email',
+                    name: 'notice',
                     component: () => import('./views/apps/notice/Notice.vue'),
                     meta: {
                         requireAuth: true, // 判断是否需要登录
@@ -85,7 +85,7 @@ const router = new Router({
                 },
                 {
                     path: '/apps/personalDataStatistics',
-                    name: 'email',
+                    name: 'personalDataStatistics',
                     component: () => import('./views/apps/personalDataStatistics/PersonalDataStatistics.vue'),
                     meta: {
                         requireAuth: true, // 判断是否需要登录
@@ -157,7 +157,7 @@ const router = new Router({
                 },
                 {
                     path: '/apps/reviewToday',
-                    name: 'email',
+                    name: 'reviewToday',
                     component: () => import('./views/apps/reviewToday/ReviewToday.vue'),
                     meta: {
                         requireAuth: true, // 判断是否需要登录
@@ -170,7 +170,7 @@ const router = new Router({
         //数据处理
         { 
             path: '/InternalBusiness/TextRuleFiltering',
-            name: 'DataProcessing',
+            name: 'TextRuleFiltering',
             component: () => import('@/views/InternalBusiness/DataProcessing/TextRuleFiltering.vue'),
             meta: {
                 breadcrumb: [
@@ -185,7 +185,7 @@ const router = new Router({
         }, 
         { 
             path: '/InternalBusiness/VideoContentFiltering',
-            name: 'DataProcessing',
+            name: 'VideoContentFiltering',
             component: () => import('@/views/InternalBusiness/DataProcessing/VideoContentFiltering.vue'),
             meta: {
                 breadcrumb: [
@@ -202,7 +202,7 @@ const router = new Router({
         
         { 
             path: '/InternalBusiness/Shumu',
-            name: 'DataProcessing',
+            name: 'Shumu',
             component: () => import('@/views/InternalBusiness/Shumu/shumu.vue'),
             meta: {
                 breadcrumb: [
@@ -217,7 +217,7 @@ const router = new Router({
         },
         {
             path: '/InternalBusiness/Guangdian',
-            name: 'DataProcessing',
+            name: 'Guangdian',
             component: () => import('@/views/InternalBusiness/Guangdian/guangdian.vue'),
             meta: {
                 breadcrumb: [
@@ -232,7 +232,7 @@ const router = new Router({
         }, 
         {
             path: '/InternalBusiness/Tuwen',
-            name: 'DataProcessing',
+            name: 'Tuwen',
             component: () => import('@/views/InternalBusiness/Tuwen/tuwen.vue'),
             meta: {
                 breadcrumb: [
@@ -248,7 +248,7 @@ const router = new Router({
         //平台投诉
         {
             path: '/InternalBusiness/TreeVideo',
-            name: 'DataProcessing',
+            name: 'TreeVideo',
             component: () => import('@/views/InternalBusiness/PlatformComplaints/TreeVideo.vue'),
             meta: {
                 // breadcrumb: [
@@ -263,7 +263,7 @@ const router = new Router({
         },
         {
             path: '/InternalBusiness/TreePictureText',
-            name: 'DataProcessing',
+            name: 'TreePictureText',
             component: () => import('@/views/InternalBusiness/PlatformComplaints/TreePictureText.vue'),
             meta: {
                 // breadcrumb: [
@@ -278,7 +278,7 @@ const router = new Router({
         }, 
         {
             path: '/InternalBusiness/RadioTv',
-            name: 'DataProcessing',
+            name: 'RadioTv',
             component: () => import('@/views/InternalBusiness/PlatformComplaints/RadioTv.vue'),
             meta: {
                 // breadcrumb: [
@@ -293,7 +293,7 @@ const router = new Router({
         },
         {
             path: '/InternalBusiness/ComplaintRecordView',
-            name: 'DataProcessing',
+            name: 'ComplaintRecordView',
             component: () => import('@/views/InternalBusiness/PlatformComplaints/ComplaintRecordView.vue'),
             meta: {
                 breadcrumb: [
@@ -339,7 +339,7 @@ const router = new Router({
 //------------------------------------------
         {
             path: '/InternalBusiness/DataView',
-            name: 'DataProcessing',
+            name: 'DataView',
             component: () => import('@/views/InternalBusiness/TaskAllocation/dataView.vue'),
             meta: {
                 breadcrumb: [
@@ -354,7 +354,7 @@ const router = new Router({
         },  
         {
             path: '/InternalBusiness/PlatformDistribute',
-            name: 'DataProcessing',
+            name: 'PlatformDistribute',
             component: () => import('@/views/InternalBusiness/TaskAllocation/platformDistribute.vue'),
             meta: {
                 breadcrumb: [
@@ -370,7 +370,7 @@ const router = new Router({
         //数据管理
         {
             path: '/InternalBusiness/DataValidation',
-            name: 'DataProcessing',
+            name: 'DataValidation',
             component: () => import('@/views/InternalBusiness/DataManage/DataValidation.vue'),
             meta: {
                 breadcrumb: [
@@ -385,7 +385,7 @@ const router = new Router({
         },
         {
             path: '/InternalBusiness/SampleDataManage',
-            name: 'DataProcessing',
+            name: 'SampleDataManage',
             component: () => import('@/views/InternalBusiness/DataManage/SampleDataManage.vue'),
             meta: {
                 breadcrumb: [
@@ -400,7 +400,7 @@ const router = new Router({
         },
         {
             path: '/InternalBusiness/InfringeDataManage',
-            name: 'DataProcessing',
+            name: 'InfringeDataManage',
             component: () => import('@/views/InternalBusiness/DataManage/InfringeDataManage.vue'),
             meta: {
                 breadcrumb: [
@@ -415,7 +415,7 @@ const router = new Router({
         },
         {
             path: '/InternalBusiness/InfrAuthorsManage',
-            name: 'DataProcessing',
+            name: 'InfrAuthorsManage',
             component: () => import('@/views/InternalBusiness/DataManage/InfrAuthorsManage.vue'),
             meta: {
                 breadcrumb: [
@@ -431,7 +431,7 @@ const router = new Router({
         //--------------  end  ----------------
         {
             path: '/InternalBusiness/PerforAppraisal',
-            name: 'DataProcessing',
+            name: 'PerforAppraisal',
             component: () => import('@/views/InternalBusiness/PerforAppraisal/perforAppraisal.vue'),
             meta: {
                 breadcrumb: [
@@ -447,7 +447,7 @@ const router = new Router({
     //  ------------------业务目标制定------------------
         {
             path: '/InternalBusiness/MonthlyTarget',
-            name: 'DataProcessing',
+            name: 'MonthlyTarget',
             component: () => import('@/views/InternalBusiness/BusObjectSetting/monthlyTarget.vue'),
             meta: {
                 breadcrumb: [
@@ -463,7 +463,7 @@ const router = new Router({
         }, 
         {
             path: '/InternalBusiness/WeeklyGoal',
-            name: 'DataProcessing',
+            name: 'WeeklyGoal',
             component: () => import('@/views/InternalBusiness/BusObjectSetting/weeklyGoal.vue'),
             meta: {
                 breadcrumb: [
@@ -478,7 +478,7 @@ const router = new Router({
         },
         {
             path: '/InternalBusiness/DailyTarget',
-            name: 'DataProcessing',
+            name: 'DailyTarget',
             component: () => import('@/views/InternalBusiness/BusObjectSetting/dailyTarget.vue'),
             meta: {
                 breadcrumb: [
@@ -493,7 +493,7 @@ const router = new Router({
         },  
         {
             path: '/InternalBusiness/CrawlingTaskManag',
-            name: 'DataProcessing',
+            name: 'CrawlingTaskManag',
             component: () => import('@/views/InternalBusiness/CrawlingTaskManag/crawlingTaskManag.vue'),
             meta: {
                 breadcrumb: [
@@ -510,7 +510,7 @@ const router = new Router({
         // =============================================================================
         { 
             path: '/DataVisualization/RealtimeDataReport',
-            name: 'DataProcessing',
+            name: 'RealtimeDataReport',
             component: () => import('@/views/DataVisualization/RealtimeDataReport.vue'),
             meta: {
                 breadcrumb: [
@@ -525,7 +525,7 @@ const router = new Router({
         },
         { 
             path: '/DataVisualization/MonthlyReport',
-            name: 'DataProcessing',
+            name: 'MonthlyReport',
             component: () => import('@/views/DataVisualization/MonthlyReport.vue'),
             meta: {
                 breadcrumb: [
@@ -543,7 +543,7 @@ const router = new Router({
         // =============================================================================
         { 
             path: '/BusinessTraining/Monitor',
-            name: 'DataProcessing',
+            name: 'Monitor',
             component: () => import('@/views/BusinessTraining/Monitor.vue'),
             meta: {
                 breadcrumb: [
@@ -558,7 +558,7 @@ const router = new Router({
         },
         { 
             path: '/BusinessTraining/Complaint',
-            name: 'DataProcessing',
+            name: 'Complaint',
             component: () => import('@/views/BusinessTraining/Complaint.vue'),
             meta: {
                 breadcrumb: [
@@ -573,7 +573,7 @@ const router = new Router({
         },
         { 
             path: '/BusinessTraining/ObtainEvidence',
-            name: 'DataProcessing',
+            name: 'ObtainEvidence',
             component: () => import('@/views/BusinessTraining/ObtainEvidence.vue'),
             meta: {
                 breadcrumb: [
@@ -591,7 +591,7 @@ const router = new Router({
         // =============================================================================
         { 
             path: '/EarlyWarningSystem/DataWarning',
-            name: 'DataProcessing',
+            name: 'DataWarning',
             component: () => import('@/views/EarlyWarningSystem/DataWarning.vue'),
             meta: {
                 breadcrumb: [
@@ -606,7 +606,7 @@ const router = new Router({
         },
         { 
             path: '/BusinessTraining/BusinessWarning',
-            name: 'DataProcessing',
+            name: 'BusinessWarning',
             component: () => import('@/views/EarlyWarningSystem/BusinessWarning.vue'),
             meta: {
                 breadcrumb: [
@@ -621,7 +621,7 @@ const router = new Router({
         },
         { 
             path: '/BusinessTraining/SystemWarning',
-            name: 'DataProcessing',
+            name: 'SystemWarning',
             component: () => import('@/views/EarlyWarningSystem/SystemWarning.vue'),
             meta: {
                 breadcrumb: [
@@ -639,7 +639,7 @@ const router = new Router({
         // =============================================================================
         { 
             path: '/SystemSettings/CommonSettings',
-            name: 'DataProcessing',
+            name: 'CommonSettings',
             component: () => import('@/views/SystemSettings/CommonSettings.vue'),
             meta: {
                 breadcrumb: [
@@ -654,7 +654,7 @@ const router = new Router({
         },
         { 
             path: '/SystemSettings/AboutUs',
-            name: 'DataProcessing',
+            name: 'AboutUs',
             component: () => import('@/views/SystemSettings/AboutUs.vue'),
             meta: {
                 breadcrumb: [
@@ -672,7 +672,7 @@ const router = new Router({
         // =============================================================================
         { 
             path: '/InforManage/StaffInforManag',
-            name: 'DataProcessing',
+            name: 'StaffInforManag',
             component: () => import('@/views/InforManage/StaffInforManag.vue'),
             meta: {
                 breadcrumb: [
@@ -687,7 +687,7 @@ const router = new Router({
         },
         {
             path: '/InforManage/CustomerInforManag',
-            name: 'DataProcessing',
+            name: 'CustomerInforManag',
             component: () => import('@/views/InforManage/CustomerInforManag.vue'),
             meta: {
                 breadcrumb: [
@@ -702,7 +702,7 @@ const router = new Router({
         }, 
         {
             path: '/InforManage/OrganizationChart',
-            name: 'DataProcessing',
+            name: 'OrganizationChart',
             component: () => import('@/views/InforManage/OrganizationChart.vue'),
             meta: {
                 breadcrumb: [
@@ -717,7 +717,7 @@ const router = new Router({
         }, 
         {
             path: '/InforManage/RoleLevelManag',
-            name: 'DataProcessing',
+            name: 'RoleLevelManag',
             component: () => import('@/views/InforManage/RoleLevelManag.vue'),
             meta: {
                 breadcrumb: [
@@ -735,7 +735,7 @@ const router = new Router({
         // =============================================================================
         { 
             path: '/ByteBounce/TaskManagement',
-            name: 'DataProcessing',
+            name: 'TaskManagement',
             component: () => import('@/views/ByteBounce/TaskManagement.vue'),
             meta: {
                 breadcrumb: [
@@ -750,7 +750,7 @@ const router = new Router({
         },
         {
             path: '/ByteBounce/DataSynchronization',
-            name: 'DataProcessing',
+            name: 'DataSynchronization',
             component: () => import('@/views/ByteBounce/DataSynchronization.vue'),
             meta: {
                 breadcrumb: [
@@ -765,7 +765,7 @@ const router = new Router({
         }, 
         {
             path: '/ByteBounce/DataQuery',
-            name: 'DataProcessing',
+            name: 'DataQuery',
             component: () => import('@/views/ByteBounce/DataQuery.vue'),
             meta: {
                 breadcrumb: [
@@ -780,7 +780,7 @@ const router = new Router({
         }, 
         {
             path: '/ByteBounce/SendingLetters',
-            name: 'DataProcessing',
+            name: 'SendingLetters',
             component: () => import('@/views/ByteBounce/SendingLetters.vue'),
             meta: {
                 breadcrumb: [

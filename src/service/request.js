@@ -27,7 +27,7 @@ Service.interceptors.request.use(config => {
 })
 // 添加响应拦截器
 Service.interceptors.response.use(response => {
-  console.log(response)
+  // console.log(response)
   if (response.status == 200) {
     return response.data
   } else {
