@@ -84,55 +84,51 @@ export default {
     },
     methods: {
         login() {
-            if(localStorage.getItem('token')){
-                   this.$router.push('/dashboard/analytics');
+        let data = new FormData();
+        data.append('username', this.username);
+        data.append('password', this.password);
+        data.append('remeberMe',this.remeberMe);
+        localStorage.removeItem('userRole')
+        axios.post('http://192.168.1.110/chuangyouHome/login_logic/', data).then((response) => {
+            if (response.data.Status === 'ok') {                
+                        this.$message({
+                          showClose: true,
+                          message: '登陆成功',
+                          type: 'success',
+                          offset:92,
+                          duration: 2000
+                        });  
+                       localStorage.setItem('token',response.data.token)
+                       axios.defaults.headers['token'] = localStorage.getItem('token')
+                       
+                       localStorage.setItem('head_img',response.data.user_info.head_img)
+                       localStorage.setItem('sex',response.data.user_info.sex)
+                       localStorage.setItem('username',response.data.user_info.username)
+                     // 关于权限
+                     //    this.$acl.change(response.data.user_info.username)
+                     //    this.$store.dispatch('updateUserRole', response.data.user_info.username)
+                     // 关于权限
+                       this.$acl.change(response.data.user_info.level_cy)
+                       this.$store.dispatch('updateLevelCy', response.data.user_info.level_cy)
+                       this.$store.dispatch('updateBranch', response.data.user_info.branch)
+                       if(this.$route.query.redirect){
+                       　　let redirect = this.$route.query.redirect;
+                          this.$router.push(redirect);
+                       }else{
+                       　　//默认登录成功后进入的页面
+                       　　this.$router.push('/dashboard/analytics');
+                       }  
+            } else {
+                 this.$message({
+                   showClose: true,
+                   message: '登陆失败',
+                   type: 'error',
+                   offset:92,
+                   duration: 2000
+                 });
             }
-            else{
-    
-            let data = new FormData();
-            data.append('username', this.username);
-            data.append('password', this.password);
-            data.append('remeberMe',this.remeberMe);
-            localStorage.removeItem('userRole')
-            axios.post('http://192.168.1.110/chuangyouHome/login_logic/', data).then((response) => {
-                if (response.data.Status === 'ok') {                
-                            this.$message({
-                              showClose: true,
-                              message: '登陆成功',
-                              type: 'success',
-                              offset:92,
-                              duration: 2000
-                            });  
-                           localStorage.setItem('token',response.data.token)
-                           axios.defaults.headers['token'] = localStorage.getItem('token')
-                           
-                           localStorage.setItem('head_img',response.data.user_info.head_img)
-                           localStorage.setItem('sex',response.data.user_info.sex)
-                           localStorage.setItem('username',response.data.user_info.username)
-                         // 关于权限
-                           this.$acl.change(response.data.user_info.level_cy)
-                           this.$store.dispatch('updateLevelCy', response.data.user_info.level_cy)
-                           this.$store.dispatch('updateBranch', response.data.user_info.branch)
-                           if(this.$route.query.redirect){
-                           　　let redirect = this.$route.query.redirect;
-                              this.$router.push(redirect);
-                           }else{
-                           　　//默认登录成功后进入的页面
-                           　　this.$router.push('/dashboard/analytics');
-                           }  
-                } else {
-                     this.$message({
-                       showClose: true,
-                       message: '登陆失败',
-                       type: 'error',
-                       offset:92,
-                       duration: 2000
-                     });
-                }
-            })    
-                
-            }
-        },
+        })
+
             // const payload = {
             //      remeberMe: this.remeberMe,
             //     userDetails: {
@@ -143,6 +139,7 @@ export default {
             // }
             // this.$store.dispatch('auth/loginAttempt', payload);
             //含有异步操作，例如向后台提交数据   this.$store.dispatch(‘action方法名’,值)
+        },
 
         // loginAuth0() {
         //     if (this.$store.state.auth.isUserLoggedIn()) {
